@@ -8,7 +8,7 @@ header:
 
 >Data Science: Python `numpy`, `matplotlib`, `pandas`, `seaborn`
 
->MACHINE LEARNING: `SCIKIT-LEARN`
+>Machine Learning: `SCIKIT-LEARN`
 
 >Skills: `𝐃𝐚𝐭𝐚 𝐜𝐥𝐞𝐚𝐧𝐬𝐢𝐧𝐠`, 𝐃𝐚𝐭𝐚 𝐦𝐚𝐧𝐢𝐩𝐮𝐥𝐚𝐭𝐢𝐨𝐧, 𝐝𝐚𝐭𝐚 𝐰𝐫𝐚𝐧𝐠𝐥𝐢𝐧𝐠, `𝐝𝐚𝐭𝐚 𝐯𝐢𝐬𝐮𝐚𝐥𝐢𝐳𝐚𝐭𝐢𝐨𝐧`, 𝐩𝐫𝐞𝐝𝐢𝐜𝐭𝐢𝐯𝐞 𝐚𝐧𝐚𝐥𝐲𝐬𝐢𝐬 𝐨𝐟 𝐨𝐩𝐞𝐫𝐚𝐭𝐢𝐨𝐧𝐚𝐥 𝐝𝐚𝐭𝐚 𝐚𝐧𝐝 𝐟𝐨𝐫𝐞𝐜𝐚𝐭𝐢𝐧𝐠.
 
