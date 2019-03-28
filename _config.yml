@@ -85,7 +85,7 @@ analytics:
 # Site Author
 author:
   name             : "Suranjit Banik"
-  avatar           : "/images/bio.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I am an enthusiastic data analyst."
   location         : "Toronto, Ontario"
   email            :
@@ -97,11 +97,11 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           :
+  github           : "mastermindLAB"
   gitlab           :
   google_plus      :
   keybase          :
-  instagram        : "suran_banik"
+  instagram        :
   lastfm           :
   linkedin         : # "john-doe-12345678" (the last part of your profile url, e.g. https://www.linkedin.com/in/john-doe-12345678)
   pinterest        :
@@ -249,14 +249,6 @@ defaults:
     values:
       layout: single
       author_profile: true
-  # _pages
-    - scope:
-        path: ""
-        type: pages
-      values:
-        layout: single
-        author_profile: true
-
       read_time: true
       comments: # true
       share: true
