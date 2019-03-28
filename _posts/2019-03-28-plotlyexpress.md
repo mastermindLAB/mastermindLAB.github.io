@@ -1,7 +1,7 @@
 ---
 title: "Plotly Express"
 date: 2019-03-28
-tags:[data science, data analysis, data visualization]
+tags: [data science, data analysis, data visualization]
 header:
   image: "/images/plotly_express/animation_world.gif"
 excerpt: "Data Science, Data Visualization, data analysis"
