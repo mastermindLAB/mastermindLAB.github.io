@@ -1,7 +1,7 @@
 ---
 title: "Plotly Express"
 date: 2019-03-28
-tags: [data science, data analysis, data visualization]
+tags: [data visualization, data science]
 header:
   image: "/images/plotly_express/data-visualization.jpg"
 excerpt: "Data Science, Data Visualization, data analysis"
@@ -24,23 +24,30 @@ pd = px.scatter(gapminder, x="gdpPercap", y="lifeExp",template='plotly_dark',col
 ```
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/plotly_express/plotly_express.png" alt="plotly express">
+
+
 ```python
 gapminder.head()
 ```
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/plotly_express/table.view.png" alt="table view">
+
+
 ```python
 
 gap2007 = gapminder.query('year == 2007')
 px.scatter(gap2007, x="gdpPercap", y="lifeExp",template='plotly_dark',color='continent',hover_name='country',size='pop',size_max=60,labels = dict(lifeExp='Life Exceptancy',gdpPercap = 'GDP/Capita'))
 
 ```
+
 >In a single line by just writing `hover_name`,`size` and `labels` we can interactively show the visualization on python.
 
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/plotly_express/Animation.gif" alt="Animation">
 
-> We can facet the plot to pick apart the continents just by `facet_col = "continent"` and lets make the x-axis as logarithmic to visualize it more clearly
+
+> We can facet the plot to pick apart the continents just by adding `facet_col = "continent"` it may be convenient to make x-axis as logarithmic which looks visually clear.
+
 
 ```python
 px.scatter(gap2007, x="gdpPercap", y="lifeExp",template='plotly_dark',facet_col = "continent", log_x= True,color='continent',hover_name='country',size='pop',size_max=60,labels = dict(lifeExp='Life Exceptancy',gdpPercap = 'GDP/Capita'))
@@ -48,14 +55,18 @@ px.scatter(gap2007, x="gdpPercap", y="lifeExp",template='plotly_dark',facet_col 
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/plotly_express/facet.gif" alt="facet">
 
-Now lets make some animation in plotly_express and how handy it is just by adding the `animation_frame= "year"` and `animation_group ="country"`. Why don't put some manual bounds such as `range_x = [100,1000000]` and `range_y = [25,90]`. :relaxed:
+
+Now lets make some animation in plotly_express, how handy it is! just by adding the `animation_frame= "year"` and `animation_group ="country"`. Why don't we put some manual bounds such as `range_x = [100,1000000]` and `range_y = [25,90]`. :relaxed:
 
 ```python
 px.scatter(gapminder, x="gdpPercap", y="lifeExp",template='plotly_dark', log_x= True,color='continent',animation_frame= "year",animation_group ="country",hover_name='country', range_x = [100,1000000], range_y = [25,90] ,size='pop',size_max=60,labels = dict(lifeExp='Life Exceptancy',gdpPercap = 'GDP/Capita'))
 ```
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/plotly_express/animation_yearly.gif" alt="animation_yearly">
-We can also make world animated plot by simple `px.choropleth` and here `loction = iso_alpha` since there was no data for Russia in gapmider datasets uts become faded.
+
+
+We can also make animated world map by simple `px.choropleth` and here `location = iso_alpha` since there was no data for Russia in gapmider datasets hence it was remain faded.
+
 
 ```python
 
