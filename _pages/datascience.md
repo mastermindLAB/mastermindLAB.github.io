@@ -1,10 +1,11 @@
 ---
 layout: archive
-permalink: /data-visualization/
-title: "Data Visualization"
+permalink: /data-science/
+title: "Data Science and visualization"
 author_profile: true
 header:
-    images: "/images/computer-data-display-577210.jpg"
+  image: "/images/adults-analysis-brainstorming-1661004.jpg"
+---
 
 {% include base_path %}
 {% include group-by-array collection=site.posts field="tags" %}
@@ -15,4 +16,4 @@ header:
   {% for post in posts %}
     {% include archive-single.html %}
   {% endfor %}
-{% endfor %}
+{% endfor %}  
