@@ -85,7 +85,7 @@ analytics:
 # Site Author
 author:
   name             : "Suranjit Banik"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/images/bio.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I am an enthusiastic data analyst."
   location         : "Toronto, Ontario"
   email            : "suran.cse@gmail.com"
