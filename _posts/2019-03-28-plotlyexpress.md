@@ -3,11 +3,11 @@ title: "Plotly Express"
 date: 2019-03-28
 tags: [data science, data analysis, data visualization]
 header:
-  image: "/images/plotly_express/animation_world.gif"
+  image: "/images/plotly_express/data-visualization.jpg"
 excerpt: "Data Science, Data Visualization, data analysis"
 ---
 
-![Data vis](https://abovethelaw.com/wp-content/uploads/2015/06/data-visualization.jpg)
+
 # "Less code, Efficient & time saver" Plotly Express (python lib)do more interactive Data Visualization.
 
 :sparkles: Wow! finally I found this `plotly_express` a new interactive python lib from plotly, so far this is one of the best Data visualization lib I have ever used in python. I liked the way it makes Dark template, interactive labels.
