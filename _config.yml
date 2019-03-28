@@ -261,3 +261,5 @@ defaults:
     values:
       layout: single
       author_profile: true
+# Google Analytics
+google_analytics: UA-133144383-1
