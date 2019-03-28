@@ -1,7 +1,7 @@
 ---
 layout: archive
 permalink: /data-science/
-title: "Data Science and Visualization"
+title: "Data Science"
 author_profile: true
 header:
   image: "/images/data.jpg"
