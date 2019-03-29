@@ -11,8 +11,8 @@ header:
     - label: "See Projects"
       url: "https://github.com/mastermindlab"
 ---
-
-<img style="padding: 35px 2px 3px 5px;" align="right" src="{{ site.url }}{{ site.baseurl }}/images/face-recognision-blog.jpg" width="350" height="250">
+<center>
+<img style="padding: 35px 2px 3px 5px;" align="right" src="{{ site.url }}{{ site.baseurl }}/images/face-recognision-blog.jpg" width="150" height="150"></center>
 >What is the buzzword of _data science_ and AI? What does it literally mean, and why should business commence care? Let’s consider some of the most popular buzzwords and realize the actuality behind the hype.
 
 
