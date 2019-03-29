@@ -16,4 +16,4 @@ header:
 
 >Databases: `MySQL`, `PostgreSQL`
 
->ETL Tool: `MSSQLSERVER'17` `SSIS`, `SSAS`, `SSAS`.
+>ETL Tool: `MSSQLSERVER'17` `SSIS`, `SSAS`, `SSRS`.
