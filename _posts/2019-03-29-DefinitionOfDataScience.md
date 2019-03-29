@@ -11,8 +11,8 @@ header:
     - label: "See Projects"
       url: "https://github.com/mastermindlab"
 ---
-<img style="padding:0 15px; float: left;" src="{{ site.url }}{{ site.baseurl }}/images/face-recognision-blog.jpg" width="250" height="150">
-> What is the buzzword of _data science_, what does it literally mean, and why should business commence care? Let’s consider some of the most popular buzzwords and realize the actuality behind the hype.
+<img style="padding:0 0px; float: left;" src="{{ site.url }}{{ site.baseurl }}/images/face-recognision-blog.jpg" width="250" height="150">
+What is the buzzword of _data science_, what does it literally mean, and why should business commence care? Let’s consider some of the most popular buzzwords and realize the actuality behind the hype.
 
 **Data science** <br>
 We’ll begin with the prominent one – what does data science indeed propose? It began with Coca-Cola’s Chair in Engineering Statistics at the Georgia Institute of Technology, Professor Jeff Wu, who first familiarised the catchword `data science` during a presentation more than twenty years before. Earlier the term `statistician` was extensively used instead, however, Professor Wu took the view that `Statistician` no longer included the range of work being done by statisticians and that `Data Scientist` better summarised the multi-faceted position.<br>
