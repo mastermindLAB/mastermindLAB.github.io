@@ -13,7 +13,7 @@ header:
 ---
 What is this buzzword of _data science_ and AI?
 <center>
-<img style="padding: 10px 5px 10px 5px;" align="right" src="{{ site.url }}{{ site.baseurl }}/images/face-recognision-blog.jpg" width="170" height="170"></center>
+<img style="padding: 10px 5px 10px 5px;" align="right" src="{{ site.url }}{{ site.baseurl }}/images/face-recognision-blog.jpg" width="220" height="170"></center>
 >What does it literally mean, and why should business commence care? Let’s consider some of the most popular buzzwords and realize the actuality behind the hype.
 
 
