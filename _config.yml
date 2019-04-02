@@ -87,7 +87,7 @@ author:
   name             : "Suranjit Banik"
   avatar           : "/images/bio.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Data analysis, Viz, Storytelling, Photography"
-  location         : "Toronto, Ontario"
+  location         : "Toronto, Ontario, Canada"
   email            : "suran.cse@gmail.com"
   uri              :
   home             : # null (default), "absolute or relative url to link to author home"
