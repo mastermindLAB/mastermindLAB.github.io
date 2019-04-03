@@ -1,16 +1,9 @@
 ---
 layout: archive
 permalink: /photography_page/
-title: "Photography Posts by Tags"
+title: "Photography Posts"
 author_profile: true
 header:
   image: "/images/toronto.jpg"
----
-
-{% for tag in group_names %}
-  {% assign posts = group_items[forloop.index0] %}
-  <h2 id="{{ tag | slugify }}" class="archive__subtitle">{{ tag }}</h2>
-  {% for post in posts %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endfor %}
+--
+    2019-04-03-photography_toronto_griffi.md
