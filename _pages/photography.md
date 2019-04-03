@@ -1,17 +1,10 @@
 ---
-  layout: post
+layout: archive
 permalink: /photography_page/
 title: "Photography Posts"
-categories: [blog, photography]
-tags: [hot, summer]
 author_profile: true
 header:
   image: "/images/toronto.jpg"
-
-
-
-
 ---
 
-... which is shown in the screenshot below:
-![My helpful screenshot](/images/apple-touch-icon-precomposed.png)
+<img src="{{ site.url }}{{ site.baseurl }}/images/face-recognision-blog.jpg" width="600" height="400">
