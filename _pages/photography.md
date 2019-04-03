@@ -5,5 +5,7 @@ title: "Photography Posts"
 author_profile: true
 header:
   image: "/images/toronto.jpg"
---
-  {{ site.baseurl }}{% post_url /_posts/2019-04-03-toronto_phography.md %}
+---
+
+... which is shown in the screenshot below:
+![My helpful screenshot](/images/apple-touch-icon-precomposed.png)
