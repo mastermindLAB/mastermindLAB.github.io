@@ -6,7 +6,8 @@ author_profile: true
 header:
   image: "/images/toronto.jpg"
 ---
-View more :camera: at ![instagram](https://www.instagram.com/suran_banik/)
+
+[![View more :camera: at](images/instagram-Logo.png)](https://www.instagram.com/suran_banik/)
 
 <figure class="half">
     <a href="/assets/photography/DSC_0015.jpg"><img src="{{ site.url }}{{ site.baseurl }}/assets/photography/DSC_0015.jpg" ></a>
