@@ -6,6 +6,7 @@ author_profile: true
 header:
   image: "/images/toronto.jpg"
 ---
+## Check my photography at
 <figure class="half">
     <a href="/assets/photography/DSC_0015.jpg"><img src="{{ site.url }}{{ site.baseurl }}/assets/photography/DSC_0015.jpg" ></a>
       <a href="/assets/photography/DSC_0270.jpg"><img src="{{ site.url }}{{ site.baseurl }}/assets/photography/DSC_0270.jpg" ></a>
@@ -19,7 +20,7 @@ Date Taken:2018-10-20 T00:37:49-04:00 </figcaption>
 <figure class="half">
     <a href="/assets/photography/DSC_0117-2.jpg"><img src="{{ site.url }}{{ site.baseurl }}/assets/photography/DSC_0117-2.jpg" ></a>
       <a href="/assets/photography/DSC_0167.jpg"><img src="{{ site.url }}{{ site.baseurl }}/assets/photography/DSC_0167.jpg" ></a>
-    <figcaption> Body: Nikon, Lens: kit lens </figcaption>
+    <figcaption> Camera: NIKON D3400, Lens: 17.0-50.0 mm f/2.8, Focal Length: 17, Shutter Speed: 30, Aperture: 9, ISO: 100, Date Taken: 2018-05-20T20:37:55-04:00 </figcaption>
 </figure>
 
 > Picture Location: 1. [National Museums](https://www.ottawatourism.ca/ottawa-insider/ottawas-seven-national-museums/) 2. [G3 Montreal](https://www.g3.ca/farmers-equity-plan)
