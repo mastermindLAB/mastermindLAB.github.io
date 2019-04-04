@@ -7,7 +7,7 @@ header:
   image: "/images/toronto.jpg"
 ---
 
-[![View more at my](/images/rsz_instagram-Logo.png)](https://www.instagram.com/suran_banik/)
+[![View more at my](/images/rsz_instagram-logo.png)](https://www.instagram.com/suran_banik/)
 
 <figure class="half">
     <a href="/assets/photography/DSC_0015.jpg"><img src="{{ site.url }}{{ site.baseurl }}/assets/photography/DSC_0015.jpg" ></a>
