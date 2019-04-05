@@ -3,7 +3,7 @@ layout: archive
 permalink: /resume_page/
 title: "Suranjit Banik"
 author_profile: true
-excerpt: "Data Driven Research Analyst"
+excerpt: "Focusing on Data Driven business Analysis"
 header:
   overlay_image: /images/creative-idea.jpg
   overlay_filter: rgba(51, 204, 51, 0.5)
@@ -67,17 +67,17 @@ _Contact: Moin Khan, Sysnova Information Systems –
 
 ### EDUCATION
 
-#### Electrical & Computer Engineering
+## Electrical & Computer Engineering
 
-#### University of Ottawa, Canada
+## University of Ottawa, Canada
 
 09/2016 – 01/2018
 
-#### Bachelor in Computer Science and Engineering
+## Bachelor in Computer Science and Engineering
 
-#### Visvesvaraya Technological University, India
+## Visvesvaraya Technological University, India
 
-09/2008 – 04/2013`
+09/2008 – 04/2013
 
 ### PROJECTS
 Predicting the Survival rate of Titanic Passengers
@@ -112,11 +112,11 @@ implement an objective function of ﬁnding the noise in
 the channel using python.
 
 ### CERTIFICATE
-_Google Analytics (01/2019 – 01/2020)
+_Google Analytics (01/2019 – 01/2020)_
 
-Google Ads Fundamentals (02/2019 – 02/2020)
+_Google Ads Fundamentals (02/2019 – 02/2020)_
 
-Introduction to Data Science in Python (University of Michigan- 02/2019)_
+_Introduction to Data Science in Python (University of Michigan- 02/2019)_
 
 ### INTERESTS
 `Toronto Data Science & Big Data Meetup`
