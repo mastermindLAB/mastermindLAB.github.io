@@ -3,7 +3,7 @@ layout: archive
 permalink: /resume_page/
 title: "Suranjit Banik"
 author_profile: true
-excerpt: "Focusing on Data Driven business Analysis"
+excerpt: "Focusing on Data Driven Business Analysis"
 header:
   overlay_image: /images/creative-idea.jpg
   overlay_filter: rgba(51, 204, 51, 0.5)
@@ -36,8 +36,7 @@ Seaborn, Scikit-learn, Machine Learning, Tableau, SSIS, SSRS, SSAS, ERP
 
 >Data Analyst
 
-Sysnova Information System Limited
-
+Sysnova Information System Limited<br>
 03/2013 – 08/2016
 
 >Achievements/Tasks
@@ -67,21 +66,16 @@ _Contact: Moin Khan, Sysnova Information Systems –
 
 ### EDUCATION
 
-## Electrical & Computer Engineering
-
-## University of Ottawa, Canada
-
+>Electrical & Computer Engineering <br>
+ University of Ottawa, Canada<br>
 09/2016 – 01/2018
 
-## Bachelor in Computer Science and Engineering
-
-## Visvesvaraya Technological University, India
-
+>Bachelor in Computer Science and Engineering<br>
+Visvesvaraya Technological University, India<br>
 09/2008 – 04/2013
 
 ### PROJECTS
-Predicting the Survival rate of Titanic Passengers
-
+Predicting the Survival rate of Titanic Passengers<br>
 _(02/2019 – 03/2019)_
 
 Used numpy, pandas and seaborn lib to visualize and analyse
@@ -89,8 +83,7 @@ titanic's passengers survival rate.
 
 Finding risk for future investment in share market of
 top Trending Tickers i.e. Google, Amazon, Tesla,
-Microsoft, and Apple. Forecasting and market analysis.
-
+Microsoft, and Apple. Forecasting and market analysis.<br>
 _(03/2019 – 03/2019)_
 
 Data wrangling, creaning, forecasting, predictive analysis and
