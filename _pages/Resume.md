@@ -75,25 +75,28 @@ Visvesvaraya Technological University, India<br>
 09/2008 – 04/2013
 
 ### PROJECTS
-Predicting the Survival rate of Titanic Passengers<br>
+
+* Predicting the Survival rate of Titanic Passengers<br>
 _(02/2019 – 03/2019)_
 
-Used numpy, pandas and seaborn lib to visualize and analyse
+* Used numpy, pandas and seaborn lib to visualize and analyse
 titanic's passengers survival rate.
 
-Finding risk for future investment in share market of
+* Finding risk for future investment in share market of
 top Trending Tickers i.e. Google, Amazon, Tesla,
 Microsoft, and Apple. Forecasting and market analysis.<br>
 _(03/2019 – 03/2019)_
 
-Data wrangling, creaning, forecasting, predictive analysis and
+* Data wrangling, creaning, forecasting, predictive analysis and
 visualization.
 Advanced use of Python pandas,seaborn library. Value at risk using
 'Bootstrap' method.
 Calculating Value at risk using 'Monte Carlo' method.
 Scatter plot comparison of each share market's price.
 
-### Projects/ Publications
+see more projects [here](https://www.github.com/mastermindlab/)
+
+### Publications
 
 * A paper accepted for the 2018 IEEE Canadian Conference
 on Electrical & Computer Engineering (CCECE) Communications and Networks “A Review of Recently
