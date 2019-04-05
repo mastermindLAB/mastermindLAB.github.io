@@ -94,7 +94,7 @@ Advanced use of Python pandas,seaborn library. Value at risk using
 Calculating Value at risk using 'Monte Carlo' method.
 Scatter plot comparison of each share market's price.
 
-see more projects [here](https://www.github.com/mastermindlab/)
+* [see more projects](https://www.github.com/mastermindlab/)
 
 ### Publications
 
@@ -108,29 +108,17 @@ implement an objective function of ﬁnding the noise in
 the channel using python.
 
 ### CERTIFICATE
-_Google Analytics (01/2019 – 01/2020)_
+* _Google Analytics (01/2019 – 01/2020)_
 
-_Google Ads Fundamentals (02/2019 – 02/2020)_
+* _Google Ads Fundamentals (02/2019 – 02/2020)_
 
-_Introduction to Data Science in Python (University of Michigan- 02/2019)_
+* _Introduction to Data Science in Python (University of Michigan- 02/2019)_
 
 ### INTERESTS
-`Toronto Data Science & Big Data Meetup`
+`Toronto Data Science & Big Data Meetup` `Photography`
 
-`Photography`
+`Painting` `Machine learning` `Data Visualization` `Reading`
 
-`Painting`
-
-`Machine learning`
-
-`Data Visualization`
-
-`Reading`
-
-`Data Analytics`
-
-`Travelling`
-
-`Ice Skating`
+`Data Analytics` `Travelling` `Ice Skating`
 
 
