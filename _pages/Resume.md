@@ -15,7 +15,7 @@ header:
 
 
 
-![](/images/rsz_18-512.png)(647)-616-9494
+:iphone: (647)-616-9494
 
 ## Data Analyst
 
@@ -27,7 +27,8 @@ Seeking an opportunity to drive business performance by
 recommending strategic action plans.
 
 ### SKILLS
-Python, Matplotlib, Tableau, CRM, Excel, MSSQL SERVER, HTML, SQL, CSS, Numpy,
+
+>Python, Matplotlib, Tableau, CRM, Excel, MSSQL SERVER, HTML, SQL, CSS, Numpy,
 Seaborn, Scikit-learn, Machine Learning, Tableau, SSIS, SSRS, SSAS, ERP
 
 
@@ -36,6 +37,7 @@ Seaborn, Scikit-learn, Machine Learning, Tableau, SSIS, SSRS, SSAS, ERP
 >Data Analyst
 
 Sysnova Information System Limited
+
 03/2013 – 08/2016
 
 >Achievements/Tasks
@@ -59,30 +61,38 @@ impact on the current market.
 sophisticated analysis, managing multiple projects.
 Identiﬁed business requirements and devised
 implementation strategies to solve business problems.
+
 _Contact: Moin Khan, Sysnova Information Systems –
 +8801730016491, Email: moin@sysnova.com_
 
 ### EDUCATION
 
-`Electrical & Computer Engineering
-University of Ottawa, Canada
-09/2016 – 01/2018`
+#### Electrical & Computer Engineering
 
-`Bachelor in Computer Science and
-Engineering
-Visvesvaraya Technological University
+#### University of Ottawa, Canada
+
+09/2016 – 01/2018
+
+#### Bachelor in Computer Science and Engineering
+
+#### Visvesvaraya Technological University, India
+
 09/2008 – 04/2013`
 
 ### PROJECTS
 Predicting the Survival rate of Titanic Passengers
+
 _(02/2019 – 03/2019)_
+
 Used numpy, pandas and seaborn lib to visualize and analyse
 titanic's passengers survival rate.
 
 Finding risk for future investment in share market of
 top Trending Tickers i.e. Google, Amazon, Tesla,
 Microsoft, and Apple. Forecasting and market analysis.
+
 _(03/2019 – 03/2019)_
+
 Data wrangling, creaning, forecasting, predictive analysis and
 visualization.
 Advanced use of Python pandas,seaborn library. Value at risk using
@@ -103,18 +113,28 @@ the channel using python.
 
 ### CERTIFICATE
 _Google Analytics (01/2019 – 01/2020)
+
 Google Ads Fundamentals (02/2019 – 02/2020)
+
 Introduction to Data Science in Python (University of Michigan- 02/2019)_
 
 ### INTERESTS
 `Toronto Data Science & Big Data Meetup`
+
 `Photography`
+
 `Painting`
+
 `Machine learning`
+
 `Data Visualization`
+
 `Reading`
+
 `Data Analytics`
+
 `Travelling`
+
 `Ice Skating`
 
 
