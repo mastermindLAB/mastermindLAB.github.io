@@ -1,7 +1,8 @@
 ---
+layout: archive
+permalink: /resume_page/
 title: "Suranjit Banik"
-date: 2019-03-29
-tags: [Resume]
+author_profile: true
 excerpt: "Data Driven Research Analyst"
 header:
   overlay_image: /images/creative-idea.jpg
@@ -13,8 +14,8 @@ header:
 ---
 
 
-suran.cse@gmail.com
-(647)-616-9494
+
+![](/images/rsz_18-512.png)(647)-616-9494
 
 ## Data Analyst
 
