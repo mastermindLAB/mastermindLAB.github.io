@@ -262,4 +262,4 @@ defaults:
       layout: single
       author_profile: true
 # Google Analytics
-google_analytics: "UA-133144383-3"
+google_analytics_key: UA-133144383-3
