@@ -2,7 +2,6 @@
 layout: archive
 permalink: /photography_page/
 title: "Photography posts"
-tags: [Ottawa, Toronto, Montreal]
 author_profile: true
 header:
   image: "/images/toronto.jpg"
@@ -28,6 +27,6 @@ Date Taken:2018-10-20 T00:37:49-04:00 </figcaption>
 
 > Picture Location: 1. [National Museums](https://www.ottawatourism.ca/ottawa-insider/ottawas-seven-national-museums/) 2. [G3 Montreal](https://www.g3.ca/farmers-equity-plan)
 
+  {% include paginator.html %}
   {% include post_pagination.html %}
-    {% include tag-list.html %}
   {% include social-share.html %}
