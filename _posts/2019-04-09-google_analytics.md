@@ -3,14 +3,14 @@ title: "Google Analytics Implementation into my website"
 date: 2019-04-09
 tags: [Data Analysis]
 header:
-  image: "/images/google_analytics/google_analytics.gif"
+  #image: "/images/google_analytics/google_analytics.gif"
   excerpt: "Data Science, Data Visualization, Data analysis"
   overlay_image: /images//google_analytics/google_analytics.gif
   overlay_filter: rgba(0, 19, 26, 0.5)
   caption: "Google analytics"
 ---
 
-Google Intelligence Analytics helped me learn more about my website viewers with a few simple questions -- like how many people visited my Data science page, my photography page, the real time viewer and which page they spend more time. I have managed to implement google analytics into my github page which was build on top of Jekyll →
+Google Intelligence Analytics helped me learn more about my website viewers with a few simple questions -- like how many people visited my Data science page, my photography page, who are the real time viewers and which page they spend more time. This can really improve the business scopes by knowing the customers Demographics, location, channel they use any many more. I have managed to implement google analytics into my github page which was build on top of Jekyll →
 
 It's simple straight forward method to implement google analytics into Jekyll.
 
