@@ -5,13 +5,13 @@ tags: [Data Analysis]
 header:
   #image: "/images/google_analytics/google_analytics.gif"
   excerpt: "Data Science, Data Visualization, Data analysis"
-  overlay_image: /images//google_analytics/google_analytics.gif
+  overlay_image: /images//google_analytics/google-analytics-page.jpg
   overlay_filter: rgba(0, 19, 26, 0.5)
   caption: "Google analytics"
-  
+
 ---
 
-Google Intelligence Analytics helped me learn more about my website viewers with a few simple questions -- like how many people visited my Data science page, my photography page, who are the real time viewers, at which page they spent more time and what is the bounce rate. This can really improve the business scopes by knowing the customers Demographics, location, channel they use any many more. I have managed to implement google analytics into my github page which was build on top of Jekyll →
+>Google Intelligence Analytics helped me learn more about my website viewers with a few simple questions -- like how many people visited my Data science page, my photography page, who are the real time viewers, at which page they spent more time and what is the bounce rate. This can really improve the business scopes by knowing the customers Demographics, location, channel they use any many more. I have managed to implement google analytics into my github page which was build on top of Jekyll →
 
 ### Your can implement yours by very simple method mentioned at your Jekyll Github page or in your blog, this will definitely make you more efficient to write blog by knowing what content was viewed most and trends of your writings.
 
