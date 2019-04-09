@@ -27,4 +27,8 @@ Date Taken:2018-10-20 T00:37:49-04:00 </figcaption>
 
 > Picture Location: 1. [National Museums](https://www.ottawatourism.ca/ottawa-insider/ottawas-seven-national-museums/) 2. [G3 Montreal](https://www.g3.ca/farmers-equity-plan)
 
+  {% include post_pagination.html %}
+    {% include tag-list.html %}
+    {% include read-time.html %}
+
   {% include social-share.html %}
