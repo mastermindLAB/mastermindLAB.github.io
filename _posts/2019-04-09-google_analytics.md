@@ -43,7 +43,7 @@ google_analytics_key: UA-XXXXXXXXX-3 # input your own code Here.
 
 This can be found in google analytics Admin panel under property settings.
 
-Here your go you should see this once you successfully do this 2 simple step.
+Here your go you should see this! Once you have successfully do this simple steps mentioned.
 
 ### Happy Google Analytics
 
