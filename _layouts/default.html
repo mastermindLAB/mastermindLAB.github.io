@@ -43,7 +43,9 @@
         {% include search_form.html %}
       </div>
     {% endif %}
-
+    <div class="disqus">
+      {% include /comments-providers/disqus.html %}
+    </div>
     <div class="page__footer">
       <footer>
         {% include footer/custom.html %}
