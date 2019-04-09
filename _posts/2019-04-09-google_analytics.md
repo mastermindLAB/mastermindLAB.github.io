@@ -8,12 +8,13 @@ header:
   overlay_image: /images//google_analytics/google_analytics.gif
   overlay_filter: rgba(0, 19, 26, 0.5)
   caption: "Google analytics"
+  
 ---
 
 Google Intelligence Analytics helped me learn more about my website viewers with a few simple questions -- like how many people visited my Data science page, my photography page, who are the real time viewers, at which page they spent more time and what is the bounce rate. This can really improve the business scopes by knowing the customers Demographics, location, channel they use any many more. I have managed to implement google analytics into my github page which was build on top of Jekyll →
 
-#### Your can implement yours by very simple method mentioned at Jekyll or in your blog, this will definitely make you more efficient to write blog by knowing what content was viewed most and trends of your writings.
- 
+### Your can implement yours by very simple method mentioned at your Jekyll Github page or in your blog, this will definitely make you more efficient to write blog by knowing what content was viewed most and trends of your writings.
+
 It's simple straight forward method to implement google analytics into Jekyll.
 
 Step 1 : Go to your **_layouts** page, you will find **default.html** you have to copy & past the script from Google analytics inside the <head> section.
