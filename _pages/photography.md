@@ -2,6 +2,7 @@
 layout: archive
 permalink: /photography_page/
 title: "Photography posts"
+tags: [Ottawa, Toronto, Montreal]
 author_profile: true
 header:
   image: "/images/toronto.jpg"
@@ -29,6 +30,4 @@ Date Taken:2018-10-20 T00:37:49-04:00 </figcaption>
 
   {% include post_pagination.html %}
     {% include tag-list.html %}
-    {% include read-time.html %}
-
   {% include social-share.html %}
