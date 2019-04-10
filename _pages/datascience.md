@@ -1,5 +1,6 @@
 ---
 layout: archive
+comments: true
 permalink: /data-science/
 title: "Data Science Posts by Tags"
 author_profile: true
