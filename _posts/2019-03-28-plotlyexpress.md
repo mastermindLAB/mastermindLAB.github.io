@@ -1,6 +1,7 @@
 ---
 title: "Plotly Express"
 date: 2019-03-28
+comments: true
 tags: [Data Visualization]
 header:
   image: "/images/plotly_express/data-visualization.jpg"

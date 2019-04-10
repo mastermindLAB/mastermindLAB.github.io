@@ -1,6 +1,5 @@
 ---
 layout: archive
-comments: false
 permalink: /resume_page/
 title: "Suranjit Banik"
 author_profile: true

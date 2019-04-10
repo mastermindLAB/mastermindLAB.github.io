@@ -1,6 +1,7 @@
 ---
 title: "Google Analytics Implementation into my website"
 date: 2019-04-09
+comments: true
 tags: [Data Analysis]
 header:
   #image: "/images/google_analytics/google_analytics.gif"

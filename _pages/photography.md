@@ -1,6 +1,5 @@
 ---
 layout: archive
-comments: true
 permalink: /photography_page/
 title: "Photography posts"
 author_profile: true

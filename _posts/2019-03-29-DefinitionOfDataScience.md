@@ -1,6 +1,7 @@
 ---
 title: "Buzzwords: Data Science, Artificial Intelligence"
 date: 2019-03-29
+comments: true
 tags: [Artificial Intelligence]
 excerpt: "Future of our Intellects"
 header:
