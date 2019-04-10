@@ -266,5 +266,5 @@ defaults:
 google_analytics_key: UA-133144383-3
 
 # Disqus Comments
-#disqus:
-  #shortname: mastermindlab-github-io
+disqus:
+  shortname: mastermindlab-github-io
