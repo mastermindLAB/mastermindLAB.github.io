@@ -5,7 +5,7 @@
 /*
    Default
    ========================================================================== */
-$background-color: #000000!default;
+
 .sidebar {
   @include clearfix();
   margin-bottom: 1em;
@@ -245,7 +245,7 @@ $background-color: #000000!default;
     width: 0;
     border-style: solid;
     border-width: 0 10px 10px;
-    border-color: $background-color transparent;
+    border-color: $background-color #000000;
     z-index: 1;
 
     @include breakpoint($large) {
