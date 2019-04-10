@@ -28,17 +28,17 @@ html {
 
 /* Remove margin */
 
-body { margin: 0; }
+body { margin: 0; color: #6e0000 }
 
 /* Selected elements */
 
 ::-moz-selection {
-  color: #6e0000;
+  color: #fff;
   background: #000;
 }
 
 ::selection {
-  color: #6e0000;
+  color: #fff;
   background: #000;
 }
 
