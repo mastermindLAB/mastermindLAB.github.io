@@ -3,7 +3,7 @@
    ========================================================================== */
 
 /* Colors */
-$text-color: #000 !default;
+$text-color: #ffffff ;
 $muted-text-color: $text-color !default;
 $primary-color: #ff0000 !default;
 $border-color: mix(#fff, $text-color, 75%) !default;
@@ -14,7 +14,7 @@ $masthead-link-color-hover: $text-color !default;
 $navicon-link-color-hover: mix(#fff, $text-color, 80%) !default;
 
 /* contrast syntax highlighting (base16) */
-$base00: #ffffff !default;
+$base00: #ffffff ;
 $base01: #242422 !default;
 $base02: #484844 !default;
 $base03: #6c6c66 !default;
