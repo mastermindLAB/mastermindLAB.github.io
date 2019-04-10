@@ -260,7 +260,7 @@ defaults:
       type: pages
     values:
       layout: single
-      comments: false
+      comments: true
       author_profile: true
 # Google Analytics
 google_analytics_key: UA-133144383-3

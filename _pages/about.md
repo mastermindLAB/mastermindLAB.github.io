@@ -1,5 +1,6 @@
 ---
 title: "About"
+comments: false
 permalink: /about/
 header:
   image: "images/mastermind.jpg"
