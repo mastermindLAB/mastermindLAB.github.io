@@ -4,7 +4,7 @@ comments: true
 date: 2019-04-25
 tags: [Data Analysis]
 header:
-  image: "/images/beach-bird-s-eye-view-car.jpg"
+  image: "images/beach-bird-s-eye-view-car.jpg"
 excerpt: "Data Science, Data Visualization, data analysis"
 ---
 
