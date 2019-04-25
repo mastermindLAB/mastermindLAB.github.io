@@ -8,8 +8,7 @@ header:
 excerpt: "Data Science, Data Visualization, data analysis"
 ---
 
-
-## Sue plans to purchase a vehicle, what would be our suggestion for her to make a smart decision before making any choice.  
+# Sue plans to purchase a vehicle, what would be our suggestion for her to make a smart decision before making any choice.  
 
 [See the complete project at Jupyter nbviewer.](https://nbviewer.jupyter.org/github/mastermindLAB/Sue-s_vehicle/blob/master/sale_recmd.ipynb)
 
