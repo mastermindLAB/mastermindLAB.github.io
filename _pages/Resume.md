@@ -3,7 +3,7 @@ layout: archive
 permalink: /resume_page/
 title: "Suranjit Banik"
 author_profile: true
-excerpt: "Focusing on GCP Cloud Solution for Big Data"
+excerpt: "GCP Cloud & Databricks"
 header:
   overlay_image: /images/creative-idea.jpg
   overlay_filter: rgba(0, 19, 26, 0.5)

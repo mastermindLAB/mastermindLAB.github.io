@@ -4,7 +4,7 @@ permalink: /photography_page/
 title: "Photography posts"
 author_profile: true
 header:
-  image: "/images/toronto.jpg"
+  #image: "/images/toronto.jpg"
 ---
 
 Check my Instagram [![View more at my](/images/rsz_instagram-logo.png)](https://www.instagram.com/suran_banik/) to view more.
