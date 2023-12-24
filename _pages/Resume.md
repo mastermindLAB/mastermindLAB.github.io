@@ -66,10 +66,10 @@ Process: ETL (Apache HOP for data ingestion) + Data Modeling (Cypher Queries) + 
 * Skills: Oral Communication · Digital Media · Communication · Microsoft Azure · Amazon Web Services (AWS) · Database Design · Data Modeling · Analytical Skills · Business Analytics · Reporting and Analysis · Data Warehousing · Relational Databases · Datorama · Problem Solving · Data Analytics · SQL Azure · Graph Databases · Neo4jSkills: Oral Communication · Digital Media · Communication · Microsoft Azure · Amazon Web Services (AWS) · Database Design · Data Modeling · Analytical Skills · Business Analytics · Reporting and Analysis · Data Warehousing · Relational Databases · Datorama · Problem Solving · Data Analytics · SQL Azure · Graph Databases · Neo4j
 
 > Data Analyst
-Clue 
-Permanent Full-time
-Feb 2020 - Dec 2020 · 11 mosFeb 2020 - Dec 2020 · 11 mos
-Toronto, Canada AreaToronto, Canada Area
+Clue <br>
+Permanent Full-time <br>
+Feb 2020 - Dec 2020 · 11 mon <br>
+Toronto, Canada AreaToronto, Canada Area <br>
 
 >Achievements/Tasks
 
