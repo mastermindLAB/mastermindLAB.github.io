@@ -12,7 +12,7 @@ header:
     - label: "See Projects"
       url: "https://github.com/mastermindlab"
 ---
-[Download my resume][def]{: .download-button}
+[Download my resume][/assets/Suranjit_Resume_dec_2023.pdf]{: .download-button}
 
 
 :iphone: (647)-616-9494
@@ -196,4 +196,3 @@ Skills: BigQuery
 `Data Engineering` `Travelling` `Ice Skating`
 
 
-[def]: [/workspaces/mastermindLAB.github.io/_pages/Suranjit_Resume_dec_2023.pdf]
