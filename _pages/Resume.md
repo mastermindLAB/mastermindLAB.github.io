@@ -49,23 +49,21 @@ Optimized ETL processes and SQL queries, resulting in a 30% reduction in data pr
 Successfully led a migration of a legacy Data Warehouse to GCP, resulting in enhanced scalability and improved data processing capabilities.
 Developed infrastructure to process 15 TB of data per day, leading to an 8% increase in online sales for the Ad-tech division.
 Implemented data quality checks, resulting in a 95% improvement in data accuracy and reliability.
-* Reduced data processing costs by 20% through effective utilization of cloud technologies and GCP services.
-* Working on scripting and API to send apart to the stakeholders for daily business development.Databricks - PySpark, Sql (Hive) on GCP Building Data Pipeline infrastructure on Google Cloud Platform, Azure and AWS Skills: Python, SQL, PySpark, BigQuery, Airflow, GitHub Built streaming services to process real-time data for users, enabling timely insights and enhanced user experience. Automated the API integration for campaign management programmatically in for Amazon Ads partner and The Trade Desk Rest APIs. Optimized ETL processes and SQL queries, resulting in a 30% reduction in data processing time and improved overall system efficiency. 
-* Successfully led a migration of a legacy Data Warehouse to GCP, resulting in enhanced scalability and improved data processing capabilities. Developed infrastructure to process 15 TB of data per day, leading to an 8% increase in online sales for the Ad-tech division. Implemented data quality checks, resulting in a 95% improvement in data accuracy and reliability. Reduced data processing costs by 20% through effective utilization of cloud technologies and GCP services. Working on scripting and API to send apart to the stakeholders for daily business development.
-
+* Working on scripting and API to send apart to the stakeholders for daily business development.Databricks - PySpark, Sql (Hive) on GCP Building Data Pipeline infrastructure on Google Cloud Platform, Azure and AWS Skills: Python, SQL, PySpark, BigQuery, Airflow, GitHub Built streaming services to process real-time data for users, enabling timely insights and enhanced user experience. Automated the API integration for campaign management programmatically in for Amazon Ads partner and The Trade Desk Rest APIs. Optimized ETL processes and SQL queries, resulting in a 30% reduction in data processing time and improved overall system efficiency.
 
 > Data Engineer
 
-Clue 1 yr 6 mos
-Permanent Full-time
-Jan 2021 - Jul 2021 · 7 mon
-Toronto, Ontario, Canada · HybridToronto, Ontario, Canada · Hybrid
+Clue 1 yr 6 mos <br>
+Permanent Full-time <br>
+Jan 2021 - Jul 2021 · 7 mon <br>
+Toronto, Ontario, Canada · HybridToronto, Ontario, Canada · Hybrid<br>
 
 >Achievements/Tasks
 
-Worked on Graph Data Models.
-Process: ETL (Apache HOP for data ingestion) + Data Modeling (Cypher Queries) + ML (Link Prediction Model Neo4j plugins) + Uses of AWS Services (S3, Athena, SageMaker, DataBrew). Implementing a GraphDB (one place to answer all questions for digital marketers [for better future])Worked on Graph Data Models. Process: ETL (Apache HOP for data ingestion) + Data Modeling (Cypher Queries) + ML (Link Prediction Model Neo4j plugins) + Uses of AWS Services (S3, Athena, SageMaker, DataBrew). Implementing a GraphDB (one place to answer all questions for digital marketers [for better future])…see more
-Skills: Oral Communication · Digital Media · Communication · Microsoft Azure · Amazon Web Services (AWS) · Database Design · Data Modeling · Analytical Skills · Business Analytics · Reporting and Analysis · Data Warehousing · Relational Databases · Datorama · Problem Solving · Data Analytics · SQL Azure · Graph Databases · Neo4jSkills: Oral Communication · Digital Media · Communication · Microsoft Azure · Amazon Web Services (AWS) · Database Design · Data Modeling · Analytical Skills · Business Analytics · Reporting and Analysis · Data Warehousing · Relational Databases · Datorama · Problem Solving · Data Analytics · SQL Azure · Graph Databases · Neo4j
+* Worked on Graph Data Models.
+Process: ETL (Apache HOP for data ingestion) + Data Modeling (Cypher Queries) + ML (Link Prediction Model Neo4j plugins) + Uses of AWS Services (S3, Athena, SageMaker, DataBrew). Implementing a GraphDB (one place to answer all questions for digital marketers [for better future])Worked on Graph Data Models. Process: ETL (Apache HOP for data ingestion) + Data Modeling (Cypher Queries) + ML (Link Prediction Model Neo4j plugins) + Uses of AWS Services (S3, Athena, SageMaker, DataBrew). Implementing a GraphDB (one place to answer all questions for digital marketers.
+
+* Skills: Oral Communication · Digital Media · Communication · Microsoft Azure · Amazon Web Services (AWS) · Database Design · Data Modeling · Analytical Skills · Business Analytics · Reporting and Analysis · Data Warehousing · Relational Databases · Datorama · Problem Solving · Data Analytics · SQL Azure · Graph Databases · Neo4jSkills: Oral Communication · Digital Media · Communication · Microsoft Azure · Amazon Web Services (AWS) · Database Design · Data Modeling · Analytical Skills · Business Analytics · Reporting and Analysis · Data Warehousing · Relational Databases · Datorama · Problem Solving · Data Analytics · SQL Azure · Graph Databases · Neo4j
 
 > Data Analyst
 Clue 
@@ -81,15 +79,6 @@ Toronto, Canada AreaToronto, Canada Area
 
 * Securing your data by making Azure blob storage and push it to the database for any advanced analytics.
 
-Why you need this?
-
-If you are running a visualization tool and paying huge money to store data on that platform you should have second storage at a low cost and do the same work with high productivity and add advanced predictive analysis. 
-
-Since all the historian data may not always require to keep on the viz provider tools we can certainly run all heavy lifting algorithms on Azure by utilizing the stored data on a Datalake.
-
-Also, you can lease different databases to third parties as a data provider. 
-
-* This will change and create huge scope for the upcoming media industry who has a hybrid capability now and can provide media and data analytics solutions.Worked on building Microsoft Azure's new analytics service to analyze media ads data and salesforce data ingestion for higher accuracy of parameters that matters before any campaign lunches. This capability of data integration includes: Securing your data by making Azure blob storage and push it to the database for any advanced analytics. Why you need this? If you are running a visualization tool and paying huge money to store data on that platform you should have second storage at a low cost and do the same work with high productivity and add advanced predictive analysis. Since all the historian data may not always require to keep on the viz provider tools we can certainly run all heavy lifting algorithms on Azure by utilizing the stored data on a Datalake. Also, you can lease different databases to third parties as a data provider. This will change and create huge scope for the upcoming media industry who has a hybrid capability now and can provide media and data analytics solutions.
 * Skills: Oral Communication · Digital Media · CommunicationSkills: Oral Communication · Digital Media · Communication
 
 > Digital Analyst
@@ -111,7 +100,8 @@ Search: Amazon, Google Ads, Bing Ads, Criteo, Search 360, Pacvue
 Analytics: Google Analytics
 
 * Audience Planning: Salesforce Audience Studio (Krux), GA360Worked on AI-powered marketing intelligence which can make smarter decisions by connecting and acting on all of the marketing data, investments, and KPIs. My current project is one of the world's Biggest CPG clients Nestle, building the entire Architecture on Datorama from scratch. Integration Ad verification: MOAT Programmatic: DV360, Amazon advertising Social: Facebook, Twitter, Spanchat, Pinterest, LinkedIn Search: Amazon, Google Ads, Bing Ads, Criteo, Search 360, Pacvue Analytics: Google Analytics Audience Planning: Salesforce Audience Studio (Krux), GA360
-Skills: Oral Communication · Digital Media · Communication
+
+* Skills: Oral Communication · Digital Media · Communication
 
 >Programmer
 

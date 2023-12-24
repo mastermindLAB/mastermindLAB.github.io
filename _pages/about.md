@@ -22,17 +22,14 @@ Data Engineer with 3+ years of experience in building data-intensive application
 
 #### Professional Summary
 
-<table>
-<tr>
-<td>
+
 
 - Infrastructure Development
 - Training & Development
 - Data Management
 - Supervision & Leadership
 
-</td>
-<td>
+
 
 - Problem Resolution
 - Team Building
@@ -40,9 +37,7 @@ Data Engineer with 3+ years of experience in building data-intensive application
 - Good Work Ethic
 - Critical Thinking
 
-</td>
-</tr>
-</table>
+
 
 
 #### Languages and Technologies
