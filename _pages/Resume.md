@@ -12,7 +12,7 @@ header:
     - label: "See Projects"
       url: "https://github.com/mastermindlab"
 ---
-<a href="/Users/suranjitbanik/gihubprotfolio/mastermindLAB.github.io/_pages/Suranjit_Resume_dec_2023.pdf" download="Suranjit_Resume_DataEngineer.pdf" class="download-button">Download Resume</a>
+<a href="_pages/Suranjit_Resume_dec_2023.pdf" download="Suranjit_Resume_DataEngineer.pdf" class="download-button">Download Resume</a>
 
 
 :iphone: (647)-616-9494
