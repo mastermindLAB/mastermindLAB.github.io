@@ -196,4 +196,4 @@ Skills: BigQuery
 `Data Engineering` `Travelling` `Ice Skating`
 
 
-[def]: /workspaces/mastermindLAB.github.io/_pages/Suranjit_Resume_dec_2023.pdf
+[def]: [/workspaces/mastermindLAB.github.io/_pages/Suranjit_Resume_dec_2023.pdf](Suranjit_Resume_dec_2023.pdf)
