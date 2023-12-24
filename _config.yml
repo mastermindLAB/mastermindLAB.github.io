@@ -5,7 +5,7 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # `jekyll serve`. If you change this file, please restart the server process.
 
-minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
@@ -61,10 +61,10 @@ yandex_site_verification :
 naver_site_verification  :
 
 # Social Sharing
-X:
+twitter:
   username               : "ensuran"
-#facebook:
-#  username               : "suran.cse"
+facebook:
+  username               : "suran.cse"
   app_id                 :
   publisher              :
 og_image                 : # Open Graph/Twitter default site image
@@ -86,7 +86,7 @@ analytics:
 author:
   name             : "Suranjit Banik"
   avatar           : "/images/bio.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Data Engineer (BigData, Cloud)"
+  bio              : "Data analysis, Viz, Storytelling, Photography"
   location         : "Toronto, Ontario, Canada"
   email            : "suran.cse@gmail.com"
   uri              :
@@ -95,7 +95,7 @@ author:
   codepen          :
   dribbble         :
   flickr           :
-  #facebook         : "suran.cse"
+  facebook         : "suran.cse"
   foursquare       :
   github           : "mastermindLAB"
   gitlab           :
@@ -109,7 +109,7 @@ author:
   stackoverflow    : # "123456/username" (the last part of your profile url, e.g. https://stackoverflow.com/users/123456/username)
   steam            : # "steamId" (the last part of your profile url, e.g. https://steamcommunity.com/id/steamId/)
   tumblr           :
-  X                : "ensuran"
+  twitter          : "ensuran"
   vine             :
   weibo            :
   xing             :
