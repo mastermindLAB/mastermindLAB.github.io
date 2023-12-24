@@ -20,12 +20,12 @@ header:
 ## Data Engineer
 
 Data Engineer with 3+ years of experience in building data intensive applications, tackling challenging architectural
-and scalability problems in Media. Currently helping groupM with Petabyte scale data pipelines.Data Engineer with 3+ years of experience in building data intensive applications, tackling challenging architectural and scalability problems in Media. Currently helping groupM with Petabyte scale data pipelines.
+and scalability problems in Media. Currently helping groupM with Petabyte scale data pipelines.
 
 
 ### SKILLS
 
->PGoogle Cloud Platform (GCP) • Database Design • Python (Programming Language) • BigQuery • Databricks
+>Google Cloud Platform (GCP) • Database Design • Python (Programming Language) • BigQuery • Databricks
 
 
 ### EXPERIENCE

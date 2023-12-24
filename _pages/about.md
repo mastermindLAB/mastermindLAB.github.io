@@ -2,18 +2,51 @@
 title: "About"
 permalink: /about/
 header:
-  image: "images/mastermind.jpg"
+
 ---
-##### 𝙳𝚊𝚝𝚊 𝚊𝚗𝚊𝚕𝚢𝚜𝚝 𝚠𝚒𝚝𝚑 𝟸 𝚢𝚎𝚊𝚛𝚜' 𝚎𝚡𝚙𝚎𝚛𝚒𝚎𝚗𝚌𝚎 𝚒𝚗 𝚛𝚎𝚚𝚞𝚒𝚛𝚎𝚖𝚎𝚗𝚝 𝚊𝚗𝚊𝚕𝚢𝚜𝚒𝚜, 𝚍𝚊𝚝𝚊 𝚖𝚘𝚍𝚎𝚕𝚒𝚗𝚐 and Data driven analysis & visualization. 𝙰 𝚌𝚘𝚕𝚕𝚊𝚋𝚘𝚛𝚊𝚝𝚒𝚟𝚎 𝚝𝚎𝚊𝚖 𝚙𝚕𝚊𝚢𝚎𝚛 𝚠𝚒𝚝𝚑 𝚊 𝚝𝚛𝚊𝚌𝚔 𝚛𝚎𝚌𝚘𝚛𝚍 𝚘𝚏 𝚍𝚎𝚕𝚒𝚟𝚎𝚛𝚒𝚗𝚐 𝚖𝚞𝚕𝚝𝚒𝚙𝚕𝚎, 𝚌𝚘𝚗𝚌𝚞𝚛𝚛𝚎𝚗𝚝 𝚙𝚛𝚘𝚓𝚎𝚌𝚝𝚜 𝚒𝚗 𝚏𝚊𝚜𝚝-𝚙𝚊𝚌𝚎𝚍 𝚎𝚗𝚟𝚒𝚛𝚘𝚗𝚖𝚎𝚗𝚝𝚜
 
->Data Science: Python `numpy`, `matplotlib`, `pandas`, `seaborn`
+### Data Engineer
+**Suranjit Banik**  
+Toronto, Canada M5A0H6 | 647-616-9494 | [suran.cse@gmail.com](mailto:suran.cse@gmail.com)  
+[LinkedIn](https://www.linkedin.com/in/suranjitbanik) | [Portfolio](https://mastermindlab.github.io/data-science/)
 
->Machine Learning: `SCIKIT-LEARN`
+Data Engineer with 3+ years of experience in building data-intensive applications, tackling challenging architectural and scalability problems in Media. Currently enhancing GroupM's capabilities with petabyte-scale data pipelines. Adept at constructing new systems to meet complex business needs. Advanced skills in Python, SQL, BigQuery, and Big Data technologies on the cloud.
 
->Skills: `𝐃𝐚𝐭𝐚 𝐜𝐥𝐞𝐚𝐧𝐬𝐢𝐧𝐠`, 𝐃𝐚𝐭𝐚 𝐦𝐚𝐧𝐢𝐩𝐮𝐥𝐚𝐭𝐢𝐨𝐧, 𝐝𝐚𝐭𝐚 𝐰𝐫𝐚𝐧𝐠𝐥𝐢𝐧𝐠, `𝐝𝐚𝐭𝐚 𝐯𝐢𝐬𝐮𝐚𝐥𝐢𝐳𝐚𝐭𝐢𝐨𝐧`, 𝐩𝐫𝐞𝐝𝐢𝐜𝐭𝐢𝐯𝐞 𝐚𝐧𝐚𝐥𝐲𝐬𝐢𝐬 𝐨𝐟 𝐨𝐩𝐞𝐫𝐚𝐭𝐢𝐨𝐧𝐚𝐥 𝐝𝐚𝐭𝐚 𝐚𝐧𝐝 𝐟𝐨𝐫𝐞𝐜𝐚𝐭𝐢𝐧𝐠.
+#### SKILLS
 
->Data Visualization Tool: `Tableau 10`, `Kepler.gl`.
+- **Google Cloud Platform (GCP)**
+- **Database Design**
+- **Python (Programming Language)**
+- **BigQuery**
+- **Databricks**
 
->Databases: `MySQL`, `PostgreSQL`
+#### Professional Summary
 
->ETL Tool: `MSSQLSERVER'17` `SSIS`, `SSAS`, `SSRS`.
+- Infrastructure Development
+- Training & Development
+- Data Management
+- Supervision & Leadership
+- Problem Resolution
+- Team Building
+- Planning & Organizing
+- Good Work Ethic
+- Critical Thinking
+
+#### Languages and Technologies
+
+- **Language**: Python, SQL
+- **Big Data Processing**
+- **Data Warehousing**
+- **Scripting Languages**
+- **Data Pipeline Design**
+
+> **Tech Stack**: Databricks - PySpark on GCP, Apache AirFlow (Google Cloud Composer), GCS, S3, BigQuery, Dataflow, DataProc, Redshift, Pub/ Sub  
+> Building Data Pipeline infrastructure on Google Cloud Platform, Azure, and AWS  
+
+> **Databases**: `MySQL`, `PostgreSQL`, `BigQuery`,`BigTable`, `Redshift`
+
+> **Clod Storage**: GCS, S3, BlobStorage
+
+> **Data Warehouse**: `BigQuery`, `Redshift`
+
+> **ETL Tools**: `Airflow`, `Databricks`, `DataFlow`, `DataProc`, `Data Factory`
