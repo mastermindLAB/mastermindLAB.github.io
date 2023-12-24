@@ -12,7 +12,7 @@ header:
     - label: "See Projects"
       url: "https://github.com/mastermindlab"
 ---
-[Download my resume](_pages/Suranjit_Resume_dec_2023.pdf){: .download-button}
+[Download my resume](/workspaces/mastermindLAB.github.io/_pages/Suranjit_Resume_dec_2023.pdf){: .download-button}
 
 
 :iphone: (647)-616-9494
