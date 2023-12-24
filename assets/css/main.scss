@@ -12,8 +12,8 @@
     display: inline-block;
     padding: 10px 15px;
     margin: 5px 0;
-    background-color: #980303; // or your preferred default background color
-    color: #ffffff; // default text color
+    background-color: #9c2005; // or your preferred default background color
+    color: #fff; // default text color
     text-decoration: none;
     border-radius: 5px;
     font-size: 16px;
@@ -21,6 +21,6 @@
 }
 
 .download-button:hover {
-    background-color: rgb(255, 255, 255);
-    color: rgb(148, 0, 0);
+    background-color: rgb(137, 7, 7);
+    color: white;
 }
