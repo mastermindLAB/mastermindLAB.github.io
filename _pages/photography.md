@@ -15,7 +15,7 @@ Check my Instagram [![View more at my](/images/rsz_instagram-logo.png)](https://
     <a href="/assets/photography/A7301131-2.jpg"><img src="{{ site.url }}{{ site.baseurl }}/assets/photography/A7301131-2.jpg" ></a>
     <a href="/assets/photography/A7301516-2.jpg"><img src="{{ site.url }}{{ site.baseurl }}/assets/photography/A7301516-2.jpg" ></a>
     <a href="/assets/photography/A7301628.jpg"><img src="{{ site.url }}{{ site.baseurl }}/assets/photography/A7301628.jpg" ></a>
-    <a href="/assets/photography/A7309245-3.jpg"><img src="{{ site.url }}{{ site.baseurl }}assets/photography/A7309245-3.jpg" ></a>
+    <a href="/assets/photography/A7309245-3.jpg"><img src="{{ site.url }}{{ site.baseurl }}/assets/photography/A7309245-3.jpg" ></a>
 
       
 
