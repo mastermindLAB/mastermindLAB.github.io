@@ -13,7 +13,7 @@ header:
       url: "https://github.com/mastermindlab"
 ---
 
-[Download Resume PDF](/assets/Suranjit_Resume_dec_2023.pdf){: .download-button}
+[Download Resume PDF](/assets/suranjit_resume_jan_05_24.pdf){: .download-button}
 
 :iphone: (647)-616-9494
 
