@@ -19,7 +19,7 @@ Check my Instagram [![View more at my](/images/rsz_instagram-logo.png)](https://
 
       
 
-    <figcaption> Picture Specifications- Body: Sony A73, Lens: Sony 200-600 f/5.6, Focal Length: 500, Shutter Speed:1200, ISO:100,
+  <figcaption> Picture Specifications- Body: Sony A73, Lens: Sony 200-600 f/5.6, Focal Length: 500, Shutter Speed:1200, ISO:100
  </figcaption>
 </figure>
 <!-- > Lear more about Picture: 1. [Nathan Phillips Square & City Hall](https://www.toronto.ca/data/parks/prd/facilities/complex/1089/index.html) 2. [Nepean Point](http://ncc-ccn.gc.ca/places/nepean-point) -->
