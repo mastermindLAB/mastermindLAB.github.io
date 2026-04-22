@@ -16,8 +16,8 @@ header:
 [Download Resume PDF](/assets/suranjit_resume_jan_05_24.pdf){: .download-button}
 
 <div class="highlight-panel">
-  <h3 style="color:#fff; margin-top: 0;">Senior Data Engineer | Azure Databricks | Cloud Data Platforms | Insurance Analytics</h3>
-  <p style="margin-bottom: 0;">
+  <h3 class="highlight-title">Senior Data Engineer | Azure Databricks | Cloud Data Platforms | Insurance Analytics</h3>
+  <p class="highlight-text">
     Senior Data Engineer with expertise building enterprise-scale data platforms, automated ETL pipelines,
     governance frameworks, and cloud analytics solutions across insurance and media domains.
   </p>

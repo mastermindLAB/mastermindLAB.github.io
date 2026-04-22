@@ -65,6 +65,20 @@ body {
   box-shadow: 0 10px 28px rgba(30, 58, 138, 0.22);
 }
 
+
+.highlight-title {
+  color: #fff !important;
+  margin-top: 0;
+}
+
+.highlight-text {
+  margin-bottom: 0;
+}
+
+.highlight-actions {
+  margin-bottom: 0;
+}
+
 .resume-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
