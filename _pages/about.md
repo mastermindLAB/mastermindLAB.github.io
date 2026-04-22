@@ -2,67 +2,52 @@
 title: "About me"
 permalink: /about/
 header:
-
+  overlay_image: /images/toronto.jpg
+  overlay_filter: rgba(0, 19, 26, 0.45)
+  caption: "Suranjit Banik"
 ---
 
-### Data Engineer
-**Suranjit Banik**  
-Toronto, Canada M5A0H6 | 647-616-9494 | [suran.cse@gmail.com](mailto:suran.cse@gmail.com)  
-[LinkedIn](https://www.linkedin.com/in/suranjitbanik) 
+<div class="highlight-panel">
+  <h3>Senior Data Engineer</h3>
+  <p>
+    I design and scale enterprise-grade data platforms with Azure Databricks, PySpark, and modern cloud services.
+    I focus on reliable pipelines, governance, performance optimization, and business-ready analytics.
+  </p>
+</div>
 
-Data Engineer with 3+ years of experience in building data-intensive applications, tackling challenging architectural and scalability problems in Media. Currently enhancing GroupM's capabilities with petabyte-scale data pipelines. Adept at constructing new systems to meet complex business needs. Advanced skills in Python, SQL, BigQuery, and Big Data technologies on the cloud.
+Toronto, ON, Canada | 647-616-9494 | [suran.cse@gmail.com](mailto:suran.cse@gmail.com)  
+[LinkedIn](https://www.linkedin.com/in/suranjitbanik) | [GitHub](https://github.com/mastermindLAB)
 
-#### SKILLS
+### What I Do
 
-- **Google Cloud Platform (GCP)**
-- **Database Design**
-- **Python (Programming Language)**
-- **SQL/noSQL**
-- **Databricks**
+- Build cloud-native batch and streaming data platforms.
+- Create production-grade ETL/ELT pipelines with strong quality controls.
+- Improve reporting performance and data reliability for analytics teams.
+- Lead engineering practices for CI/CD, governance, and release automation.
 
-#### Professional Summary
+### Core Stack
 
+<div class="pill-list">
+  <span class="pill">Azure Databricks</span>
+  <span class="pill">PySpark</span>
+  <span class="pill">Spark SQL</span>
+  <span class="pill">Delta Lake</span>
+  <span class="pill">Python</span>
+  <span class="pill">SQL</span>
+  <span class="pill">Azure</span>
+  <span class="pill">AWS</span>
+  <span class="pill">GCP</span>
+  <span class="pill">Airflow</span>
+  <span class="pill">Azure DevOps</span>
+  <span class="pill">CI/CD</span>
+</div>
 
+### Career Highlights
 
-- Infrastructure Development
-- Training & Development
-- Data Management
-- Supervision & Leadership
+- **Zurich Canada (Senior Data Engineer, Apr 2024 – Present):** Databricks platform architecture, Delta pipelines, governance/lineage, and cross-cloud S3 integration.
+- **GroupM (Data Engineer, Aug 2021 – Apr 2024):** Built cloud pipelines and improved SQL/reporting speed by 60%.
+- **Clue / Mindshare (Data Engineer / Analyst, 2019 – 2021):** Delivered ETL and AI-driven graph analytics with Neo4j and AWS.
 
+### Interests
 
-
-- Problem Resolution
-- Team Building
-- Planning & Organizing
-- Good Work Ethic
-- Critical Thinking
-
-
-
-
-#### Languages and Technologies
-
-- **Language**: Python, SQL
-- **Big Data Processing**
-- **Data Warehousing**
-- **Scripting Languages**
-- **Data Pipeline Design**
-
-> **Tech Stack**: Databricks - PySpark on GCP (BigData), HIVE Metastore, Apache AirFlow (Google Cloud Composer), GCS, S3, BigQuery, Dataflow, DataProc, Redshift, Pub/ Sub, Cloud Function, Google CLI, Docker, GKE, GitHub, Git
-> Currently Building Data Pipeline infrastructure on Google Cloud Platform
-
-> **Databases**: `MySQL`, `PostgreSQL`, `BigQuery`, `BigTable`, `Redshift`
-
-> **Clod Storage**: `GCS`, `S3`, `BlobStorage`
-
-> **Containerization**: `Docker`
-
-> **Realtime Streaming**: `Pub\Sub`, `DataFlow`, `BigQuery`
-
-> **Cluster Management Engine**: `GKE`
-
-> **Data Warehouse**: `BigQuery`, `Redshift`, `Azure Synapse Analytics`
-
-> **ETL Tools**: `Airflow`, `Databricks`, `DataFlow`, `DataProc`, `Data Factory`
-
-> **Orchestration & Scheduler**: `Airflow`, `Databricks`
+`Data Engineering` `Cloud Architecture` `Mentorship` `Photography` `Travel`
