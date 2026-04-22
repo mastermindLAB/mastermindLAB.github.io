@@ -5,14 +5,14 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # `jekyll serve`. If you change this file, please restart the server process.
 
-minimal_mistakes_skin    : "neon" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
 title                    : "MasterMind LAB"
 title_separator          : "-"
 name                     : "Suranjit Banik"
-description              : "Data Science portfolio"
+description              : "Senior Data Engineer portfolio | Azure Databricks | Cloud Data Platforms"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -86,7 +86,7 @@ analytics:
 author:
   name             : "Suranjit Banik"
   avatar           : "/images/bio.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Data Engineering, Coding, Storytelling, Photography"
+  bio              : "Senior Data Engineer | Azure Databricks | Cloud Data Platforms"
   location         : "Toronto, Ontario, Canada"
   email            : "suran.cse@gmail.com"
   uri              :

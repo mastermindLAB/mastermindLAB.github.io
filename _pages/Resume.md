@@ -3,7 +3,7 @@ layout: archive
 permalink: /resume_page/
 title: "Suranjit Banik"
 author_profile: true
-excerpt: "GCP Cloud & Databricks"
+excerpt: "Senior Data Engineer | Azure Databricks"
 header:
   overlay_image: /images/creative-idea.jpg
   overlay_filter: rgba(0, 19, 26, 0.5)
@@ -15,184 +15,85 @@ header:
 
 [Download Resume PDF](/assets/suranjit_resume_jan_05_24.pdf){: .download-button}
 
-:iphone: (647)-616-9494
+<div class="highlight-panel">
+  <h3 class="highlight-title">Senior Data Engineer | Azure Databricks | Cloud Data Platforms | Insurance Analytics</h3>
+  <p class="highlight-text">
+    Senior Data Engineer with expertise building enterprise-scale data platforms, automated ETL pipelines,
+    governance frameworks, and cloud analytics solutions across insurance and media domains.
+  </p>
+</div>
 
-## Data Engineer
+Toronto, ON | 647-616-9494 | suran.cse@gmail.com  
+[linkedin.com/in/suranjitbanik](https://linkedin.com/in/suranjitbanik) | [mastermindlab.github.io](https://mastermindlab.github.io)
 
-Data Engineer with 3+ years of experience in building data intensive applications, tackling challenging architectural
-and scalability problems in Media. Currently helping groupM with Petabyte scale data pipelines.
+### CORE SKILLS
 
+<div class="pill-list">
+  <span class="pill">Azure Databricks</span>
+  <span class="pill">PySpark</span>
+  <span class="pill">Spark SQL</span>
+  <span class="pill">Delta Lake</span>
+  <span class="pill">Python</span>
+  <span class="pill">SQL</span>
+  <span class="pill">Azure</span>
+  <span class="pill">AWS</span>
+  <span class="pill">GCP</span>
+  <span class="pill">Airflow</span>
+  <span class="pill">Azure DevOps</span>
+  <span class="pill">CI/CD</span>
+  <span class="pill">Data Modeling</span>
+  <span class="pill">Governance</span>
+  <span class="pill">Performance Tuning</span>
+  <span class="pill">Streaming + Batch</span>
+</div>
 
-### SKILLS
+### PROFESSIONAL EXPERIENCE
 
->Google Cloud Platform (GCP) • Database Design • Python (Programming Language) • BigQuery • Databricks
+<div class="resume-grid">
+  <div class="resume-card">
+    <h4>Zurich Canada</h4>
+    <p><strong>Senior Data Engineer (Data Engineer II)</strong><br/>Apr 2024 – Present</p>
+    <ul>
+      <li>Architected automated Databricks platforms supporting multiple insurance domains.</li>
+      <li>Built scalable PySpark and Delta Lake pipelines for reliable high-volume processing.</li>
+      <li>Implemented Databricks Asset Bundles and Azure DevOps CI/CD to accelerate releases.</li>
+      <li>Established governance, lineage, and data quality controls for critical datasets.</li>
+      <li>Developed cross-cloud integrations between Databricks and Amazon S3.</li>
+    </ul>
+  </div>
 
+  <div class="resume-card">
+    <h4>GroupM</h4>
+    <p><strong>Data Engineer</strong><br/>Aug 2021 – Apr 2024</p>
+    <ul>
+      <li>Built cloud data pipelines across GCP, Azure, and AWS ecosystems.</li>
+      <li>Optimized SQL workloads and models, improving reporting speed by 60%.</li>
+      <li>Developed Airflow orchestration and enterprise analytics solutions.</li>
+    </ul>
+  </div>
 
-### EXPERIENCE
+  <div class="resume-card">
+    <h4>Clue / Mindshare</h4>
+    <p><strong>Data Engineer / Analyst</strong><br/>2019 – 2021</p>
+    <ul>
+      <li>Delivered ETL, graph modeling, and AI-driven analytics solutions using Neo4j and AWS.</li>
+    </ul>
+  </div>
+</div>
 
-> Data Engineer
+### LEADERSHIP
 
-GroupM Nexus· Permanent Full-time <br>
-Aug 2021 - Present · 2 yrs 5 mos Aug 2021 - Present <br>
-Toronto, Ontario, Canada · HybridToronto, Ontario, Canada · Hybrid <br>
-
-Databricks - PySpark, Sql (Hive) on GCP
-Building Data Pipeline infrastructure on Google Cloud Platform, Azure and AWS<br>
-Skills: Python, SQL, PySpark, BigQuery, Airflow, GitHub
-
->Achievements/Tasks
-
-* Built streaming services to process real-time data for users, enabling timely insights and enhanced user
-experience.
-* Automated the API integration for campaign management programmatically in for Amazon Ads partner and The Trade Desk Rest APIs.
-Optimized ETL processes and SQL queries, resulting in a 30% reduction in data processing time and improved overall system efficiency.
-Successfully led a migration of a legacy Data Warehouse to GCP, resulting in enhanced scalability and improved data processing capabilities.
-Developed infrastructure to process 15 TB of data per day, leading to an 8% increase in online sales for the Ad-tech division.
-Implemented data quality checks, resulting in a 95% improvement in data accuracy and reliability.
-* Working on scripting and API to send apart to the stakeholders for daily business development.Databricks - PySpark, Sql (Hive) on GCP Building Data Pipeline infrastructure on Google Cloud Platform, Azure and AWS Skills: Python, SQL, PySpark, BigQuery, Airflow, GitHub Built streaming services to process real-time data for users, enabling timely insights and enhanced user experience. Automated the API integration for campaign management programmatically in for Amazon Ads partner and The Trade Desk Rest APIs. Optimized ETL processes and SQL queries, resulting in a 30% reduction in data processing time and improved overall system efficiency.
-
-> Data Engineer
-
-Clue 1 yr 6 mos <br>
-Permanent Full-time <br>
-Jan 2021 - Jul 2021 · 7 mon <br>
-Toronto, Ontario, Canada · HybridToronto, Ontario, Canada · Hybrid<br>
-
->Achievements/Tasks
-
-* Worked on Graph Data Models.
-Process: ETL (Apache HOP for data ingestion) + Data Modeling (Cypher Queries) + ML (Link Prediction Model Neo4j plugins) + Uses of AWS Services (S3, Athena, SageMaker, DataBrew). Implementing a GraphDB (one place to answer all questions for digital marketers [for better future])Worked on Graph Data Models. Process: ETL (Apache HOP for data ingestion) + Data Modeling (Cypher Queries) + ML (Link Prediction Model Neo4j plugins) + Uses of AWS Services (S3, Athena, SageMaker, DataBrew). Implementing a GraphDB (one place to answer all questions for digital marketers.
-
-* Skills: Oral Communication · Digital Media · Communication · Microsoft Azure · Amazon Web Services (AWS) · Database Design · Data Modeling · Analytical Skills · Business Analytics · Reporting and Analysis · Data Warehousing · Relational Databases · Datorama · Problem Solving · Data Analytics · SQL Azure · Graph Databases · Neo4jSkills: Oral Communication · Digital Media · Communication · Microsoft Azure · Amazon Web Services (AWS) · Database Design · Data Modeling · Analytical Skills · Business Analytics · Reporting and Analysis · Data Warehousing · Relational Databases · Datorama · Problem Solving · Data Analytics · SQL Azure · Graph Databases · Neo4j
-
-> Data Analyst
-Clue <br>
-Permanent Full-time <br>
-Feb 2020 - Dec 2020 · 11 mon <br>
-Toronto, Canada AreaToronto, Canada Area <br>
-
->Achievements/Tasks
-
-* Worked on building Microsoft Azure's new analytics service to analyze media ads data and salesforce data ingestion for higher accuracy of parameters that matters before any campaign lunches.
-
-* This capability of data integration includes: 
-
-* Securing your data by making Azure blob storage and push it to the database for any advanced analytics.
-
-* Skills: Oral Communication · Digital Media · CommunicationSkills: Oral Communication · Digital Media · Communication
-
-> Digital Analyst
-Mindshare<br>
-May 2019 - Feb 2020 · 10 mon<br>
-Toronto, Canada AreaToronto, Canada Area<br>
-
->Achievements/Tasks
-
-
-* Worked on AI-powered marketing intelligence which can make smarter decisions by connecting and acting on all of the marketing data, investments, and KPIs. My current project is one of the world's Biggest CPG clients Nestle, building the entire Architecture on Datorama from scratch.
-
-Integration
-
-* Ad verification: MOAT
-Programmatic: DV360, Amazon advertising 
-Social: Facebook, Twitter, Spanchat, Pinterest, LinkedIn
-Search: Amazon, Google Ads, Bing Ads, Criteo, Search 360, Pacvue
-Analytics: Google Analytics
-
-* Audience Planning: Salesforce Audience Studio (Krux), GA360Worked on AI-powered marketing intelligence which can make smarter decisions by connecting and acting on all of the marketing data, investments, and KPIs. My current project is one of the world's Biggest CPG clients Nestle, building the entire Architecture on Datorama from scratch. Integration Ad verification: MOAT Programmatic: DV360, Amazon advertising Social: Facebook, Twitter, Spanchat, Pinterest, LinkedIn Search: Amazon, Google Ads, Bing Ads, Criteo, Search 360, Pacvue Analytics: Google Analytics Audience Planning: Salesforce Audience Studio (Krux), GA360
-
-* Skills: Oral Communication · Digital Media · Communication
-
->Programmer
-
-Sysnova Information System Limited<br>
-03/2013 – 08/2016
-
->Achievements/Tasks
-
-* Designed and implemented key measurement reports
-for conveying metrics to customers, monitoring service
-levels and attainments, identifying trends and
-performing root cause analysis.
-
-* Prepared forecasts and identiﬁed trends through data
-analysis and tracking resulting 90% improvement in the
-marketing strategy.
-
-* Developed SQL queries to obtain complex data from
-tables in remote databases.
-Awarded from the Sales department for 40% more
-eﬀective analysis to ﬁnd out which product has a huge
-impact on the current market.
-
-* Conducted ﬁeld studies and data collection to support
-sophisticated analysis, managing multiple projects.
-Identiﬁed business requirements and devised
-implementation strategies to solve business problems.
+**Director, Engineers Association Division**  
+Led engineering initiatives, mentorship, collaboration, and community engagement.
 
 ### EDUCATION
 
->Electrical & Computer Engineering <br>
- University of Ottawa, Canada<br>
-09/2016 – 01/2018
+- Master of Computer Engineering, University of Ottawa
+- Bachelor of Computer Science, VTU India
 
->Bachelor in Computer Science and Engineering<br>
-Visvesvaraya Technological University, India<br>
-09/2008 – 04/2013
+### CERTIFICATIONS
 
-### PROJECTS
-
-* Predicting the Survival rate of Titanic Passengers<br>
-_(02/2019 – 03/2019)_
-
-* Used numpy, pandas and seaborn lib to visualize and analyse
-titanic's passengers survival rate.
-
-* Finding risk for future investment in share market of
-top Trending Tickers i.e. Google, Amazon, Tesla,
-Microsoft, and Apple. Forecasting and market analysis.<br>
-_(03/2019 – 03/2019)_
-
-* Data wrangling, creaning, forecasting, predictive analysis and
-visualization.
-Advanced use of Python pandas,seaborn library. Value at risk using
-'Bootstrap' method.
-Calculating Value at risk using 'Monte Carlo' method.
-Scatter plot comparison of each share market's price.
-
-* [see more projects](https://www.github.com/mastermindlab/)
-
-### Publications
-
-* A paper accepted for the 2018 IEEE Canadian Conference
-on Electrical & Computer Engineering (CCECE) Communications and Networks “A Review of Recently
-Emerging Denial of Service Threats and Defenses in the
-Transport Layer” paper information: # 1570428369.
-
-* Smart-city in IOT, Used a machine-learning algorithm to
-implement an objective function of ﬁnding the noise in
-the channel using python.
-
-### CERTIFICATE
-* Building Batch Data Pipelines on Google CloudBuilding Batch Data Pipelines on Google Cloud
-Google
-Issued Dec 2023 Credential ID 6690524
-* Academy Accreditation - Generative AI FundamentalsAcademy Accreditation - Generative AI Fundamentals
-Databricks
-Issued Aug 2023 · Expires Aug 2025Issued Aug 2023 · Expires Aug 2025
-Credential ID 79304079
-Skills: Artificial Intelligence
-* Modernizing Data Lakes and Data Warehouses with Google CloudModernizing Data Lakes and Data Warehouses with Google Cloud
-Google
-Issued Aug 2023
-Credential ID 4676956
-Skills: BigQuery
-
-### INTERESTS
-`Toronto Data Science & Big Data Meetup` `Photography`
-
-`Painting` `Machine learning` `CODING` `Reading`
-
-`Data Engineering` `Travelling` `Ice Skating`
-
-
+- Databricks Certified Data Engineer Associate
+- AWS Certified Cloud Practitioner
+- Google Cloud Batch Pipelines
+- Python for Data Science
