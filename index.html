@@ -1,20 +1,232 @@
----
-layout: home
-author_profile: true
-header:
-  image: "/images/inspire.jpg"
-  overlay_filter: rgba(0, 19, 26, 0.35)
-  caption: "Building modern data platforms"
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suranjit Banik — Senior Data Engineer · Azure Databricks Specialist</title>
+<meta name="description" content="Senior Data Engineer with 5+ years specializing in Azure Databricks — Delta Lake, Delta Live Tables, Unity Catalog, and AI-powered data products.">
+<style>
+:root{
+  --bg:#05080F;
+  --bg2:#0A1020;
+  --card:#0D1526;
+  --border:#1A2740;
+  --blue:#2E7CF6;
+  --blue-bright:#4D9FFF;
+  --blue-soft:#8FBFF7;
+  --text:#EAF1FB;
+  --muted:#7E8DA6;
+  --faint:#4A5872;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6}
+a{color:var(--blue-bright);text-decoration:none}
+a:hover{color:var(--blue-soft)}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
 
-<div class="highlight-panel">
-  <h3>Welcome to MasterMind LAB</h3>
-  <p>
-    I am Suranjit Banik, a Senior Data Engineer specializing in Azure Databricks, cloud data platforms,
-    and analytics engineering. Explore my experience, projects, and technical work.
-  </p>
-  <p class="highlight-actions">
-    <a class="download-button" href="/resume_page/">View Resume</a>
-    <a class="download-button" href="/data-science/">Explore Projects</a>
-  </p>
-</div>
+nav{position:sticky;top:0;background:rgba(5,8,15,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);z-index:10}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:700;letter-spacing:.06em;color:var(--text);font-size:15px}
+.logo span{color:var(--blue-bright)}
+.navlinks{display:flex;gap:22px;font-size:14px}
+.navlinks a{color:var(--muted)}
+.navlinks a:hover{color:var(--blue-bright)}
+
+header{padding:90px 0 70px;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(46,124,246,.18),transparent)}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.14em;color:var(--blue-soft);text-transform:uppercase;margin-bottom:18px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--blue-bright)}
+h1{font-size:clamp(34px,6vw,56px);font-weight:700;line-height:1.12;letter-spacing:-.01em}
+h1 em{font-style:normal;color:var(--blue-bright)}
+.tag{font-size:clamp(16px,2.5vw,20px);color:var(--muted);margin:16px 0 8px}
+.loc{font-size:14px;color:var(--faint)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;border:1px solid var(--border);color:var(--text);transition:.2s}
+.btn:hover{border-color:var(--blue);color:var(--blue-bright)}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn.primary:hover{background:var(--blue-bright);color:#fff}
+
+section{padding:64px 0;border-top:1px solid var(--border)}
+h2{font-size:22px;font-weight:700;margin-bottom:28px;display:flex;align-items:center;gap:12px}
+h2::before{content:"";width:26px;height:3px;background:var(--blue);border-radius:2px}
+
+.feature{background:linear-gradient(135deg,var(--bg2),var(--card));border:1px solid var(--border);border-radius:16px;padding:30px;position:relative;overflow:hidden}
+.feature::after{content:"";position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(46,124,246,.15),transparent 70%)}
+.badge{display:inline-block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-soft);border:1px solid var(--border);border-radius:20px;padding:4px 12px;margin-bottom:14px}
+.feature h3{font-size:24px;margin-bottom:8px}
+.feature p{color:var(--muted);font-size:15px;max-width:640px}
+.repostats{display:flex;flex-wrap:wrap;gap:18px;margin:18px 0 22px;font-size:13px;color:var(--faint)}
+.repostats b{color:var(--blue-soft);font-weight:600}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px}
+.card h4{font-size:15px;color:var(--blue-soft);margin-bottom:10px;letter-spacing:.04em}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:12.5px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:5px 11px;color:var(--text)}
+
+.job{border-left:2px solid var(--border);padding:0 0 38px 26px;position:relative}
+.job:last-child{padding-bottom:0}
+.job::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:3px solid var(--blue)}
+.job .when{font-size:12.5px;color:var(--faint);letter-spacing:.06em;text-transform:uppercase}
+.job h3{font-size:18px;margin:4px 0 2px}
+.job .org{font-size:14px;color:var(--blue-soft);margin-bottom:12px}
+.job ul{list-style:none}
+.job li{font-size:14.5px;color:var(--muted);padding-left:18px;position:relative;margin-bottom:9px}
+.job li::before{content:"▸";position:absolute;left:0;color:var(--blue)}
+
+.tworow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cred h3{font-size:15.5px;margin-bottom:2px}
+.cred p{font-size:13.5px;color:var(--muted)}
+
+footer{border-top:1px solid var(--border);padding:50px 0 60px;text-align:center}
+footer .email{font-size:clamp(18px,3.5vw,26px);font-weight:600}
+footer .social{display:flex;justify-content:center;gap:24px;margin:22px 0;font-size:14px}
+footer .fine{font-size:12.5px;color:var(--faint)}
+
+@media(max-width:640px){
+  .navlinks{display:none}
+  header{padding:60px 0 50px}
+  section{padding:48px 0}
+  .tworow{grid-template-columns:1fr}
+  .feature{padding:24px 20px}
+  .cta .btn{flex:1;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <div class="logo">SURANJIT<span>.</span>BANIK</div>
+  <div class="navlinks">
+    <a href="#project">Project</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+  </div>
+</div></nav>
+
+<header><div class="wrap">
+  <div class="kicker"><span class="dot"></span>Senior Data Engineer · Azure Databricks Specialist</div>
+  <h1>Building scalable <em>lakehouse pipelines</em> &amp; AI-powered data products.</h1>
+  <p class="tag">5+ years specializing in Azure Databricks — Delta Lake, Delta Live Tables, Unity Catalog, Asset Bundles, and Genie AI — across insurance, digital media, and analytics.</p>
+  <p class="loc">📍 Toronto, ON, Canada</p>
+  <div class="cta">
+    <a class="btn primary" href="mailto:suran.cse@gmail.com">Get in touch</a>
+    <a class="btn" href="https://github.com/mastermindlab" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://linkedin.com/in/suranjitbanik" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div></header>
+
+<section id="project"><div class="wrap">
+  <h2>Featured project</h2>
+  <div class="feature">
+    <span class="badge">From my GitHub</span>
+    <h3 id="repo-name">Fragmentation</h3>
+    <p id="repo-desc">A project exploring data fragmentation — see the repository for details.</p>
+    <div class="repostats">
+      <span>⭐ <b id="repo-stars">–</b> stars</span>
+      <span>⑂ <b id="repo-forks">–</b> forks</span>
+      <span>● <b id="repo-lang">–</b></span>
+      <span>Updated <b id="repo-updated">–</b></span>
+    </div>
+    <a class="btn primary" href="https://github.com/mastermindlab/fragmentation" target="_blank" rel="noopener">View on GitHub →</a>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Core skills</h2>
+  <div class="grid">
+    <div class="card"><h4>Databricks</h4><div class="chips"><span class="chip">Delta Lake</span><span class="chip">Delta Live Tables</span><span class="chip">Unity Catalog</span><span class="chip">Workflows</span><span class="chip">Asset Bundles</span><span class="chip">Auto Loader</span><span class="chip">Genie AI</span><span class="chip">Lakebase</span></div></div>
+    <div class="card"><h4>Languages</h4><div class="chips"><span class="chip">Python</span><span class="chip">PySpark</span><span class="chip">Spark SQL</span><span class="chip">SQL</span></div></div>
+    <div class="card"><h4>Cloud</h4><div class="chips"><span class="chip">Azure ADLS</span><span class="chip">Azure DevOps</span><span class="chip">ADF</span><span class="chip">AWS S3</span><span class="chip">GCP BigQuery</span><span class="chip">Pub/Sub</span><span class="chip">Dataflow</span></div></div>
+    <div class="card"><h4>Tools &amp; strengths</h4><div class="chips"><span class="chip">GitHub</span><span class="chip">Jira</span><span class="chip">Streamlit</span><span class="chip">Airflow</span><span class="chip">Medallion Architecture</span><span class="chip">CI/CD</span><span class="chip">Data Governance</span><span class="chip">Performance Tuning</span></div></div>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <h2>Experience</h2>
+
+  <div class="job">
+    <span class="when">Apr 2024 – Present</span>
+    <h3>Senior Data Engineer</h3>
+    <p class="org">Zurich Canada · Toronto, ON</p>
+    <ul>
+      <li>Built an AI-powered insurance policy &amp; claims app using Databricks Genie and Lakebase — natural-language querying for underwriters, reducing insight turnaround from days to seconds.</li>
+      <li>Architected medallion lakehouse pipelines (bronze → silver → gold) with Delta Lake, Unity Catalog governance, and Auto Loader.</li>
+      <li>Designed config-driven PySpark ETL frameworks across 10+ programs, cutting new source onboarding time by ~60%.</li>
+      <li>Modernized CI/CD with Databricks Asset Bundles and Azure DevOps across dev/staging/prod.</li>
+      <li>Optimized Spark pipelines via partitioning, caching, and Z-ordering — reducing job runtimes by ~40%.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <span class="when">Aug 2021 – Apr 2024</span>
+    <h3>Data Engineer</h3>
+    <p class="org">GroupM · Toronto, ON</p>
+    <ul>
+      <li>Built Databricks and PySpark pipelines on GCP integrating Pub/Sub, Dataflow, BigQuery, Bigtable, and Cloud Functions — improving reporting performance by 60%.</li>
+      <li>Delivered multi-cloud solutions across GCP, Azure, and AWS; led data governance for enterprise data warehousing.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <span class="when">Jan 2021 – Jul 2021</span>
+    <h3>Data Engineer</h3>
+    <p class="org">Clue · Toronto, ON</p>
+    <ul>
+      <li>Designed graph data models with Neo4j and Cypher; built ETL pipelines on AWS (S3, Athena, SageMaker, DataBrew) for digital marketing analytics.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <span class="when">Feb 2020 – Dec 2020</span>
+    <h3>Data Analyst</h3>
+    <p class="org">Clue · Toronto, ON</p>
+    <ul>
+      <li>Built Azure analytics services ingesting Salesforce data for media campaign reporting with near-zero downtime.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <span class="when">May 2019 – Feb 2020</span>
+    <h3>Digital Analyst</h3>
+    <p class="org">Mindshare · Toronto, ON</p>
+    <ul>
+      <li>Architected Datorama solutions for Nestlé and CPG clients, improving campaign ROI measurement.</li>
+    </ul>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Education &amp; certifications</h2>
+  <div class="tworow">
+    <div class="card cred"><h3>M.Eng, Computer Engineering</h3><p>University of Ottawa</p></div>
+    <div class="card cred"><h3>B.E, Computer Science</h3><p>Visvesvaraya Technological University</p></div>
+    <div class="card cred"><h3>Databricks Certified Data Engineer Professional</h3><p>Databricks · Dec 2024 – Dec 2026</p></div>
+    <div class="card cred"><h3>AWS Certified Cloud Practitioner</h3><p>Amazon Web Services</p></div>
+  </div>
+</div></section>
+
+<footer id="contact"><div class="wrap">
+  <p style="font-size:13px;letter-spacing:.14em;color:var(--blue-soft);text-transform:uppercase;margin-bottom:10px">Let's build something</p>
+  <a class="email" href="mailto:suran.cse@gmail.com">suran.cse@gmail.com</a>
+  <div class="social">
+    <a href="https://github.com/mastermindlab" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://linkedin.com/in/suranjitbanik" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <p class="fine">© 2026 Suranjit Banik · Toronto, ON</p>
+</div></footer>
+
+<script>
+fetch('https://api.github.com/repos/mastermindlab/fragmentation')
+  .then(r => r.ok ? r.json() : null)
+  .then(d => {
+    if (!d) return;
+    document.getElementById('repo-name').textContent = d.name.charAt(0).toUpperCase() + d.name.slice(1);
+    if (d.description) document.getElementById('repo-desc').textContent = d.description;
+    document.getElementById('repo-stars').textContent = d.stargazers_count;
+    document.getElementById('repo-forks').textContent = d.forks_count;
+    document.getElementById('repo-lang').textContent = d.language || 'Code';
+    document.getElementById('repo-updated').textContent = new Date(d.pushed_at).toLocaleDateString('en-CA', {year:'numeric', month:'short'});
+  })
+  .catch(() => {});
+</script>
+</body>
+</html>
