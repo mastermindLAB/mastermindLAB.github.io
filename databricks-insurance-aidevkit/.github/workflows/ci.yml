@@ -1,0 +1,40 @@
+# CI for the Insurance AI Dev Kit.
+# NOTE: lives under the project subdir. To activate it on GitHub, this file
+# must sit at the REPOSITORY root `.github/workflows/`. See README "CI/CD".
+name: insurance-aidevkit-ci
+
+on:
+  push:
+    paths: ["databricks-insurance-aidevkit/**"]
+  pull_request:
+    paths: ["databricks-insurance-aidevkit/**"]
+
+defaults:
+  run:
+    working-directory: databricks-insurance-aidevkit
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements-dev.txt
+      - name: Lint
+        run: ruff check src tests
+      - name: Unit tests
+        run: pytest
+
+  validate-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: databricks/setup-cli@main
+      - name: Validate Databricks bundle
+        working-directory: databricks-insurance-aidevkit
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+        run: databricks bundle validate -t dev

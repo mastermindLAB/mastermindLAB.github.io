@@ -1,0 +1,24 @@
+[project]
+name = "insurance-aidevkit"
+version = "0.1.0"
+description = "Databricks lakehouse + Mosaic AI dev kit for an insurance company"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+# Databricks notebook runtime globals — present at execution, not at lint time.
+builtins = ["spark", "dbutils", "dlt", "display", "sc", "displayHTML"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E402"]  # notebooks set sys.path before imports
+
+[tool.ruff.lint.per-file-ignores]
+# Notebooks legitimately have unused %pip/import side effects + long magic lines.
+"src/agents/*.py" = ["E501"]
+"notebooks/*.py" = ["E501"]

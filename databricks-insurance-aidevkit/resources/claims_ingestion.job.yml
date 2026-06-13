@@ -1,0 +1,42 @@
+# Daily orchestration: land sample data, refresh the medallion pipeline,
+# then run the data-quality gate before downstream ML consumes gold tables.
+resources:
+  jobs:
+    claims_ingestion:
+      name: claims-ingestion-${bundle.target}
+      tags:
+        domain: insurance
+        kit: aidevkit
+      schedule:
+        quartz_cron_expression: "0 0 6 * * ?"   # 06:00 daily
+        timezone_id: America/Toronto
+        pause_status: '${bundle.target == "prod" ? "UNPAUSED" : "PAUSED"}'
+      email_notifications:
+        on_failure:
+          - ${var.notifications_email}
+      queue:
+        enabled: true
+      tasks:
+        - task_key: seed_landing_zone
+          notebook_task:
+            notebook_path: ../notebooks/00_seed_landing.py
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${var.schema}
+              landing_volume: ${var.landing_volume}
+
+        - task_key: refresh_medallion
+          depends_on:
+            - task_key: seed_landing_zone
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.insurance_medallion.id}
+            full_refresh: false
+
+        - task_key: data_quality_gate
+          depends_on:
+            - task_key: refresh_medallion
+          notebook_task:
+            notebook_path: ../src/pipelines/quality_checks.py
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${var.schema}
