@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <!-- Iconify web component: reliable full-color brand logos via CDN -->
-<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<!-- platform/database logos load directly from the Simple Icons CDN as <img> -->
 
 <style>
 :root{
@@ -70,9 +70,10 @@ h1 em{font-style:normal;color:var(--wine)}
 .stack{padding:40px 0 56px}
 .stack .label{margin-bottom:26px}
 .logos{display:flex;flex-wrap:wrap;align-items:center;gap:30px 44px}
-.logos iconify-icon{font-size:42px;color:var(--navy);filter:grayscale(1);opacity:.62;transition:.2s}
+.logos img{height:38px;width:auto;filter:grayscale(1);opacity:.62;transition:.2s}
+.pchip{display:inline-flex;align-items:center;font-size:14px;font-weight:600;color:var(--navy);padding:7px 13px;border:1px solid var(--line);border-radius:4px;background:var(--bg-soft)}
 .logos a{display:inline-flex;align-items:center}
-.logos iconify-icon:hover{filter:none;opacity:1;transform:translateY(-3px)}
+.logos img:hover{filter:none;opacity:1;transform:translateY(-3px)}
 
 section{padding:72px 0;border-top:1px solid var(--line)}
 .label{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
@@ -82,7 +83,7 @@ h2{font-size:26px;font-weight:700;color:var(--navy);letter-spacing:-.01em;margin
 
 .feature{background:var(--bg-soft);border:1px solid var(--line);border-radius:4px;padding:34px}
 .feature .ftop{display:flex;align-items:center;gap:14px;margin-bottom:14px}
-.feature .ftop iconify-icon{font-size:30px;color:var(--navy)}
+.feature .ftop img{height:26px;width:26px}
 .feature .tagline{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
 .feature h3{font-size:28px;color:var(--navy);margin-bottom:10px;letter-spacing:-.01em}
 .feature p{color:var(--muted);font-size:15.5px;max-width:640px}
@@ -93,7 +94,7 @@ h2{font-size:26px;font-weight:700;color:var(--navy);letter-spacing:-.01em;margin
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--line)}
 .card{background:#fff;padding:26px}
 .card h4{font-size:15px;color:var(--navy);margin-bottom:14px;font-weight:600;display:flex;align-items:center;gap:9px}
-.card h4 iconify-icon{font-size:20px}
+.card h4 img{height:19px;width:19px;object-fit:contain}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{font-size:12.5px;background:var(--bg-soft);border:1px solid var(--line);border-radius:4px;padding:5px 11px;color:var(--text)}
 
@@ -136,7 +137,7 @@ footer .fine{font-size:12.5px;color:var(--faint)}
   .repostats{grid-template-columns:repeat(2,1fr);gap:18px}
   .tworow{grid-template-columns:1fr}
   .logos{gap:24px 30px}
-  .logos iconify-icon{font-size:34px}
+  .logos img{height:32px}
   footer .wrap{flex-direction:column;text-align:center}
 }
 @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto}}
@@ -178,16 +179,16 @@ footer .fine{font-size:12.5px;color:var(--faint)}
 <div class="stack"><div class="wrap">
   <p class="label">Platforms &amp; tooling I build with</p>
   <div class="logos">
-    <iconify-icon icon="logos:databricks" title="Databricks"></iconify-icon>
-    <iconify-icon icon="logos:microsoft-azure" title="Microsoft Azure"></iconify-icon>
-    <iconify-icon icon="logos:aws" title="Amazon Web Services"></iconify-icon>
-    <iconify-icon icon="logos:google-cloud" title="Google Cloud"></iconify-icon>
-    <iconify-icon icon="logos:apache-spark" title="Apache Spark"></iconify-icon>
-    <iconify-icon icon="logos:python" title="Python"></iconify-icon>
-    <iconify-icon icon="logos:apache-airflow" title="Apache Airflow"></iconify-icon>
-    <iconify-icon icon="logos:postgresql" title="PostgreSQL"></iconify-icon>
-    <iconify-icon icon="logos:neo4j" title="Neo4j"></iconify-icon>
-    <iconify-icon icon="logos:github-icon" title="GitHub"></iconify-icon>
+    <img src="https://cdn.simpleicons.org/databricks" alt="Databricks" title="Databricks" onerror="this.outerHTML='<span class=&quot;pchip&quot;>Databricks</span>'">
+    <img src="https://cdn.simpleicons.org/microsoftazure" alt="Microsoft Azure" title="Microsoft Azure" onerror="this.outerHTML='<span class=&quot;pchip&quot;>Azure</span>'">
+    <img src="https://cdn.simpleicons.org/amazonwebservices" alt="AWS" title="Amazon Web Services" onerror="this.outerHTML='<span class=&quot;pchip&quot;>AWS</span>'">
+    <img src="https://cdn.simpleicons.org/googlecloud" alt="Google Cloud" title="Google Cloud" onerror="this.outerHTML='<span class=&quot;pchip&quot;>Google Cloud</span>'">
+    <img src="https://cdn.simpleicons.org/apachespark" alt="Apache Spark" title="Apache Spark" onerror="this.outerHTML='<span class=&quot;pchip&quot;>Spark</span>'">
+    <img src="https://cdn.simpleicons.org/python" alt="Python" title="Python" onerror="this.outerHTML='<span class=&quot;pchip&quot;>Python</span>'">
+    <img src="https://cdn.simpleicons.org/apacheairflow" alt="Apache Airflow" title="Apache Airflow" onerror="this.outerHTML='<span class=&quot;pchip&quot;>Airflow</span>'">
+    <img src="https://cdn.simpleicons.org/postgresql" alt="PostgreSQL" title="PostgreSQL" onerror="this.outerHTML='<span class=&quot;pchip&quot;>PostgreSQL</span>'">
+    <img src="https://cdn.simpleicons.org/neo4j" alt="Neo4j" title="Neo4j" onerror="this.outerHTML='<span class=&quot;pchip&quot;>Neo4j</span>'">
+    <img src="https://cdn.simpleicons.org/github" alt="GitHub" title="GitHub" onerror="this.outerHTML='<span class=&quot;pchip&quot;>GitHub</span>'">
   </div>
 </div></div>
 
@@ -195,7 +196,7 @@ footer .fine{font-size:12.5px;color:var(--faint)}
   <div class="sec-head"><p class="idx">01 — Selected work</p></div>
   <div class="feature">
     <div class="ftop">
-      <iconify-icon icon="logos:github-icon"></iconify-icon>
+      <img src="https://cdn.simpleicons.org/github" alt="GitHub" onerror="this.remove()">
       <p class="tagline">Open source · GitHub</p>
     </div>
     <h3 id="repo-name">Fragmentation</h3>
@@ -213,10 +214,10 @@ footer .fine{font-size:12.5px;color:var(--faint)}
 <section id="skills"><div class="wrap">
   <div class="sec-head"><p class="idx">02 — Capabilities</p></div>
   <div class="grid">
-    <div class="card"><h4><iconify-icon icon="logos:databricks"></iconify-icon>Databricks</h4><div class="chips"><span class="chip">Delta Lake</span><span class="chip">Delta Live Tables</span><span class="chip">Unity Catalog</span><span class="chip">Workflows</span><span class="chip">Asset Bundles</span><span class="chip">Auto Loader</span><span class="chip">Genie AI</span><span class="chip">Lakebase</span><span class="chip">Databricks Apps</span></div></div>
-    <div class="card"><h4><iconify-icon icon="logos:python"></iconify-icon>Languages</h4><div class="chips"><span class="chip">Python</span><span class="chip">PySpark</span><span class="chip">Spark SQL</span><span class="chip">SQL</span></div></div>
-    <div class="card"><h4><iconify-icon icon="logos:microsoft-azure"></iconify-icon>Cloud</h4><div class="chips"><span class="chip">Azure ADLS</span><span class="chip">Azure DevOps</span><span class="chip">ADF</span><span class="chip">AWS S3</span><span class="chip">GCP BigQuery</span><span class="chip">Pub/Sub</span><span class="chip">Dataflow</span></div></div>
-    <div class="card"><h4><iconify-icon icon="logos:git-icon"></iconify-icon>Tools &amp; strengths</h4><div class="chips"><span class="chip">GitHub</span><span class="chip">Jira</span><span class="chip">Streamlit</span><span class="chip">Airflow</span><span class="chip">Medallion Architecture</span><span class="chip">CI/CD</span><span class="chip">Data Governance</span><span class="chip">Performance Tuning</span></div></div>
+    <div class="card"><h4><img src="https://cdn.simpleicons.org/databricks" alt="" onerror="this.remove()">Databricks</h4><div class="chips"><span class="chip">Delta Lake</span><span class="chip">Delta Live Tables</span><span class="chip">Unity Catalog</span><span class="chip">Workflows</span><span class="chip">Asset Bundles</span><span class="chip">Auto Loader</span><span class="chip">Genie AI</span><span class="chip">Lakebase</span><span class="chip">Databricks Apps</span></div></div>
+    <div class="card"><h4><img src="https://cdn.simpleicons.org/python" alt="" onerror="this.remove()">Languages</h4><div class="chips"><span class="chip">Python</span><span class="chip">PySpark</span><span class="chip">Spark SQL</span><span class="chip">SQL</span></div></div>
+    <div class="card"><h4><img src="https://cdn.simpleicons.org/microsoftazure" alt="" onerror="this.remove()">Cloud</h4><div class="chips"><span class="chip">Azure ADLS</span><span class="chip">Azure DevOps</span><span class="chip">ADF</span><span class="chip">AWS S3</span><span class="chip">GCP BigQuery</span><span class="chip">Pub/Sub</span><span class="chip">Dataflow</span></div></div>
+    <div class="card"><h4><img src="https://cdn.simpleicons.org/git" alt="" onerror="this.remove()">Tools &amp; strengths</h4><div class="chips"><span class="chip">GitHub</span><span class="chip">Jira</span><span class="chip">Streamlit</span><span class="chip">Airflow</span><span class="chip">Medallion Architecture</span><span class="chip">CI/CD</span><span class="chip">Data Governance</span><span class="chip">Performance Tuning</span></div></div>
   </div>
 </div></section>
 
