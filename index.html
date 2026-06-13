@@ -4,229 +4,721 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Suranjit Banik — Senior Data Engineer · Azure Databricks Specialist</title>
-<meta name="description" content="Senior Data Engineer with 5+ years specializing in Azure Databricks — Delta Lake, Delta Live Tables, Unity Catalog, and AI-powered data products.">
+<meta name="description" content="Suranjit Banik — Senior Data Engineer with 5+ years specializing in Azure Databricks. Lakehouse pipelines, Delta Lake, Unity Catalog, and AI-powered data products. Toronto, Canada.">
+<meta name="theme-color" content="#08090C">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Suranjit Banik — Senior Data Engineer">
+<meta property="og:description" content="Building scalable lakehouse pipelines & AI-powered data products. 5+ years on Azure Databricks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script type="importmap">
+{ "imports": { "three": "https://unpkg.com/three@0.161.0/build/three.module.js" } }
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+
 <style>
 :root{
-  --bg:#05080F;
-  --bg2:#0A1020;
-  --card:#0D1526;
-  --border:#1A2740;
-  --blue:#2E7CF6;
-  --blue-bright:#4D9FFF;
-  --blue-soft:#8FBFF7;
-  --text:#EAF1FB;
-  --muted:#7E8DA6;
-  --faint:#4A5872;
+  --bg:#08090C;
+  --bg-soft:#0E0F15;
+  --panel:#101219;
+  --text:#ECEDF2;
+  --muted:#9498A6;
+  --faint:#5B5F70;
+  --line:rgba(255,255,255,.09);
+  --line-strong:rgba(255,255,255,.16);
+  --accent:#6E86FF;
+  --accent-soft:#A9B6FF;
+  --maxw:1280px;
+  --ease:cubic-bezier(.22,1,.36,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6}
-a{color:var(--blue-bright);text-decoration:none}
-a:hover{color:var(--blue-soft)}
-.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;
+  font-weight:400;line-height:1.5;overflow-x:hidden;
+}
+body.is-loading{overflow:hidden;height:100vh}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--accent);color:#fff}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 36px}
+img,canvas{display:block}
 
-nav{position:sticky;top:0;background:rgba(5,8,15,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);z-index:10}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{font-weight:700;letter-spacing:.06em;color:var(--text);font-size:15px}
-.logo span{color:var(--blue-bright)}
-.navlinks{display:flex;gap:22px;font-size:14px}
-.navlinks a{color:var(--muted)}
-.navlinks a:hover{color:var(--blue-bright)}
+/* ---------- Preloader ---------- */
+.preloader{position:fixed;inset:0;z-index:200;background:var(--bg);display:flex;align-items:flex-end;justify-content:space-between;padding:42px 40px}
+.preloader__count{font-size:clamp(64px,16vw,180px);font-weight:300;letter-spacing:-.04em;line-height:.8}
+.preloader__label{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--faint);padding-bottom:14px}
+.preloader__bar{position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left}
 
-header{padding:90px 0 70px;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(46,124,246,.18),transparent)}
-.kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.14em;color:var(--blue-soft);text-transform:uppercase;margin-bottom:18px}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--blue-bright)}
-h1{font-size:clamp(34px,6vw,56px);font-weight:700;line-height:1.12;letter-spacing:-.01em}
-h1 em{font-style:normal;color:var(--blue-bright)}
-.tag{font-size:clamp(16px,2.5vw,20px);color:var(--muted);margin:16px 0 8px}
-.loc{font-size:14px;color:var(--faint)}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;border:1px solid var(--border);color:var(--text);transition:.2s}
-.btn:hover{border-color:var(--blue);color:var(--blue-bright)}
-.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
-.btn.primary:hover{background:var(--blue-bright);color:#fff}
+/* ---------- Custom cursor ---------- */
+.cursor{position:fixed;top:0;left:0;width:38px;height:38px;border:1px solid var(--line-strong);border-radius:50%;pointer-events:none;z-index:150;transform:translate(-50%,-50%);transition:width .35s var(--ease),height .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease);mix-blend-mode:difference;display:none}
+.cursor.is-active{display:block}
+.cursor.is-hover{width:74px;height:74px;background:#fff;border-color:#fff}
+body.cursor-on,body.cursor-on a,body.cursor-on button{cursor:none}
 
-section{padding:64px 0;border-top:1px solid var(--border)}
-h2{font-size:22px;font-weight:700;margin-bottom:28px;display:flex;align-items:center;gap:12px}
-h2::before{content:"";width:26px;height:3px;background:var(--blue);border-radius:2px}
+/* ---------- Nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:90;transition:background .4s,border-color .4s,backdrop-filter .4s;border-bottom:1px solid transparent}
+.nav--solid{background:rgba(8,9,12,.72);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+.nav__inner{max-width:var(--maxw);margin:0 auto;padding:22px 36px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:15px;font-weight:600;letter-spacing:.02em}
+.brand b{color:var(--accent);font-weight:600}
+.nav__links{display:flex;gap:34px;font-size:14px;color:var(--muted)}
+.nav__links a{position:relative;transition:color .3s}
+.nav__links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--accent);transition:width .35s var(--ease)}
+.nav__links a:hover{color:var(--text)}
+.nav__links a:hover::after{width:100%}
 
-.feature{background:linear-gradient(135deg,var(--bg2),var(--card));border:1px solid var(--border);border-radius:16px;padding:30px;position:relative;overflow:hidden}
-.feature::after{content:"";position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(46,124,246,.15),transparent 70%)}
-.badge{display:inline-block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-soft);border:1px solid var(--border);border-radius:20px;padding:4px 12px;margin-bottom:14px}
-.feature h3{font-size:24px;margin-bottom:8px}
-.feature p{color:var(--muted);font-size:15px;max-width:640px}
-.repostats{display:flex;flex-wrap:wrap;gap:18px;margin:18px 0 22px;font-size:13px;color:var(--faint)}
-.repostats b{color:var(--blue-soft);font-weight:600}
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:48px;overflow:hidden}
+#bg{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero__veil{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(120% 90% at 70% 8%,transparent 0%,var(--bg) 78%),
+    linear-gradient(180deg,rgba(8,9,12,.55) 0%,transparent 22%,transparent 55%,var(--bg) 100%);}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero__status{display:inline-flex;align-items:center;gap:11px;font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:34px}
+.pulse{width:9px;height:9px;border-radius:50%;background:var(--accent);position:relative;box-shadow:0 0 0 0 rgba(110,134,255,.6);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(110,134,255,.55)}70%{box-shadow:0 0 0 12px rgba(110,134,255,0)}100%{box-shadow:0 0 0 0 rgba(110,134,255,0)}}
+.hero-title{font-size:clamp(42px,9.2vw,138px);font-weight:500;line-height:.96;letter-spacing:-.035em}
+.hero-title .line{display:block}
+.hero-title .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;margin-bottom:-.1em}
+.hero-title .w>span{display:inline-block;will-change:transform}
+.hero-title .accent>span{color:var(--accent-soft)}
+.hero-title .accent{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
+.hero__sub{max-width:560px;margin-top:30px;font-size:clamp(15px,1.5vw,18px);color:var(--muted);line-height:1.6}
+.hero__meta{margin-top:22px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:15px 26px;border-radius:100px;font-size:14px;font-weight:500;border:1px solid var(--line-strong);color:var(--text);transition:border-color .3s,color .3s,background .3s;will-change:transform}
+.btn .arrow{transition:transform .35s var(--ease)}
+.btn:hover{border-color:var(--text)}
+.btn:hover .arrow{transform:translateX(5px)}
+.btn--primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn--primary:hover{background:var(--accent-soft);border-color:var(--accent-soft);color:#0b0c12}
+.hero__scroll{position:absolute;right:36px;bottom:48px;z-index:2;display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);writing-mode:vertical-rl}
+.hero__scroll .ln{width:1px;height:54px;background:linear-gradient(var(--faint),transparent);overflow:hidden;position:relative}
+.hero__scroll .ln::after{content:"";position:absolute;top:0;left:0;width:100%;height:40%;background:var(--accent);animation:scrolldn 2s var(--ease) infinite}
+@keyframes scrolldn{0%{transform:translateY(-100%)}100%{transform:translateY(260%)}}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px}
-.card h4{font-size:15px;color:var(--blue-soft);margin-bottom:10px;letter-spacing:.04em}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{font-size:12.5px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:5px 11px;color:var(--text)}
+/* ---------- Marquee ---------- */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;overflow:hidden;white-space:nowrap}
+.marquee__track{display:inline-flex;will-change:transform}
+.marquee__group{display:inline-flex;align-items:center}
+.marquee__group span{font-size:clamp(22px,3.4vw,40px);font-weight:500;letter-spacing:-.02em;color:var(--text);padding:0 30px;display:inline-flex;align-items:center;gap:60px}
+.marquee__group span::after{content:"";width:9px;height:9px;background:var(--accent);transform:rotate(45deg);display:inline-block}
+.marquee em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--accent-soft)}
 
-.job{border-left:2px solid var(--border);padding:0 0 38px 26px;position:relative}
-.job:last-child{padding-bottom:0}
-.job::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:3px solid var(--blue)}
-.job .when{font-size:12.5px;color:var(--faint);letter-spacing:.06em;text-transform:uppercase}
-.job h3{font-size:18px;margin:4px 0 2px}
-.job .org{font-size:14px;color:var(--blue-soft);margin-bottom:12px}
-.job ul{list-style:none}
-.job li{font-size:14.5px;color:var(--muted);padding-left:18px;position:relative;margin-bottom:9px}
-.job li::before{content:"▸";position:absolute;left:0;color:var(--blue)}
+/* ---------- Sections ---------- */
+section{position:relative}
+.sec{padding:130px 0}
+.eyebrow{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);margin-bottom:48px}
+.eyebrow b{color:var(--accent);font-weight:500}
+.eyebrow .bar{flex:1;height:1px;background:var(--line);max-width:140px}
 
-.tworow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.cred h3{font-size:15.5px;margin-bottom:2px}
-.cred p{font-size:13.5px;color:var(--muted)}
+/* About */
+.statement{font-size:clamp(24px,3.6vw,52px);font-weight:400;line-height:1.26;letter-spacing:-.02em;max-width:18ch;margin-bottom:0}
+.statement .word{display:inline-block;will-change:opacity}
+.statement .hl{font-family:'Instrument Serif',Georgia,serif;font-style:italic;color:var(--accent-soft)}
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:60px;align-items:end}
+.about-copy{color:var(--muted);font-size:16px;line-height:1.7;max-width:430px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:96px;border-top:1px solid var(--line);padding-top:40px}
+.stat .num{font-size:clamp(38px,5.5vw,68px);font-weight:300;letter-spacing:-.03em;line-height:1}
+.stat .lbl{margin-top:12px;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
 
-footer{border-top:1px solid var(--border);padding:50px 0 60px;text-align:center}
-footer .email{font-size:clamp(18px,3.5vw,26px);font-weight:600}
-footer .social{display:flex;justify-content:center;gap:24px;margin:22px 0;font-size:14px}
-footer .fine{font-size:12.5px;color:var(--faint)}
+/* Work */
+.work{border:1px solid var(--line);border-radius:22px;background:linear-gradient(160deg,var(--bg-soft),var(--panel));padding:54px;position:relative;overflow:hidden;transition:border-color .4s}
+.work:hover{border-color:var(--line-strong)}
+.work::before{content:"";position:absolute;top:-120px;right:-120px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(110,134,255,.14),transparent 70%);pointer-events:none}
+.work__top{display:flex;justify-content:space-between;align-items:flex-start;position:relative;z-index:1}
+.work__idx{font-size:13px;color:var(--faint);letter-spacing:.1em}
+.work__tag{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-soft);border:1px solid var(--line-strong);border-radius:100px;padding:7px 15px}
+.work h3{font-size:clamp(34px,6vw,76px);font-weight:500;letter-spacing:-.03em;margin:28px 0 16px;line-height:1}
+.work__desc{color:var(--muted);font-size:17px;max-width:620px;line-height:1.6;position:relative;z-index:1}
+.work__stats{display:flex;flex-wrap:wrap;gap:48px;margin:40px 0 34px;position:relative;z-index:1}
+.work__stat .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+.work__stat .v{font-size:22px;font-weight:500}
+.work__link{display:inline-flex;align-items:center;gap:12px;font-size:15px;font-weight:500;color:var(--text);position:relative;z-index:1}
+.work__link .arrow{transition:transform .35s var(--ease)}
+.work__link:hover .arrow{transform:translateX(6px)}
 
-@media(max-width:640px){
-  .navlinks{display:none}
-  header{padding:60px 0 50px}
-  section{padding:48px 0}
-  .tworow{grid-template-columns:1fr}
-  .feature{padding:24px 20px}
-  .cta .btn{flex:1;justify-content:center}
+/* Capabilities */
+.caps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+.cap{padding:36px 28px 36px 0;border-right:1px solid var(--line)}
+.cap:last-child{border-right:none;padding-right:0}
+.cap h4{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:22px;font-weight:500}
+.cap ul{list-style:none}
+.cap li{font-size:16px;color:var(--text);padding:9px 0;border-bottom:1px solid var(--line);transition:color .3s,padding-left .3s var(--ease)}
+.cap li:last-child{border-bottom:none}
+.cap li:hover{color:var(--accent-soft);padding-left:8px}
+
+/* Experience */
+.exp{border-top:1px solid var(--line)}
+.exp__row{display:grid;grid-template-columns:200px 1fr 60px;gap:30px;padding:38px 14px;border-bottom:1px solid var(--line);align-items:start;transition:background .4s,padding .4s var(--ease)}
+.exp__row:hover{background:var(--bg-soft);padding-left:26px;padding-right:26px}
+.exp__period{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);padding-top:6px}
+.exp__role{font-size:clamp(22px,2.6vw,30px);font-weight:500;letter-spacing:-.02em;transition:color .3s}
+.exp__row:hover .exp__role{color:var(--accent-soft)}
+.exp__org{font-size:14px;color:var(--muted);margin:6px 0 16px;letter-spacing:.02em}
+.exp__points{list-style:none}
+.exp__points li{font-size:15px;color:var(--muted);line-height:1.6;padding:4px 0 4px 18px;position:relative;max-width:680px}
+.exp__points li::before{content:"";position:absolute;left:0;top:13px;width:6px;height:1px;background:var(--accent)}
+.exp__idx{font-size:13px;color:var(--faint);text-align:right;padding-top:6px}
+
+/* Credentials */
+.creds{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.cred{border:1px solid var(--line);border-radius:16px;padding:30px;transition:border-color .4s,transform .4s var(--ease)}
+.cred:hover{border-color:var(--line-strong);transform:translateY(-4px)}
+.cred .ct{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:16px}
+.cred h3{font-size:20px;font-weight:500;letter-spacing:-.01em;margin-bottom:7px}
+.cred p{font-size:14.5px;color:var(--muted)}
+
+/* Footer / contact */
+.foot{padding:120px 0 50px;border-top:1px solid var(--line)}
+.foot__lead{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);margin-bottom:30px}
+.foot__mail{display:inline-block;font-size:clamp(34px,8vw,108px);font-weight:400;letter-spacing:-.035em;line-height:1;transition:color .35s}
+.foot__mail:hover{color:var(--accent-soft)}
+.foot__mail .serif{display:inline}
+.foot__bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center;margin-top:90px;padding-top:34px;border-top:1px solid var(--line)}
+.foot__social{display:flex;gap:30px;font-size:14px}
+.foot__social a{color:var(--muted);transition:color .3s}
+.foot__social a:hover{color:var(--text)}
+.foot__fine{font-size:13px;color:var(--faint)}
+.totop{font-size:13px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;transition:color .3s}
+.totop:hover{color:var(--text)}
+
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr;gap:40px;align-items:start}
+  .caps{grid-template-columns:1fr 1fr}
+  .cap{border-right:none;border-bottom:1px solid var(--line);padding:30px 0}
+  .caps .cap:nth-child(odd){padding-right:24px;border-right:1px solid var(--line)}
+  .stats{grid-template-columns:1fr 1fr;gap:36px 24px}
+}
+@media(max-width:680px){
+  .wrap{padding:0 22px}
+  .nav__inner{padding:18px 22px}
+  .nav__links{display:none}
+  .sec{padding:90px 0}
+  .hero__scroll{display:none}
+  .work{padding:34px 26px}
+  .caps{grid-template-columns:1fr}
+  .caps .cap:nth-child(odd){padding-right:0;border-right:none}
+  .exp__row{grid-template-columns:1fr;gap:10px;padding:30px 4px}
+  .exp__row:hover{padding-left:4px;padding-right:4px}
+  .exp__idx{display:none}
+  .creds{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001s!important;transition-duration:.001s!important}
 }
 </style>
 </head>
-<body>
+<body class="is-loading">
 
-<nav><div class="wrap">
-  <div class="logo">SURANJIT<span>.</span>BANIK</div>
-  <div class="navlinks">
-    <a href="#project">Project</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
-  </div>
-</div></nav>
+<!-- Preloader -->
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__count">0</div>
+  <div class="preloader__label">Suranjit Banik — Portfolio</div>
+  <div class="preloader__bar"></div>
+</div>
+<noscript><style>.preloader{display:none}body.is-loading{overflow:auto;height:auto}</style></noscript>
+<script>window.__preFail=setTimeout(function(){var p=document.querySelector('.preloader');if(p){p.style.transition='opacity .4s';p.style.opacity='0';setTimeout(function(){p.style.display='none'},400);}document.body.classList.remove('is-loading');},4000);</script>
 
-<header><div class="wrap">
-  <div class="kicker"><span class="dot"></span>Senior Data Engineer · Azure Databricks Specialist</div>
-  <h1>Building scalable <em>lakehouse pipelines</em> &amp; AI-powered data products.</h1>
-  <p class="tag">5+ years specializing in Azure Databricks — Delta Lake, Delta Live Tables, Unity Catalog, Asset Bundles, and Genie AI — across insurance, digital media, and analytics.</p>
-  <p class="loc">📍 Toronto, ON, Canada</p>
-  <div class="cta">
-    <a class="btn primary" href="mailto:suran.cse@gmail.com">Get in touch</a>
-    <a class="btn" href="https://github.com/mastermindlab" target="_blank" rel="noopener">GitHub</a>
-    <a class="btn" href="https://linkedin.com/in/suranjitbanik" target="_blank" rel="noopener">LinkedIn</a>
-  </div>
-</div></header>
+<div class="cursor" aria-hidden="true"></div>
 
-<section id="project"><div class="wrap">
-  <h2>Featured project</h2>
-  <div class="feature">
-    <span class="badge">From my GitHub</span>
-    <h3 id="repo-name">Fragmentation</h3>
-    <p id="repo-desc">A project exploring data fragmentation — see the repository for details.</p>
-    <div class="repostats">
-      <span>⭐ <b id="repo-stars">–</b> stars</span>
-      <span>⑂ <b id="repo-forks">–</b> forks</span>
-      <span>● <b id="repo-lang">–</b></span>
-      <span>Updated <b id="repo-updated">–</b></span>
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="#top" class="brand" data-scroll>Suranjit Banik<b>.</b></a>
+    <div class="nav__links">
+      <a href="#about" data-scroll>About</a>
+      <a href="#work" data-scroll>Work</a>
+      <a href="#capabilities" data-scroll>Skills</a>
+      <a href="#experience" data-scroll>Experience</a>
+      <a href="#contact" data-scroll>Contact</a>
     </div>
-    <a class="btn primary" href="https://github.com/mastermindlab/fragmentation" target="_blank" rel="noopener">View on GitHub →</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero" id="top">
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <div class="hero__veil"></div>
+  <div class="wrap">
+    <div class="hero__status"><span class="pulse"></span>Available for select work · 2026</div>
+    <h1 class="hero-title">
+      <span class="line"><span class="w"><span>Building</span></span> <span class="w"><span>scalable</span></span></span>
+      <span class="line accent"><span class="w"><span>lakehouse</span></span> <span class="w"><span>pipelines</span></span></span>
+      <span class="line"><span class="w"><span>&amp;</span></span> <span class="w"><span>AI-powered</span></span></span>
+      <span class="line"><span class="w"><span>data</span></span> <span class="w"><span>products.</span></span></span>
+    </h1>
+    <p class="hero__sub">Senior Data Engineer with 5+ years specializing in Azure Databricks — Delta Lake, Delta Live Tables, Unity Catalog, and Genie AI — across insurance, digital media, and analytics.</p>
+    <p class="hero__meta">Toronto, Ontario · Canada</p>
+    <div class="hero__cta">
+      <a class="btn btn--primary" href="mailto:suran.cse@gmail.com" data-magnetic>Get in touch <span class="arrow">→</span></a>
+      <a class="btn" href="#work" data-scroll data-magnetic>View work <span class="arrow">↓</span></a>
+    </div>
+  </div>
+  <div class="hero__scroll"><span class="ln"></span>Scroll</div>
+</header>
+
+<!-- Marquee -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <div class="marquee__group"><span>Azure Databricks</span><span>Delta Lake</span><span>Unity Catalog</span><span><em>PySpark</em></span><span>Medallion Architecture</span><span>Delta Live Tables</span><span>Genie AI</span><span><em>CI/CD</em></span></div>
+    <div class="marquee__group"><span>Azure Databricks</span><span>Delta Lake</span><span>Unity Catalog</span><span><em>PySpark</em></span><span>Medallion Architecture</span><span>Delta Live Tables</span><span>Genie AI</span><span><em>CI/CD</em></span></div>
+  </div>
+</div>
+
+<!-- About -->
+<section class="sec" id="about"><div class="wrap">
+  <div class="eyebrow"><b>01</b> About <span class="bar"></span></div>
+  <div class="about-grid">
+    <p class="statement" data-split>I build the data infrastructure behind modern analytics and AI — designing <span class="hl">scalable lakehouse pipelines</span>, governing data platforms, and shipping <span class="hl">AI-powered products</span> that turn raw data into decisions.</p>
+    <p class="about-copy" data-reveal>From insurance to digital media, I architect medallion lakehouses on Azure Databricks — Delta Lake, Unity Catalog, and config-driven PySpark frameworks built to scale, govern, and last. Currently based in Toronto, working at the intersection of data engineering and applied AI.</p>
+  </div>
+  <div class="stats">
+    <div class="stat" data-reveal><div class="num"><span data-count="5" data-suffix="+">5+</span></div><div class="lbl">Years in data engineering</div></div>
+    <div class="stat" data-reveal><div class="num"><span data-count="10" data-suffix="+">10+</span></div><div class="lbl">ETL programs delivered</div></div>
+    <div class="stat" data-reveal><div class="num"><span data-count="40" data-suffix="%">40%</span></div><div class="lbl">Faster pipeline runtimes</div></div>
+    <div class="stat" data-reveal><div class="num"><span data-count="60" data-suffix="%">60%</span></div><div class="lbl">Faster source onboarding</div></div>
   </div>
 </div></section>
 
-<section id="skills"><div class="wrap">
-  <h2>Core skills</h2>
-  <div class="grid">
-    <div class="card"><h4>Databricks</h4><div class="chips"><span class="chip">Delta Lake</span><span class="chip">Delta Live Tables</span><span class="chip">Unity Catalog</span><span class="chip">Workflows</span><span class="chip">Asset Bundles</span><span class="chip">Auto Loader</span><span class="chip">Genie AI</span><span class="chip">Lakebase</span></div></div>
-    <div class="card"><h4>Languages</h4><div class="chips"><span class="chip">Python</span><span class="chip">PySpark</span><span class="chip">Spark SQL</span><span class="chip">SQL</span></div></div>
-    <div class="card"><h4>Cloud</h4><div class="chips"><span class="chip">Azure ADLS</span><span class="chip">Azure DevOps</span><span class="chip">ADF</span><span class="chip">AWS S3</span><span class="chip">GCP BigQuery</span><span class="chip">Pub/Sub</span><span class="chip">Dataflow</span></div></div>
-    <div class="card"><h4>Tools &amp; strengths</h4><div class="chips"><span class="chip">GitHub</span><span class="chip">Jira</span><span class="chip">Streamlit</span><span class="chip">Airflow</span><span class="chip">Medallion Architecture</span><span class="chip">CI/CD</span><span class="chip">Data Governance</span><span class="chip">Performance Tuning</span></div></div>
+<!-- Work -->
+<section class="sec" id="work"><div class="wrap">
+  <div class="eyebrow"><b>02</b> Selected Work <span class="bar"></span></div>
+  <div class="work" data-reveal>
+    <div class="work__top">
+      <span class="work__idx">(01)</span>
+      <span class="work__tag">Open Source · GitHub</span>
+    </div>
+    <h3 id="repo-name">Fragmentation</h3>
+    <p class="work__desc" id="repo-desc">A project exploring data fragmentation — see the repository for details.</p>
+    <div class="work__stats">
+      <div class="work__stat"><div class="k">Stars</div><div class="v" id="repo-stars">—</div></div>
+      <div class="work__stat"><div class="k">Forks</div><div class="v" id="repo-forks">—</div></div>
+      <div class="work__stat"><div class="k">Language</div><div class="v" id="repo-lang">—</div></div>
+      <div class="work__stat"><div class="k">Updated</div><div class="v" id="repo-updated">—</div></div>
+    </div>
+    <a class="work__link" href="https://github.com/mastermindlab/fragmentation" target="_blank" rel="noopener">View repository <span class="arrow">→</span></a>
   </div>
 </div></section>
 
-<section id="experience"><div class="wrap">
-  <h2>Experience</h2>
-
-  <div class="job">
-    <span class="when">Apr 2024 – Present</span>
-    <h3>Senior Data Engineer</h3>
-    <p class="org">Zurich Canada · Toronto, ON</p>
-    <ul>
-      <li>Built an AI-powered insurance policy &amp; claims app using Databricks Genie and Lakebase — natural-language querying for underwriters, reducing insight turnaround from days to seconds.</li>
-      <li>Architected medallion lakehouse pipelines (bronze → silver → gold) with Delta Lake, Unity Catalog governance, and Auto Loader.</li>
-      <li>Designed config-driven PySpark ETL frameworks across 10+ programs, cutting new source onboarding time by ~60%.</li>
-      <li>Modernized CI/CD with Databricks Asset Bundles and Azure DevOps across dev/staging/prod.</li>
-      <li>Optimized Spark pipelines via partitioning, caching, and Z-ordering — reducing job runtimes by ~40%.</li>
-    </ul>
-  </div>
-
-  <div class="job">
-    <span class="when">Aug 2021 – Apr 2024</span>
-    <h3>Data Engineer</h3>
-    <p class="org">GroupM · Toronto, ON</p>
-    <ul>
-      <li>Built Databricks and PySpark pipelines on GCP integrating Pub/Sub, Dataflow, BigQuery, Bigtable, and Cloud Functions — improving reporting performance by 60%.</li>
-      <li>Delivered multi-cloud solutions across GCP, Azure, and AWS; led data governance for enterprise data warehousing.</li>
-    </ul>
-  </div>
-
-  <div class="job">
-    <span class="when">Jan 2021 – Jul 2021</span>
-    <h3>Data Engineer</h3>
-    <p class="org">Clue · Toronto, ON</p>
-    <ul>
-      <li>Designed graph data models with Neo4j and Cypher; built ETL pipelines on AWS (S3, Athena, SageMaker, DataBrew) for digital marketing analytics.</li>
-    </ul>
-  </div>
-
-  <div class="job">
-    <span class="when">Feb 2020 – Dec 2020</span>
-    <h3>Data Analyst</h3>
-    <p class="org">Clue · Toronto, ON</p>
-    <ul>
-      <li>Built Azure analytics services ingesting Salesforce data for media campaign reporting with near-zero downtime.</li>
-    </ul>
-  </div>
-
-  <div class="job">
-    <span class="when">May 2019 – Feb 2020</span>
-    <h3>Digital Analyst</h3>
-    <p class="org">Mindshare · Toronto, ON</p>
-    <ul>
-      <li>Architected Datorama solutions for Nestlé and CPG clients, improving campaign ROI measurement.</li>
-    </ul>
+<!-- Capabilities -->
+<section class="sec" id="capabilities"><div class="wrap">
+  <div class="eyebrow"><b>03</b> Capabilities <span class="bar"></span></div>
+  <div class="caps">
+    <div class="cap" data-reveal>
+      <h4>Databricks</h4>
+      <ul><li>Delta Lake</li><li>Delta Live Tables</li><li>Unity Catalog</li><li>Workflows</li><li>Asset Bundles</li><li>Auto Loader</li><li>Genie AI · Lakebase</li></ul>
+    </div>
+    <div class="cap" data-reveal>
+      <h4>Languages</h4>
+      <ul><li>Python</li><li>PySpark</li><li>Spark SQL</li><li>SQL</li></ul>
+    </div>
+    <div class="cap" data-reveal>
+      <h4>Cloud</h4>
+      <ul><li>Azure ADLS · ADF</li><li>Azure DevOps</li><li>AWS S3</li><li>GCP BigQuery</li><li>Pub/Sub · Dataflow</li></ul>
+    </div>
+    <div class="cap" data-reveal>
+      <h4>Methods &amp; Tools</h4>
+      <ul><li>Medallion Architecture</li><li>CI/CD</li><li>Data Governance</li><li>Performance Tuning</li><li>Airflow · Streamlit</li><li>GitHub · Jira</li></ul>
+    </div>
   </div>
 </div></section>
 
-<section><div class="wrap">
-  <h2>Education &amp; certifications</h2>
-  <div class="tworow">
-    <div class="card cred"><h3>M.Eng, Computer Engineering</h3><p>University of Ottawa</p></div>
-    <div class="card cred"><h3>B.E, Computer Science</h3><p>Visvesvaraya Technological University</p></div>
-    <div class="card cred"><h3>Databricks Certified Data Engineer Professional</h3><p>Databricks · Dec 2024 – Dec 2026</p></div>
-    <div class="card cred"><h3>AWS Certified Cloud Practitioner</h3><p>Amazon Web Services</p></div>
+<!-- Experience -->
+<section class="sec" id="experience"><div class="wrap">
+  <div class="eyebrow"><b>04</b> Experience <span class="bar"></span></div>
+  <div class="exp">
+    <div class="exp__row" data-reveal>
+      <div class="exp__period">Apr 2024 — Present</div>
+      <div class="exp__main">
+        <h3 class="exp__role">Senior Data Engineer</h3>
+        <div class="exp__org">Zurich Canada · Toronto, ON</div>
+        <ul class="exp__points">
+          <li>Built an AI-powered insurance policy &amp; claims app with Databricks Genie and Lakebase — natural-language querying for underwriters, cutting insight turnaround from days to seconds.</li>
+          <li>Architected medallion lakehouse pipelines (bronze → silver → gold) with Delta Lake, Unity Catalog governance, and Auto Loader.</li>
+          <li>Designed config-driven PySpark ETL across 10+ programs and modernized CI/CD with Asset Bundles and Azure DevOps — ~40% faster Spark jobs, ~60% faster onboarding.</li>
+        </ul>
+      </div>
+      <div class="exp__idx">01</div>
+    </div>
+    <div class="exp__row" data-reveal>
+      <div class="exp__period">Aug 2021 — Apr 2024</div>
+      <div class="exp__main">
+        <h3 class="exp__role">Data Engineer</h3>
+        <div class="exp__org">GroupM · Toronto, ON</div>
+        <ul class="exp__points">
+          <li>Built Databricks and PySpark pipelines on GCP integrating Pub/Sub, Dataflow, BigQuery, and Bigtable — improving reporting performance by 60%.</li>
+          <li>Delivered multi-cloud solutions across GCP, Azure, and AWS; led data governance for enterprise data warehousing.</li>
+        </ul>
+      </div>
+      <div class="exp__idx">02</div>
+    </div>
+    <div class="exp__row" data-reveal>
+      <div class="exp__period">Jan 2021 — Jul 2021</div>
+      <div class="exp__main">
+        <h3 class="exp__role">Data Engineer</h3>
+        <div class="exp__org">Clue · Toronto, ON</div>
+        <ul class="exp__points">
+          <li>Designed graph data models with Neo4j and Cypher; built ETL pipelines on AWS (S3, Athena, SageMaker, DataBrew) for digital marketing analytics.</li>
+        </ul>
+      </div>
+      <div class="exp__idx">03</div>
+    </div>
+    <div class="exp__row" data-reveal>
+      <div class="exp__period">Feb 2020 — Dec 2020</div>
+      <div class="exp__main">
+        <h3 class="exp__role">Data Analyst</h3>
+        <div class="exp__org">Clue · Toronto, ON</div>
+        <ul class="exp__points">
+          <li>Built Azure analytics services ingesting Salesforce data for media campaign reporting with near-zero downtime.</li>
+        </ul>
+      </div>
+      <div class="exp__idx">04</div>
+    </div>
+    <div class="exp__row" data-reveal>
+      <div class="exp__period">May 2019 — Feb 2020</div>
+      <div class="exp__main">
+        <h3 class="exp__role">Digital Analyst</h3>
+        <div class="exp__org">Mindshare · Toronto, ON</div>
+        <ul class="exp__points">
+          <li>Architected Datorama solutions for Nestlé and CPG clients, improving campaign ROI measurement.</li>
+        </ul>
+      </div>
+      <div class="exp__idx">05</div>
+    </div>
   </div>
 </div></section>
 
-<footer id="contact"><div class="wrap">
-  <p style="font-size:13px;letter-spacing:.14em;color:var(--blue-soft);text-transform:uppercase;margin-bottom:10px">Let's build something</p>
-  <a class="email" href="mailto:suran.cse@gmail.com">suran.cse@gmail.com</a>
-  <div class="social">
-    <a href="https://github.com/mastermindlab" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://linkedin.com/in/suranjitbanik" target="_blank" rel="noopener">LinkedIn</a>
+<!-- Credentials -->
+<section class="sec" id="credentials"><div class="wrap">
+  <div class="eyebrow"><b>05</b> Credentials <span class="bar"></span></div>
+  <div class="creds">
+    <div class="cred" data-reveal><div class="ct">Education</div><h3>M.Eng, Computer Engineering</h3><p>University of Ottawa</p></div>
+    <div class="cred" data-reveal><div class="ct">Education</div><h3>B.E, Computer Science</h3><p>Visvesvaraya Technological University</p></div>
+    <div class="cred" data-reveal><div class="ct">Certification</div><h3>Databricks Certified Data Engineer Professional</h3><p>Databricks · 2024 – 2026</p></div>
+    <div class="cred" data-reveal><div class="ct">Certification</div><h3>AWS Certified Cloud Practitioner</h3><p>Amazon Web Services</p></div>
   </div>
-  <p class="fine">© 2026 Suranjit Banik · Toronto, ON</p>
+</div></section>
+
+<!-- Contact -->
+<footer class="foot" id="contact"><div class="wrap">
+  <div class="foot__lead">Let's build something</div>
+  <a class="foot__mail" href="mailto:suran.cse@gmail.com" data-magnetic>suran.cse<span class="serif">@</span>gmail.com</a>
+  <div class="foot__bottom">
+    <div class="foot__social">
+      <a href="https://linkedin.com/in/suranjitbanik" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://github.com/mastermindlab" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+    <div class="foot__fine">© 2026 Suranjit Banik · Toronto, ON · Built with Three.js &amp; GSAP</div>
+    <a class="totop" href="#top" data-scroll>Back to top ↑</a>
+  </div>
 </div></footer>
 
+<!-- ===================== Three.js data-surface ===================== -->
+<script type="module">
+import * as THREE from 'three';
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const canvas = document.getElementById('bg');
+let renderer, scene, camera, points, geo, base, raf, running = true;
+const pointer = { x: 0, y: 0, tx: 0, ty: 0 };
+const small = window.innerWidth < 760;
+const COLS = small ? 70 : 150;
+const ROWS = small ? 46 : 96;
+const SPREAD_X = 30, DEPTH = 34;
+
+function sprite(){
+  const c = document.createElement('canvas'); c.width = c.height = 64;
+  const x = c.getContext('2d');
+  const g = x.createRadialGradient(32,32,0,32,32,32);
+  g.addColorStop(0,'rgba(255,255,255,1)');
+  g.addColorStop(.25,'rgba(180,196,255,.85)');
+  g.addColorStop(1,'rgba(110,134,255,0)');
+  x.fillStyle = g; x.fillRect(0,0,64,64);
+  return new THREE.CanvasTexture(c);
+}
+
+function init(){
+  try{
+    renderer = new THREE.WebGLRenderer({ canvas, alpha:true, antialias:true });
+  }catch(e){ canvas.style.display='none'; return false; }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(62, window.innerWidth/window.innerHeight, 0.1, 120);
+  camera.position.set(0, 5.2, 15);
+  camera.lookAt(0, -1.5, -8);
+
+  const count = COLS * ROWS;
+  const pos = new Float32Array(count * 3);
+  base = new Float32Array(count * 2);
+  let i = 0;
+  for(let c = 0; c < COLS; c++){
+    for(let r = 0; r < ROWS; r++){
+      const x = (c/(COLS-1) - 0.5) * SPREAD_X;
+      const z = -(r/(ROWS-1)) * DEPTH;
+      pos[i*3] = x; pos[i*3+1] = 0; pos[i*3+2] = z;
+      base[i*2] = x; base[i*2+1] = z;
+      i++;
+    }
+  }
+  geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  const mat = new THREE.PointsMaterial({
+    size: small ? 0.16 : 0.13,
+    map: sprite(),
+    transparent: true,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+    color: new THREE.Color(0x6E86FF),
+    sizeAttenuation: true,
+    opacity: 0.95
+  });
+  points = new THREE.Points(geo, mat);
+  scene.add(points);
+  return true;
+}
+
+function wave(t){
+  const p = geo.attributes.position.array;
+  for(let i = 0; i < base.length/2; i++){
+    const x = base[i*2], z = base[i*2+1];
+    const y = Math.sin(x*0.34 + t)*Math.cos(z*0.38 + t*0.85)*1.05
+            + Math.sin((x + z)*0.2 + t*1.25)*0.5;
+    p[i*3+1] = y;
+  }
+  geo.attributes.position.needsUpdate = true;
+}
+
+const clock = (typeof THREE !== 'undefined') ? new THREE.Clock() : null;
+function loop(){
+  if(!running){ return; }
+  raf = requestAnimationFrame(loop);
+  const t = clock.getElapsedTime();
+  if(!reduce) wave(t * 0.55);
+  pointer.x += (pointer.tx - pointer.x) * 0.05;
+  pointer.y += (pointer.ty - pointer.y) * 0.05;
+  camera.position.x = pointer.x * 2.4;
+  camera.position.y = 5.2 + pointer.y * 1.1;
+  camera.lookAt(0, -1.5, -8);
+  points.rotation.z = pointer.x * 0.04;
+  renderer.render(scene, camera);
+}
+
+function resize(){
+  if(!renderer) return;
+  camera.aspect = window.innerWidth/window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+if(init()){
+  if(reduce){ wave(1.2); renderer.render(scene, camera); }
+  else { loop(); }
+  window.addEventListener('resize', resize, { passive:true });
+  window.addEventListener('pointermove', e => {
+    pointer.tx = (e.clientX/window.innerWidth - 0.5);
+    pointer.ty = (e.clientY/window.innerHeight - 0.5);
+  }, { passive:true });
+  document.addEventListener('visibilitychange', () => {
+    running = !document.hidden;
+    if(running && !reduce){ clock.start(); loop(); }
+  });
+}
+</script>
+
+<!-- ===================== GSAP / Lenis / interactions ===================== -->
 <script>
-fetch('https://api.github.com/repos/mastermindlab/fragmentation')
-  .then(r => r.ok ? r.json() : null)
-  .then(d => {
-    if (!d) return;
-    document.getElementById('repo-name').textContent = d.name.charAt(0).toUpperCase() + d.name.slice(1);
-    if (d.description) document.getElementById('repo-desc').textContent = d.description;
-    document.getElementById('repo-stars').textContent = d.stargazers_count;
-    document.getElementById('repo-forks').textContent = d.forks_count;
-    document.getElementById('repo-lang').textContent = d.language || 'Code';
-    document.getElementById('repo-updated').textContent = new Date(d.pushed_at).toLocaleDateString('en-CA', {year:'numeric', month:'short'});
-  })
-  .catch(() => {});
+(function(){
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hasGSAP = !!window.gsap;
+  const finishLoad = () => { document.body.classList.remove('is-loading'); };
+
+  // ---- Live GitHub repo data ----
+  fetch('https://api.github.com/repos/mastermindlab/fragmentation')
+    .then(r => r.ok ? r.json() : null)
+    .then(d => {
+      if(!d) return;
+      const set = (id,v) => { const el = document.getElementById(id); if(el) el.textContent = v; };
+      set('repo-name', d.name.charAt(0).toUpperCase() + d.name.slice(1));
+      if(d.description) set('repo-desc', d.description);
+      set('repo-stars', d.stargazers_count);
+      set('repo-forks', d.forks_count);
+      set('repo-lang', d.language || 'Code');
+      set('repo-updated', new Date(d.pushed_at).toLocaleDateString('en-CA', { year:'numeric', month:'short' }));
+    }).catch(()=>{});
+
+  if(!hasGSAP){
+    // No animation library — just reveal everything.
+    const p = document.querySelector('.preloader'); if(p) p.style.display='none';
+    finishLoad();
+    return;
+  }
+
+  const { gsap } = window;
+  if(window.ScrollTrigger) gsap.registerPlugin(window.ScrollTrigger);
+  const ST = window.ScrollTrigger;
+
+  // ---- Smooth scroll (Lenis) ----
+  let lenis = null;
+  if(window.Lenis && !reduce){
+    lenis = new window.Lenis({ lerp:0.1, smoothWheel:true });
+    lenis.on('scroll', () => { if(ST) ST.update(); });
+    gsap.ticker.add(t => lenis.raf(t*1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+  const scrollTo = (target) => {
+    const el = document.querySelector(target);
+    if(!el) return;
+    if(lenis) lenis.scrollTo(el, { offset:0, duration:1.2 });
+    else el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+  };
+  document.querySelectorAll('[data-scroll]').forEach(a => {
+    a.addEventListener('click', e => {
+      const href = a.getAttribute('href');
+      if(href && href.startsWith('#')){ e.preventDefault(); scrollTo(href); }
+    });
+  });
+
+  // ---- Nav solid on scroll ----
+  const nav = document.querySelector('.nav');
+  const onScroll = () => nav.classList.toggle('nav--solid', window.scrollY > 80);
+  window.addEventListener('scroll', onScroll, { passive:true });
+  if(lenis) lenis.on('scroll', ({ scroll }) => nav.classList.toggle('nav--solid', scroll > 80));
+  onScroll();
+
+  // ---- Reveal animations ----
+  function setupReveals(){
+    if(reduce || !ST){ return; }
+    gsap.set('[data-reveal]', { opacity:0, y:42 });
+    ST.batch('[data-reveal]', {
+      start: 'top 86%',
+      onEnter: b => gsap.to(b, { opacity:1, y:0, duration:1, ease:'power3.out', stagger:0.09, overwrite:true })
+    });
+
+    // Word-by-word illuminate on the statement
+    const stmt = document.querySelector('[data-split]');
+    if(stmt){
+      const words = splitWords(stmt);
+      gsap.set(words, { opacity:0.14 });
+      gsap.to(words, {
+        opacity:1, stagger:0.5, ease:'none',
+        scrollTrigger:{ trigger: stmt, start:'top 80%', end:'bottom 62%', scrub:true }
+      });
+    }
+
+    // Counters
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const target = parseFloat(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      const o = { v:0 };
+      ST.create({ trigger: el, start:'top 90%', once:true, onEnter:()=>{
+        gsap.to(o, { v:target, duration:1.6, ease:'power2.out',
+          onUpdate:()=>{ el.textContent = Math.round(o.v) + suffix; } });
+      }});
+    });
+
+    // Marquee infinite loop
+    const track = document.querySelector('.marquee__track');
+    if(track) gsap.to(track, { xPercent:-50, repeat:-1, duration:24, ease:'none' });
+  }
+
+  function splitWords(el){
+    const nodes = Array.from(el.childNodes);
+    el.innerHTML = '';
+    const words = [];
+    const push = (tok, cls) => {
+      const s = document.createElement('span');
+      s.className = 'word' + (cls ? ' ' + cls : '');
+      s.textContent = tok; el.appendChild(s); words.push(s);
+    };
+    nodes.forEach(node => {
+      if(node.nodeType === 3){
+        node.textContent.split(/(\s+)/).forEach(tok => {
+          if(tok.trim() === '') el.appendChild(document.createTextNode(tok));
+          else push(tok, '');
+        });
+      } else if(node.nodeType === 1){
+        const cls = node.getAttribute('class') || '';
+        node.textContent.split(/(\s+)/).forEach(tok => {
+          if(tok.trim() === '') el.appendChild(document.createTextNode(tok));
+          else push(tok, cls);
+        });
+      }
+    });
+    return words;
+  }
+
+  // ---- Hero intro ----
+  function revealHero(){
+    if(reduce || !window.gsap){ return; }
+    const tl = gsap.timeline({ defaults:{ ease:'power4.out' } });
+    tl.from('.nav', { y:-40, opacity:0, duration:0.8 })
+      .from('.hero__status', { opacity:0, y:18, duration:0.7 }, '-=0.35')
+      .from('.hero-title .w > span', { yPercent:118, duration:1.05, stagger:0.05 }, '-=0.25')
+      .from('.hero__sub', { opacity:0, y:24, duration:0.8 }, '-=0.55')
+      .from('.hero__meta', { opacity:0, y:18, duration:0.6 }, '-=0.6')
+      .from('.hero__cta > *', { opacity:0, y:20, stagger:0.12, duration:0.6 }, '-=0.5')
+      .from('.hero__scroll', { opacity:0, duration:0.6 }, '-=0.3')
+      .from('.marquee', { opacity:0, duration:0.8 }, '-=0.4');
+  }
+
+  // ---- Preloader ----
+  function runPreloader(done){
+    const pre = document.querySelector('.preloader');
+    const countEl = document.querySelector('.preloader__count');
+    if(!pre){ done(); return; }
+    if(reduce){
+      gsap.set(pre, { display:'none' }); done(); return;
+    }
+    const o = { v:0 };
+    const tl = gsap.timeline({ onComplete:()=>{ gsap.set(pre,{display:'none'}); done(); } });
+    tl.to(o, { v:100, duration:1.15, ease:'power1.inOut', onUpdate:()=>{ if(countEl) countEl.textContent = Math.round(o.v); } })
+      .to('.preloader__bar', { scaleX:1, duration:1.15, ease:'power1.inOut' }, 0)
+      .to(pre, { yPercent:-100, duration:0.95, ease:'power4.inOut' }, '+=0.12');
+  }
+
+  try{
+    setupReveals();
+    runPreloader(() => { clearTimeout(window.__preFail); finishLoad(); revealHero(); });
+  }catch(err){
+    const p = document.querySelector('.preloader'); if(p) p.style.display='none';
+    finishLoad();
+  }
+
+  // ---- Magnetic buttons + custom cursor (fine pointers only) ----
+  if(window.matchMedia('(hover:hover) and (pointer:fine)').matches && !reduce){
+    document.querySelectorAll('[data-magnetic]').forEach(el => {
+      el.addEventListener('pointermove', e => {
+        const r = el.getBoundingClientRect();
+        gsap.to(el, { x:(e.clientX-(r.left+r.width/2))*0.3, y:(e.clientY-(r.top+r.height/2))*0.4, duration:0.6, ease:'power3.out' });
+      });
+      el.addEventListener('pointerleave', () => gsap.to(el, { x:0, y:0, duration:0.7, ease:'elastic.out(1,0.4)' }));
+    });
+
+    const cur = document.querySelector('.cursor');
+    if(cur){
+      cur.classList.add('is-active');
+      document.body.classList.add('cursor-on');
+      gsap.set(cur, { xPercent:-50, yPercent:-50 });
+      const xTo = gsap.quickTo(cur, 'x', { duration:0.45, ease:'power3' });
+      const yTo = gsap.quickTo(cur, 'y', { duration:0.45, ease:'power3' });
+      window.addEventListener('pointermove', e => { xTo(e.clientX); yTo(e.clientY); });
+      document.querySelectorAll('a, button, [data-magnetic]').forEach(t => {
+        t.addEventListener('pointerenter', () => cur.classList.add('is-hover'));
+        t.addEventListener('pointerleave', () => cur.classList.remove('is-hover'));
+      });
+    }
+  }
+})();
 </script>
 </body>
 </html>
