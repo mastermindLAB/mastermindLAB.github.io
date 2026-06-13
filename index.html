@@ -297,15 +297,15 @@ section{position:relative}
       <span class="work__idx">(01)</span>
       <span class="work__tag">Open Source · GitHub</span>
     </div>
-    <h3 id="repo-name">Fragmentation</h3>
-    <p class="work__desc" id="repo-desc">A project exploring data fragmentation — see the repository for details.</p>
+    <h3 id="repo-name">Databricks AI Demo</h3>
+    <p class="work__desc" id="repo-desc">A hands-on Databricks demo exploring AI-powered data workflows on the lakehouse.</p>
     <div class="work__stats">
       <div class="work__stat"><div class="k">Stars</div><div class="v" id="repo-stars">—</div></div>
       <div class="work__stat"><div class="k">Forks</div><div class="v" id="repo-forks">—</div></div>
       <div class="work__stat"><div class="k">Language</div><div class="v" id="repo-lang">—</div></div>
       <div class="work__stat"><div class="k">Updated</div><div class="v" id="repo-updated">—</div></div>
     </div>
-    <a class="work__link" href="https://github.com/mastermindlab/fragmentation" target="_blank" rel="noopener">View repository <span class="arrow">→</span></a>
+    <a class="work__link" href="https://github.com/mastermindlab/ddemodatabricsai" target="_blank" rel="noopener">View repository <span class="arrow">→</span></a>
   </div>
 </div></section>
 
@@ -543,12 +543,11 @@ if(init()){
   const finishLoad = () => { document.body.classList.remove('is-loading'); };
 
   // ---- Live GitHub repo data ----
-  fetch('https://api.github.com/repos/mastermindlab/fragmentation')
+  fetch('https://api.github.com/repos/mastermindlab/ddemodatabricsai')
     .then(r => r.ok ? r.json() : null)
     .then(d => {
       if(!d) return;
       const set = (id,v) => { const el = document.getElementById(id); if(el) el.textContent = v; };
-      set('repo-name', d.name.charAt(0).toUpperCase() + d.name.slice(1));
       if(d.description) set('repo-desc', d.description);
       set('repo-stars', d.stargazers_count);
       set('repo-forks', d.forks_count);
