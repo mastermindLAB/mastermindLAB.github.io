@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suranjit Banik — Senior Data Engineer</title>
+<meta name="description" content="Editorial portfolio of Suranjit Banik, Senior Data Engineer specializing in Azure Databricks, lakehouse architecture, and AI-powered data products.">
+
+<!-- Inter typeface (modern sans-serif stack, SF Pro / Helvetica as fallback) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Tailwind Play CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  // Design tokens: monochrome base + a single muted periwinkle accent.
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          paper:     '#FAFAF8', // off-white canvas
+          ink:       '#0E0E0E', // deep black (primary text / CTA)
+          charcoal:  '#2B2B2B', // secondary headings
+          muted:     '#6B6B6B', // body / supporting text
+          line:      '#EAE8E2', // hairline dividers
+          accent:    '#6C7BA6', // the one muted pastel accent
+          accenttint:'#EAEDF4', // faint accent wash (selection / hover)
+        },
+        fontFamily: {
+          sans: ['Inter', 'SF Pro Display', '-apple-system', 'Helvetica', 'Arial', 'sans-serif'],
+          mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+        },
+        // Force every transition to the 200ms micro-interaction spec by default.
+        transitionDuration: { DEFAULT: '200ms' },
+        letterSpacing: { label: '0.2em' },
+        maxWidth: { content: '72rem' },
+      }
+    }
+  }
+</script>
+
+<style>
+  /* A handful of things Tailwind utilities don't express cleanly. */
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  ::selection { background: #EAEDF4; color: #0E0E0E; }
+
+  /* One-shot scroll reveal — depth through motion, not shadows. */
+  [data-reveal]{ opacity:0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease; }
+  [data-reveal].is-in{ opacity:1; transform:none; }
+
+  /* Editorial link underline that grows in on hover (200ms). */
+  .link-underline{ position:relative; }
+  .link-underline::after{
+    content:""; position:absolute; left:0; bottom:-2px; height:1px; width:100%;
+    background: currentColor; transform: scaleX(0); transform-origin:left;
+    transition: transform .2s ease;
+  }
+  .link-underline:hover::after{ transform: scaleX(1); }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    [data-reveal]{ opacity:1 !important; transform:none !important; transition:none; }
+  }
+</style>
+</head>
+
+<body class="bg-paper text-ink font-sans antialiased">
+
+<!-- ============================================================= -->
+<!-- NAV — sticky, semi-transparent blurred, minimalist            -->
+<!-- ============================================================= -->
+<header class="sticky top-0 z-50 border-b border-line/70 bg-paper/70 backdrop-blur-md">
+  <nav class="mx-auto flex h-16 max-w-content items-center justify-between px-6 md:px-8">
+    <!-- Logo: pure type, no mark -->
+    <a href="#top" class="text-sm font-semibold tracking-label uppercase">
+      Suranjit<span class="text-accent">.</span>Banik
+    </a>
+
+    <!-- Desktop links -->
+    <div class="hidden items-center gap-10 md:flex">
+      <a href="#work"       class="link-underline text-sm text-muted transition hover:text-ink">Work</a>
+      <a href="#skills"     class="link-underline text-sm text-muted transition hover:text-ink">Capabilities</a>
+      <a href="#experience" class="link-underline text-sm text-muted transition hover:text-ink">Experience</a>
+      <a href="mailto:suran.cse@gmail.com"
+         class="rounded-[4px] bg-ink px-5 py-2.5 text-sm font-medium text-paper transition hover:bg-accent">
+        Get in touch
+      </a>
+    </div>
+
+    <!-- Mobile menu button -->
+    <button id="menuBtn" aria-label="Open menu" aria-expanded="false"
+            class="flex h-10 w-10 items-center justify-center md:hidden">
+      <span class="space-y-1.5">
+        <span class="block h-px w-6 bg-ink transition"></span>
+        <span class="block h-px w-6 bg-ink transition"></span>
+      </span>
+    </button>
+  </nav>
+
+  <!-- Mobile dropdown -->
+  <div id="mobileMenu" class="hidden border-t border-line bg-paper px-6 py-6 md:hidden">
+    <div class="flex flex-col gap-5">
+      <a href="#work"       class="text-sm text-muted transition hover:text-ink">Work</a>
+      <a href="#skills"     class="text-sm text-muted transition hover:text-ink">Capabilities</a>
+      <a href="#experience" class="text-sm text-muted transition hover:text-ink">Experience</a>
+      <a href="mailto:suran.cse@gmail.com"
+         class="mt-1 inline-flex w-fit rounded-[4px] bg-ink px-5 py-2.5 text-sm font-medium text-paper transition hover:bg-accent">
+        Get in touch
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="top" class="mx-auto max-w-content px-6 md:px-8">
+
+  <!-- =========================================================== -->
+  <!-- HERO — massive left-aligned type, no illustration           -->
+  <!-- =========================================================== -->
+  <section class="grid grid-cols-1 gap-10 py-24 md:grid-cols-12 md:py-36">
+    <div class="md:col-span-10 md:col-start-1">
+      <p data-reveal class="mb-8 flex items-center gap-3 text-xs uppercase tracking-label text-muted">
+        <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent"></span>
+        Senior Data Engineer — Azure Databricks
+      </p>
+
+      <!-- Display headline: clamp scale, tight tracking, single accent word -->
+      <h1 data-reveal
+          class="max-w-[16ch] text-[clamp(2.75rem,8.5vw,6rem)] font-semibold leading-[0.95] tracking-[-0.03em]">
+        Building scalable lakehouse pipelines &amp;
+        <span class="text-accent">AI-powered</span> data products.
+      </h1>
+
+      <p data-reveal class="mt-10 max-w-2xl text-lg leading-relaxed text-muted md:text-xl">
+        Five-plus years turning raw, fragmented data into governed, production-grade
+        platforms — Delta Lake, Delta Live Tables, Unity Catalog, and Databricks Genie —
+        across insurance, digital media, and analytics.
+      </p>
+
+      <!-- CTA cluster: one high-contrast button + one quiet text link -->
+      <div data-reveal class="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
+        <a href="mailto:suran.cse@gmail.com"
+           class="rounded-[4px] bg-ink px-7 py-3.5 text-sm font-medium text-paper transition hover:bg-accent">
+          Get started
+        </a>
+        <a href="#work" class="link-underline text-sm font-medium text-ink transition">
+          View selected work →
+        </a>
+      </div>
+
+      <!-- Quiet meta row -->
+      <div data-reveal class="mt-16 flex flex-wrap gap-x-12 gap-y-4 border-t border-line pt-8 text-sm text-muted">
+        <span>📍 Toronto, ON</span>
+        <span>5+ years experience</span>
+        <span>Databricks Certified — Professional</span>
+        <span class="text-accent">Open to opportunities</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== -->
+  <!-- 01 — WORK (featured project, flat ghost card)               -->
+  <!-- =========================================================== -->
+  <section id="work" class="grid grid-cols-1 gap-8 border-t border-line py-24 md:grid-cols-12 md:py-32">
+    <div class="md:col-span-3">
+      <p data-reveal class="text-sm font-mono text-accent">01</p>
+      <h2 data-reveal class="mt-2 text-xs uppercase tracking-label text-muted">Selected work</h2>
+    </div>
+
+    <div class="md:col-span-9">
+      <!-- Ghost card: no shadow, 4px radius, hairline that warms to accent on hover -->
+      <a href="https://github.com/mastermindlab/ddemodatabricsai" target="_blank" rel="noopener"
+         class="group block rounded-[4px] border border-line p-8 transition hover:border-accent hover:bg-accenttint/40 md:p-12">
+        <div class="flex items-start justify-between gap-6">
+          <div>
+            <p class="text-xs uppercase tracking-label text-muted">Open source · GitHub</p>
+            <h3 id="repo-name" class="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">Databricks AI Demo</h3>
+          </div>
+          <span class="mt-1 text-xl text-muted transition group-hover:translate-x-1 group-hover:text-accent">↗</span>
+        </div>
+
+        <p id="repo-desc" class="mt-5 max-w-xl text-base leading-relaxed text-muted">
+          A hands-on Databricks demo exploring AI-powered data workflows on the lakehouse.
+        </p>
+
+        <!-- Repo stats, populated live from the GitHub API -->
+        <dl class="mt-10 grid grid-cols-2 gap-6 border-t border-line pt-8 sm:grid-cols-4">
+          <div><dt class="text-xs uppercase tracking-label text-muted">Stars</dt><dd id="repo-stars" class="mt-2 text-2xl font-semibold">—</dd></div>
+          <div><dt class="text-xs uppercase tracking-label text-muted">Forks</dt><dd id="repo-forks" class="mt-2 text-2xl font-semibold">—</dd></div>
+          <div><dt class="text-xs uppercase tracking-label text-muted">Language</dt><dd id="repo-lang" class="mt-2 text-2xl font-semibold">—</dd></div>
+          <div><dt class="text-xs uppercase tracking-label text-muted">Updated</dt><dd id="repo-updated" class="mt-2 text-2xl font-semibold">—</dd></div>
+        </dl>
+      </a>
+    </div>
+  </section>
+
+  <!-- =========================================================== -->
+  <!-- 02 — CAPABILITIES (flat list groups, no cards)              -->
+  <!-- =========================================================== -->
+  <section id="skills" class="grid grid-cols-1 gap-8 border-t border-line py-24 md:grid-cols-12 md:py-32">
+    <div class="md:col-span-3">
+      <p data-reveal class="text-sm font-mono text-accent">02</p>
+      <h2 data-reveal class="mt-2 text-xs uppercase tracking-label text-muted">Capabilities</h2>
+    </div>
+
+    <div class="md:col-span-9">
+      <div class="grid grid-cols-1 gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-2">
+        <!-- Each cell is paper over a 1px line-grid — borders without drawing borders -->
+        <div data-reveal class="bg-paper p-8">
+          <h4 class="text-base font-semibold">Databricks Platform</h4>
+          <p class="mt-3 text-sm leading-relaxed text-muted">Delta Lake · Delta Live Tables · Unity Catalog · Workflows · Asset Bundles · Auto Loader · Genie AI · Lakebase · Databricks Apps</p>
+        </div>
+        <div data-reveal class="bg-paper p-8">
+          <h4 class="text-base font-semibold">Languages</h4>
+          <p class="mt-3 text-sm leading-relaxed text-muted">Python · PySpark · Spark SQL · SQL</p>
+        </div>
+        <div data-reveal class="bg-paper p-8">
+          <h4 class="text-base font-semibold">Cloud</h4>
+          <p class="mt-3 text-sm leading-relaxed text-muted">Azure ADLS · Azure DevOps · ADF · AWS S3 · GCP BigQuery · Pub/Sub · Dataflow</p>
+        </div>
+        <div data-reveal class="bg-paper p-8">
+          <h4 class="text-base font-semibold">Practice &amp; Tooling</h4>
+          <p class="mt-3 text-sm leading-relaxed text-muted">Medallion architecture · CI/CD · Data governance · Performance tuning · Airflow · Streamlit</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== -->
+  <!-- 03 — EXPERIENCE (editorial list, hairline rows)             -->
+  <!-- =========================================================== -->
+  <section id="experience" class="grid grid-cols-1 gap-8 border-t border-line py-24 md:grid-cols-12 md:py-32">
+    <div class="md:col-span-3">
+      <p data-reveal class="text-sm font-mono text-accent">03</p>
+      <h2 data-reveal class="mt-2 text-xs uppercase tracking-label text-muted">Experience</h2>
+    </div>
+
+    <div class="md:col-span-9 divide-y divide-line">
+      <!-- Row -->
+      <article data-reveal class="grid grid-cols-1 gap-3 py-8 first:pt-0 md:grid-cols-12 md:gap-8">
+        <p class="text-sm text-muted md:col-span-3">Apr 2024 — Present</p>
+        <div class="md:col-span-9">
+          <h3 class="text-xl font-semibold">Senior Data Engineer <span class="font-normal text-muted">· Zurich Canada</span></h3>
+          <p class="mt-3 max-w-2xl text-base leading-relaxed text-muted">
+            Built an AI-powered policy &amp; claims app on Databricks Genie + Lakebase, cutting underwriter
+            insight turnaround from days to seconds. Architected medallion lakehouse pipelines with Unity Catalog
+            governance, and shipped config-driven PySpark ETL that reduced new-source onboarding ~60%.
+          </p>
+        </div>
+      </article>
+
+      <article data-reveal class="grid grid-cols-1 gap-3 py-8 md:grid-cols-12 md:gap-8">
+        <p class="text-sm text-muted md:col-span-3">Aug 2021 — Apr 2024</p>
+        <div class="md:col-span-9">
+          <h3 class="text-xl font-semibold">Data Engineer <span class="font-normal text-muted">· GroupM</span></h3>
+          <p class="mt-3 max-w-2xl text-base leading-relaxed text-muted">
+            Built Databricks &amp; PySpark pipelines on GCP (Pub/Sub, Dataflow, BigQuery, Bigtable), improving
+            reporting performance ~60%. Delivered multi-cloud solutions across GCP, Azure, and AWS and led
+            governance for enterprise warehousing.
+          </p>
+        </div>
+      </article>
+
+      <article data-reveal class="grid grid-cols-1 gap-3 py-8 md:grid-cols-12 md:gap-8">
+        <p class="text-sm text-muted md:col-span-3">Jan 2021 — Jul 2021</p>
+        <div class="md:col-span-9">
+          <h3 class="text-xl font-semibold">Data Engineer <span class="font-normal text-muted">· Clue</span></h3>
+          <p class="mt-3 max-w-2xl text-base leading-relaxed text-muted">
+            Designed Neo4j / Cypher graph models and built ETL on AWS (S3, Athena, SageMaker, DataBrew) for
+            digital marketing analytics.
+          </p>
+        </div>
+      </article>
+
+      <article data-reveal class="grid grid-cols-1 gap-3 py-8 md:grid-cols-12 md:gap-8">
+        <p class="text-sm text-muted md:col-span-3">2019 — 2020</p>
+        <div class="md:col-span-9">
+          <h3 class="text-xl font-semibold">Data &amp; Digital Analyst <span class="font-normal text-muted">· Clue · Mindshare</span></h3>
+          <p class="mt-3 max-w-2xl text-base leading-relaxed text-muted">
+            Built Azure analytics ingesting Salesforce data for media reporting, and architected Datorama
+            solutions for Nestlé and CPG clients to sharpen campaign ROI measurement.
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- =========================================================== -->
+  <!-- 04 — RECOGNITION (education & certifications)               -->
+  <!-- =========================================================== -->
+  <section class="grid grid-cols-1 gap-8 border-t border-line py-24 md:grid-cols-12 md:py-32">
+    <div class="md:col-span-3">
+      <p data-reveal class="text-sm font-mono text-accent">04</p>
+      <h2 data-reveal class="mt-2 text-xs uppercase tracking-label text-muted">Recognition</h2>
+    </div>
+
+    <div class="md:col-span-9 grid grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2">
+      <div data-reveal><h3 class="text-base font-semibold">M.Eng, Computer Engineering</h3><p class="mt-1 text-sm text-muted">University of Ottawa</p></div>
+      <div data-reveal><h3 class="text-base font-semibold">B.E, Computer Science</h3><p class="mt-1 text-sm text-muted">Visvesvaraya Technological University</p></div>
+      <div data-reveal><h3 class="text-base font-semibold">Databricks Certified Data Engineer — Professional</h3><p class="mt-1 text-sm text-muted">Databricks · 2024 – 2026</p></div>
+      <div data-reveal><h3 class="text-base font-semibold">AWS Certified Cloud Practitioner</h3><p class="mt-1 text-sm text-muted">Amazon Web Services</p></div>
+    </div>
+  </section>
+
+  <!-- =========================================================== -->
+  <!-- CLOSING CTA                                                  -->
+  <!-- =========================================================== -->
+  <section class="border-t border-line py-28 text-center md:py-40">
+    <p data-reveal class="text-xs uppercase tracking-label text-muted">Let's build something</p>
+    <a data-reveal href="mailto:suran.cse@gmail.com"
+       class="link-underline mt-6 inline-block text-[clamp(1.75rem,5vw,3.5rem)] font-semibold tracking-tight">
+      suran.cse@gmail.com
+    </a>
+  </section>
+</main>
+
+<!-- ============================================================= -->
+<!-- FOOTER — list-based, centered                                 -->
+<!-- ============================================================= -->
+<footer class="border-t border-line">
+  <div class="mx-auto max-w-content px-6 py-16 md:px-8">
+    <div class="flex flex-col items-center gap-8 text-center">
+      <a href="#top" class="text-sm font-semibold tracking-label uppercase">Suranjit<span class="text-accent">.</span>Banik</a>
+
+      <nav class="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-muted">
+        <a href="#work"       class="transition hover:text-ink">Work</a>
+        <a href="#skills"     class="transition hover:text-ink">Capabilities</a>
+        <a href="#experience" class="transition hover:text-ink">Experience</a>
+        <a href="https://github.com/mastermindlab"   target="_blank" rel="noopener" class="transition hover:text-ink">GitHub</a>
+        <a href="https://linkedin.com/in/suranjitbanik" target="_blank" rel="noopener" class="transition hover:text-ink">LinkedIn</a>
+      </nav>
+
+      <p class="text-xs text-muted">© <span id="year">2026</span> Suranjit Banik — Toronto, ON. Designed &amp; built with care.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================= -->
+<!-- VANILLA JS — menu, scroll reveal, live repo stats, year       -->
+<!-- ============================================================= -->
+<script>
+  // 1) Mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('hidden') === false;
+    menuBtn.setAttribute('aria-expanded', String(open));
+  });
+  mobileMenu.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => mobileMenu.classList.add('hidden'))
+  );
+
+  // 2) Scroll reveal via IntersectionObserver (respects reduced-motion through CSS)
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+  // 3) Current year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // 4) Live featured-project stats from the GitHub API
+  fetch('https://api.github.com/repos/mastermindlab/ddemodatabricsai')
+    .then(r => r.ok ? r.json() : null)
+    .then(d => {
+      if (!d) return;
+      /* keep the curated display name */
+      if (d.description) document.getElementById('repo-desc').textContent = d.description;
+      document.getElementById('repo-stars').textContent = d.stargazers_count;
+      document.getElementById('repo-forks').textContent = d.forks_count;
+      document.getElementById('repo-lang').textContent  = d.language || 'Code';
+      document.getElementById('repo-updated').textContent =
+        new Date(d.pushed_at).toLocaleDateString('en-CA', { year: 'numeric', month: 'short' });
+    })
+    .catch(() => {});
+</script>
+</body>
+</html>
