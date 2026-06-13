@@ -276,8 +276,8 @@ footer .fine{font-size:12.5px;color:var(--hero-muted)}
     <div class="feature reveal">
       <div>
         <div class="ftop"><img src="https://cdn.simpleicons.org/github" alt="GitHub" onerror="this.remove()"><span class="tagline">Open source · GitHub</span></div>
-        <h3 id="repo-name">Fragmentation</h3>
-        <p id="repo-desc">A project exploring data fragmentation — see the repository for details.</p>
+        <h3 id="repo-name">Databricks AI Demo</h3>
+        <p id="repo-desc">A hands-on Databricks demo exploring AI-powered data workflows on the lakehouse.</p>
       </div>
       <dl class="repostats">
         <div><dt>Stars</dt><dd id="repo-stars">—</dd></div>
@@ -285,7 +285,7 @@ footer .fine{font-size:12.5px;color:var(--hero-muted)}
         <div><dt>Language</dt><dd id="repo-lang">—</dd></div>
         <div><dt>Updated</dt><dd id="repo-updated">—</dd></div>
       </dl>
-      <div class="cta"><a href="https://github.com/mastermindlab/fragmentation" target="_blank" rel="noopener" data-cursor>View repository →</a></div>
+      <div class="cta"><a href="https://github.com/mastermindlab/ddemodatabricsai" target="_blank" rel="noopener" data-cursor>View repository →</a></div>
     </div>
   </div></section>
 
@@ -403,11 +403,11 @@ footer .fine{font-size:12.5px;color:var(--hero-muted)}
 
 <!-- Featured project stats from GitHub API -->
 <script>
-fetch('https://api.github.com/repos/mastermindlab/fragmentation')
+fetch('https://api.github.com/repos/mastermindlab/ddemodatabricsai')
   .then(r => r.ok ? r.json() : null)
   .then(d => {
     if (!d) return;
-    document.getElementById('repo-name').textContent = d.name.charAt(0).toUpperCase() + d.name.slice(1);
+    /* keep the curated display name */
     if (d.description) document.getElementById('repo-desc').textContent = d.description;
     document.getElementById('repo-stars').textContent = d.stargazers_count;
     document.getElementById('repo-forks').textContent = d.forks_count;
