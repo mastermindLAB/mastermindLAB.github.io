@@ -20,12 +20,18 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6;overflow-x:hidden}
 a{color:var(--blue-bright);text-decoration:none}
 a:hover{color:var(--blue-soft)}
-.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
 
-nav{position:sticky;top:0;background:rgba(5,8,15,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);z-index:10}
+/* Three.js animated background canvas */
+#bg-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block}
+body>*:not(#bg-canvas){position:relative;z-index:1}
+/* let the canvas glow show through translucent sections */
+header,section,footer{background-color:transparent}
+
+nav{position:sticky;top:0;background:rgba(5,8,15,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);z-index:20}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
 .logo{font-weight:700;letter-spacing:.06em;color:var(--text);font-size:15px}
 .logo span{color:var(--blue-bright)}
@@ -35,14 +41,15 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 
 header{padding:90px 0 70px;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(46,124,246,.18),transparent)}
 .kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.14em;color:var(--blue-soft);text-transform:uppercase;margin-bottom:18px}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--blue-bright)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--blue-bright);box-shadow:0 0 0 0 rgba(77,159,255,.6);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(77,159,255,.5)}70%{box-shadow:0 0 0 10px rgba(77,159,255,0)}100%{box-shadow:0 0 0 0 rgba(77,159,255,0)}}
 h1{font-size:clamp(34px,6vw,56px);font-weight:700;line-height:1.12;letter-spacing:-.01em}
 h1 em{font-style:normal;color:var(--blue-bright)}
 .tag{font-size:clamp(16px,2.5vw,20px);color:var(--muted);margin:16px 0 8px}
 .loc{font-size:14px;color:var(--faint)}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;border:1px solid var(--border);color:var(--text);transition:.2s}
-.btn:hover{border-color:var(--blue);color:var(--blue-bright)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;border:1px solid var(--border);color:var(--text);transition:.2s;background:rgba(13,21,38,.4)}
+.btn:hover{border-color:var(--blue);color:var(--blue-bright);transform:translateY(-2px)}
 .btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
 .btn.primary:hover{background:var(--blue-bright);color:#fff}
 
@@ -50,7 +57,7 @@ section{padding:64px 0;border-top:1px solid var(--border)}
 h2{font-size:22px;font-weight:700;margin-bottom:28px;display:flex;align-items:center;gap:12px}
 h2::before{content:"";width:26px;height:3px;background:var(--blue);border-radius:2px}
 
-.feature{background:linear-gradient(135deg,var(--bg2),var(--card));border:1px solid var(--border);border-radius:16px;padding:30px;position:relative;overflow:hidden}
+.feature{background:linear-gradient(135deg,rgba(10,16,32,.85),rgba(13,21,38,.85));border:1px solid var(--border);border-radius:16px;padding:30px;position:relative;overflow:hidden;backdrop-filter:blur(4px)}
 .feature::after{content:"";position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(46,124,246,.15),transparent 70%)}
 .badge{display:inline-block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-soft);border:1px solid var(--border);border-radius:20px;padding:4px 12px;margin-bottom:14px}
 .feature h3{font-size:24px;margin-bottom:8px}
@@ -59,7 +66,8 @@ h2::before{content:"";width:26px;height:3px;background:var(--blue);border-radius
 .repostats b{color:var(--blue-soft);font-weight:600}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px}
+.card{background:rgba(13,21,38,.78);border:1px solid var(--border);border-radius:14px;padding:22px;backdrop-filter:blur(4px);transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:var(--blue)}
 .card h4{font-size:15px;color:var(--blue-soft);margin-bottom:10px;letter-spacing:.04em}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{font-size:12.5px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:5px 11px;color:var(--text)}
@@ -91,9 +99,16 @@ footer .fine{font-size:12.5px;color:var(--faint)}
   .feature{padding:24px 20px}
   .cta .btn{flex:1;justify-content:center}
 }
+@media (prefers-reduced-motion: reduce){
+  .dot{animation:none}
+  *{scroll-behavior:auto}
+}
 </style>
 </head>
 <body>
+
+<!-- Three.js renders the interactive data-network background here -->
+<canvas id="bg-canvas"></canvas>
 
 <nav><div class="wrap">
   <div class="logo">SURANJIT<span>.</span>BANIK</div>
@@ -115,8 +130,8 @@ footer .fine{font-size:12.5px;color:var(--faint)}
 </div></header>
 
 <section id="project"><div class="wrap">
-  <h2>Featured project</h2>
-  <div class="feature">
+  <h2 data-reveal>Featured project</h2>
+  <div class="feature" data-reveal>
     <span class="badge">From my GitHub</span>
     <h3 id="repo-name">Fragmentation</h3>
     <p id="repo-desc">A project exploring data fragmentation — see the repository for details.</p>
@@ -131,19 +146,19 @@ footer .fine{font-size:12.5px;color:var(--faint)}
 </div></section>
 
 <section id="skills"><div class="wrap">
-  <h2>Core skills</h2>
+  <h2 data-reveal>Core skills</h2>
   <div class="grid">
-    <div class="card"><h4>Databricks</h4><div class="chips"><span class="chip">Delta Lake</span><span class="chip">Delta Live Tables</span><span class="chip">Unity Catalog</span><span class="chip">Workflows</span><span class="chip">Asset Bundles</span><span class="chip">Auto Loader</span><span class="chip">Genie AI</span><span class="chip">Lakebase</span></div></div>
-    <div class="card"><h4>Languages</h4><div class="chips"><span class="chip">Python</span><span class="chip">PySpark</span><span class="chip">Spark SQL</span><span class="chip">SQL</span></div></div>
-    <div class="card"><h4>Cloud</h4><div class="chips"><span class="chip">Azure ADLS</span><span class="chip">Azure DevOps</span><span class="chip">ADF</span><span class="chip">AWS S3</span><span class="chip">GCP BigQuery</span><span class="chip">Pub/Sub</span><span class="chip">Dataflow</span></div></div>
-    <div class="card"><h4>Tools &amp; strengths</h4><div class="chips"><span class="chip">GitHub</span><span class="chip">Jira</span><span class="chip">Streamlit</span><span class="chip">Airflow</span><span class="chip">Medallion Architecture</span><span class="chip">CI/CD</span><span class="chip">Data Governance</span><span class="chip">Performance Tuning</span></div></div>
+    <div class="card" data-reveal><h4>Databricks</h4><div class="chips"><span class="chip">Delta Lake</span><span class="chip">Delta Live Tables</span><span class="chip">Unity Catalog</span><span class="chip">Workflows</span><span class="chip">Asset Bundles</span><span class="chip">Auto Loader</span><span class="chip">Genie AI</span><span class="chip">Lakebase</span></div></div>
+    <div class="card" data-reveal><h4>Languages</h4><div class="chips"><span class="chip">Python</span><span class="chip">PySpark</span><span class="chip">Spark SQL</span><span class="chip">SQL</span></div></div>
+    <div class="card" data-reveal><h4>Cloud</h4><div class="chips"><span class="chip">Azure ADLS</span><span class="chip">Azure DevOps</span><span class="chip">ADF</span><span class="chip">AWS S3</span><span class="chip">GCP BigQuery</span><span class="chip">Pub/Sub</span><span class="chip">Dataflow</span></div></div>
+    <div class="card" data-reveal><h4>Tools &amp; strengths</h4><div class="chips"><span class="chip">GitHub</span><span class="chip">Jira</span><span class="chip">Streamlit</span><span class="chip">Airflow</span><span class="chip">Medallion Architecture</span><span class="chip">CI/CD</span><span class="chip">Data Governance</span><span class="chip">Performance Tuning</span></div></div>
   </div>
 </div></section>
 
 <section id="experience"><div class="wrap">
-  <h2>Experience</h2>
+  <h2 data-reveal>Experience</h2>
 
-  <div class="job">
+  <div class="job" data-reveal>
     <span class="when">Apr 2024 – Present</span>
     <h3>Senior Data Engineer</h3>
     <p class="org">Zurich Canada · Toronto, ON</p>
@@ -156,7 +171,7 @@ footer .fine{font-size:12.5px;color:var(--faint)}
     </ul>
   </div>
 
-  <div class="job">
+  <div class="job" data-reveal>
     <span class="when">Aug 2021 – Apr 2024</span>
     <h3>Data Engineer</h3>
     <p class="org">GroupM · Toronto, ON</p>
@@ -166,7 +181,7 @@ footer .fine{font-size:12.5px;color:var(--faint)}
     </ul>
   </div>
 
-  <div class="job">
+  <div class="job" data-reveal>
     <span class="when">Jan 2021 – Jul 2021</span>
     <h3>Data Engineer</h3>
     <p class="org">Clue · Toronto, ON</p>
@@ -175,7 +190,7 @@ footer .fine{font-size:12.5px;color:var(--faint)}
     </ul>
   </div>
 
-  <div class="job">
+  <div class="job" data-reveal>
     <span class="when">Feb 2020 – Dec 2020</span>
     <h3>Data Analyst</h3>
     <p class="org">Clue · Toronto, ON</p>
@@ -184,7 +199,7 @@ footer .fine{font-size:12.5px;color:var(--faint)}
     </ul>
   </div>
 
-  <div class="job">
+  <div class="job" data-reveal>
     <span class="when">May 2019 – Feb 2020</span>
     <h3>Digital Analyst</h3>
     <p class="org">Mindshare · Toronto, ON</p>
@@ -195,12 +210,12 @@ footer .fine{font-size:12.5px;color:var(--faint)}
 </div></section>
 
 <section><div class="wrap">
-  <h2>Education &amp; certifications</h2>
+  <h2 data-reveal>Education &amp; certifications</h2>
   <div class="tworow">
-    <div class="card cred"><h3>M.Eng, Computer Engineering</h3><p>University of Ottawa</p></div>
-    <div class="card cred"><h3>B.E, Computer Science</h3><p>Visvesvaraya Technological University</p></div>
-    <div class="card cred"><h3>Databricks Certified Data Engineer Professional</h3><p>Databricks · Dec 2024 – Dec 2026</p></div>
-    <div class="card cred"><h3>AWS Certified Cloud Practitioner</h3><p>Amazon Web Services</p></div>
+    <div class="card cred" data-reveal><h3>M.Eng, Computer Engineering</h3><p>University of Ottawa</p></div>
+    <div class="card cred" data-reveal><h3>B.E, Computer Science</h3><p>Visvesvaraya Technological University</p></div>
+    <div class="card cred" data-reveal><h3>Databricks Certified Data Engineer Professional</h3><p>Databricks · Dec 2024 – Dec 2026</p></div>
+    <div class="card cred" data-reveal><h3>AWS Certified Cloud Practitioner</h3><p>Amazon Web Services</p></div>
   </div>
 </div></section>
 
@@ -211,9 +226,10 @@ footer .fine{font-size:12.5px;color:var(--faint)}
     <a href="https://github.com/mastermindlab" target="_blank" rel="noopener">GitHub</a>
     <a href="https://linkedin.com/in/suranjitbanik" target="_blank" rel="noopener">LinkedIn</a>
   </div>
-  <p class="fine">© 2026 Suranjit Banik · Toronto, ON</p>
+  <p class="fine">© 2026 Suranjit Banik · Toronto, ON · Built with Three.js + GSAP</p>
 </div></footer>
 
+<!-- Populate the featured project card from the GitHub API -->
 <script>
 fetch('https://api.github.com/repos/mastermindlab/fragmentation')
   .then(r => r.ok ? r.json() : null)
@@ -227,6 +243,149 @@ fetch('https://api.github.com/repos/mastermindlab/fragmentation')
     document.getElementById('repo-updated').textContent = new Date(d.pushed_at).toLocaleDateString('en-CA', {year:'numeric', month:'short'});
   })
   .catch(() => {});
+</script>
+
+<!-- GSAP: scroll-driven entrance animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || typeof gsap === 'undefined') return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Hero intro timeline
+  gsap.timeline({defaults:{ease:'power3.out'}})
+    .from('.kicker', {y:20, opacity:0, duration:.6})
+    .from('h1',       {y:30, opacity:0, duration:.8}, '-=.3')
+    .from('.tag',     {y:20, opacity:0, duration:.6}, '-=.5')
+    .from('.loc',     {y:14, opacity:0, duration:.5}, '-=.4')
+    .from('.cta .btn',{y:14, opacity:0, duration:.5, stagger:.08}, '-=.3');
+
+  // Scroll-reveal for everything marked data-reveal
+  gsap.utils.toArray('[data-reveal]').forEach(function(el){
+    gsap.from(el, {
+      y:34, opacity:0, duration:.7, ease:'power2.out',
+      scrollTrigger:{ trigger:el, start:'top 85%' }
+    });
+  });
+})();
+</script>
+
+<!-- Three.js: interactive "data network" particle background -->
+<script type="importmap">
+{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+</script>
+<script type="module">
+import * as THREE from 'three';
+
+const canvas = document.getElementById('bg-canvas');
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
+camera.position.z = 70;
+
+// --- Build a cloud of nodes representing flowing data points ---
+const COUNT = window.innerWidth < 700 ? 70 : 120;
+const SPREAD = 90;
+const positions = new Float32Array(COUNT * 3);
+const velocities = [];
+for (let i = 0; i < COUNT; i++){
+  positions[i*3]   = (Math.random()-0.5) * SPREAD;
+  positions[i*3+1] = (Math.random()-0.5) * SPREAD * 0.6;
+  positions[i*3+2] = (Math.random()-0.5) * SPREAD;
+  velocities.push(new THREE.Vector3(
+    (Math.random()-0.5)*0.04,
+    (Math.random()-0.5)*0.04,
+    (Math.random()-0.5)*0.04
+  ));
+}
+
+const pGeo = new THREE.BufferGeometry();
+pGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+const pMat = new THREE.PointsMaterial({ color:0x4D9FFF, size:0.9, transparent:true, opacity:0.9 });
+const points = new THREE.Points(pGeo, pMat);
+scene.add(points);
+
+// --- Lines connecting nearby nodes (the "network") ---
+const lineGeo = new THREE.BufferGeometry();
+const maxLineVerts = COUNT * COUNT;
+const linePositions = new Float32Array(maxLineVerts * 3);
+lineGeo.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+const lineMat = new THREE.LineBasicMaterial({ color:0x2E7CF6, transparent:true, opacity:0.16 });
+const lines = new THREE.LineSegments(lineGeo, lineMat);
+scene.add(lines);
+
+const LINK_DIST = 16, LINK_DIST_SQ = LINK_DIST*LINK_DIST;
+
+function rebuildLines(){
+  let n = 0;
+  for (let i = 0; i < COUNT; i++){
+    const ax = positions[i*3], ay = positions[i*3+1], az = positions[i*3+2];
+    for (let j = i+1; j < COUNT; j++){
+      const dx = ax-positions[j*3], dy = ay-positions[j*3+1], dz = az-positions[j*3+2];
+      if (dx*dx+dy*dy+dz*dz < LINK_DIST_SQ){
+        linePositions[n++] = ax; linePositions[n++] = ay; linePositions[n++] = az;
+        linePositions[n++] = positions[j*3]; linePositions[n++] = positions[j*3+1]; linePositions[n++] = positions[j*3+2];
+      }
+    }
+  }
+  lineGeo.setDrawRange(0, n/3);
+  lineGeo.attributes.position.needsUpdate = true;
+}
+
+// --- Mouse parallax ---
+const mouse = { x:0, y:0 };
+window.addEventListener('pointermove', e => {
+  mouse.x = (e.clientX/window.innerWidth - 0.5);
+  mouse.y = (e.clientY/window.innerHeight - 0.5);
+});
+
+function resize(){
+  const w = window.innerWidth, h = window.innerHeight;
+  renderer.setSize(w, h, false);
+  camera.aspect = w/h;
+  camera.updateProjectionMatrix();
+}
+window.addEventListener('resize', resize);
+resize();
+
+const half = SPREAD/2;
+function animate(){
+  requestAnimationFrame(animate);
+
+  if (!reduce){
+    for (let i = 0; i < COUNT; i++){
+      positions[i*3]   += velocities[i].x;
+      positions[i*3+1] += velocities[i].y;
+      positions[i*3+2] += velocities[i].z;
+      // gently bounce particles back inside the box
+      for (let a = 0; a < 3; a++){
+        const lim = a===1 ? half*0.6 : half;
+        if (positions[i*3+a] >  lim) velocities[i].setComponent(a, -Math.abs(velocities[i].getComponent(a)));
+        if (positions[i*3+a] < -lim) velocities[i].setComponent(a,  Math.abs(velocities[i].getComponent(a)));
+      }
+    }
+    pGeo.attributes.position.needsUpdate = true;
+    rebuildLines();
+
+    points.rotation.y += 0.0007;
+    lines.rotation.y  = points.rotation.y;
+  }
+
+  // smooth camera parallax toward the pointer
+  camera.position.x += (mouse.x * 22 - camera.position.x) * 0.04;
+  camera.position.y += (-mouse.y * 14 - camera.position.y) * 0.04;
+  camera.lookAt(scene.position);
+
+  renderer.render(scene, camera);
+}
+rebuildLines();
+animate();
 </script>
 </body>
 </html>
