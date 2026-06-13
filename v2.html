@@ -9,8 +9,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<!-- Iconify web component: reliable full-color brand/platform logos -->
-<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
 
 <style>
 :root{
@@ -57,14 +55,15 @@ h1 em{font-style:normal;color:var(--wine)}
 /* Logo bands */
 .band{padding:34px 0}
 .band .label{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-bottom:22px}
-.logos{display:flex;flex-wrap:wrap;align-items:center;gap:26px 40px}
-.logos iconify-icon{font-size:42px;color:var(--navy);filter:grayscale(1);opacity:.62;transition:.25s}
-.logos iconify-icon:hover{filter:none;opacity:1;transform:translateY(-3px)}
-.colist{display:flex;flex-wrap:wrap;align-items:center;gap:30px 46px}
+.logos{display:flex;flex-wrap:wrap;align-items:center;gap:24px 38px}
+.logos img{height:38px;width:auto;opacity:.85;transition:.25s}
+.logos img:hover{opacity:1;transform:translateY(-3px)}
+.pchip{display:inline-flex;align-items:center;font-size:14px;font-weight:600;color:var(--navy);padding:7px 13px;border:1px solid var(--line);border-radius:4px;background:var(--bg-soft)}
+.colist{display:flex;flex-wrap:wrap;align-items:center;gap:28px 46px}
 .colist img{height:30px;width:auto;filter:grayscale(1);opacity:.6;transition:.25s}
 .colist img:hover{filter:none;opacity:1}
-.colist .cotext{font-size:20px;font-weight:600;color:var(--navy);opacity:.6;transition:.25s}
-.colist .cotext:hover{opacity:1;color:var(--wine)}
+.cotext{font-size:20px;font-weight:600;color:var(--navy);opacity:.6;transition:.25s}
+.cotext:hover{opacity:1;color:var(--wine)}
 
 section{padding:72px 0;border-top:1px solid var(--line)}
 .idx{font-size:13px;color:var(--wine);font-weight:600;letter-spacing:.04em}
@@ -72,8 +71,8 @@ section{padding:72px 0;border-top:1px solid var(--line)}
 h2{font-size:26px;font-weight:700;color:var(--navy);letter-spacing:-.01em;margin-bottom:30px}
 
 .feature{background:var(--bg-soft);border:1px solid var(--line);border-radius:4px;padding:34px}
-.feature .ftop{display:flex;align-items:center;gap:14px;margin-bottom:14px}
-.feature .ftop iconify-icon{font-size:30px;color:var(--navy)}
+.feature .ftop{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.feature .ftop img{height:24px;width:24px}
 .feature .tagline{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
 .feature h3{font-size:28px;color:var(--navy);margin-bottom:10px;letter-spacing:-.01em}
 .feature p{color:var(--muted);font-size:15.5px;max-width:640px}
@@ -84,7 +83,7 @@ h2{font-size:26px;font-weight:700;color:var(--navy);letter-spacing:-.01em;margin
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--line)}
 .card{background:#fff;padding:26px}
 .card h4{font-size:15px;color:var(--navy);margin-bottom:14px;font-weight:600;display:flex;align-items:center;gap:9px}
-.card h4 iconify-icon{font-size:20px}
+.card h4 img{height:19px;width:19px;object-fit:contain}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{font-size:12.5px;background:var(--bg-soft);border:1px solid var(--line);border-radius:4px;padding:5px 11px;color:var(--text)}
 
@@ -93,7 +92,7 @@ h2{font-size:26px;font-weight:700;color:var(--navy);letter-spacing:-.01em;margin
 .job:first-child{border-top:none;padding-top:0}
 .colabel{display:block;height:24px;margin-bottom:8px}
 .colabel img{height:24px;width:auto;filter:grayscale(1);opacity:.78}
-.colabel .cofallback{font-size:16px;font-weight:600;color:var(--navy)}
+.cofallback{font-size:16px;font-weight:600;color:var(--navy)}
 .job .when{font-size:13px;color:var(--faint);letter-spacing:.03em}
 .job h3{font-size:19px;color:var(--navy);margin:6px 0 4px}
 .job .org{font-size:14px;color:var(--muted);margin-bottom:14px}
@@ -126,7 +125,7 @@ footer .fine{font-size:12.5px;color:var(--faint)}
   .job{grid-template-columns:1fr;gap:10px}
   .repostats{grid-template-columns:repeat(2,1fr);gap:18px}
   .tworow{grid-template-columns:1fr}
-  .logos iconify-icon{font-size:34px}
+  .logos img{height:32px}
   footer .wrap{flex-direction:column;text-align:center}
 }
 @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto}[data-reveal]{opacity:1;transform:none}}
@@ -163,21 +162,21 @@ footer .fine{font-size:12.5px;color:var(--faint)}
   </div>
 </div></header>
 
-<!-- Platforms & databases logo cloud -->
+<!-- Platforms & databases logo cloud (Simple Icons, brand-colored, with text fallback) -->
 <div class="band"><div class="wrap">
   <p class="label" data-reveal>Platforms, databases &amp; tooling</p>
   <div class="logos" data-reveal>
-    <iconify-icon icon="logos:databricks" title="Databricks"></iconify-icon>
-    <iconify-icon icon="logos:microsoft-azure" title="Microsoft Azure"></iconify-icon>
-    <iconify-icon icon="logos:aws" title="Amazon Web Services"></iconify-icon>
-    <iconify-icon icon="logos:google-cloud" title="Google Cloud"></iconify-icon>
-    <iconify-icon icon="logos:apache-spark" title="Apache Spark"></iconify-icon>
-    <iconify-icon icon="logos:python" title="Python"></iconify-icon>
-    <iconify-icon icon="logos:apache-airflow" title="Apache Airflow"></iconify-icon>
-    <iconify-icon icon="logos:postgresql" title="PostgreSQL"></iconify-icon>
-    <iconify-icon icon="logos:neo4j" title="Neo4j"></iconify-icon>
-    <iconify-icon icon="logos:snowflake-icon" title="Snowflake"></iconify-icon>
-    <iconify-icon icon="logos:github-icon" title="GitHub"></iconify-icon>
+    <img src="https://cdn.simpleicons.org/databricks" alt="Databricks" title="Databricks" onerror="this.outerHTML='<span class=&quot;pchip&quot;>Databricks</span>'">
+    <img src="https://cdn.simpleicons.org/microsoftazure" alt="Microsoft Azure" title="Microsoft Azure" onerror="this.outerHTML='<span class=&quot;pchip&quot;>Azure</span>'">
+    <img src="https://cdn.simpleicons.org/amazonwebservices" alt="AWS" title="Amazon Web Services" onerror="this.outerHTML='<span class=&quot;pchip&quot;>AWS</span>'">
+    <img src="https://cdn.simpleicons.org/googlecloud" alt="Google Cloud" title="Google Cloud" onerror="this.outerHTML='<span class=&quot;pchip&quot;>Google Cloud</span>'">
+    <img src="https://cdn.simpleicons.org/apachespark" alt="Apache Spark" title="Apache Spark" onerror="this.outerHTML='<span class=&quot;pchip&quot;>Spark</span>'">
+    <img src="https://cdn.simpleicons.org/python" alt="Python" title="Python" onerror="this.outerHTML='<span class=&quot;pchip&quot;>Python</span>'">
+    <img src="https://cdn.simpleicons.org/apacheairflow" alt="Apache Airflow" title="Apache Airflow" onerror="this.outerHTML='<span class=&quot;pchip&quot;>Airflow</span>'">
+    <img src="https://cdn.simpleicons.org/postgresql" alt="PostgreSQL" title="PostgreSQL" onerror="this.outerHTML='<span class=&quot;pchip&quot;>PostgreSQL</span>'">
+    <img src="https://cdn.simpleicons.org/neo4j" alt="Neo4j" title="Neo4j" onerror="this.outerHTML='<span class=&quot;pchip&quot;>Neo4j</span>'">
+    <img src="https://cdn.simpleicons.org/snowflake" alt="Snowflake" title="Snowflake" onerror="this.outerHTML='<span class=&quot;pchip&quot;>Snowflake</span>'">
+    <img src="https://cdn.simpleicons.org/github" alt="GitHub" title="GitHub" onerror="this.outerHTML='<span class=&quot;pchip&quot;>GitHub</span>'">
   </div>
 </div></div>
 
@@ -185,12 +184,9 @@ footer .fine{font-size:12.5px;color:var(--faint)}
 <div class="band" style="border-top:1px solid var(--line)"><div class="wrap">
   <p class="label" data-reveal>Companies I've delivered for</p>
   <div class="colist" data-reveal>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Zurich_Insurance_Group_Logo_Horizontal.svg" alt="Zurich Insurance" loading="lazy"
-         onerror="this.outerHTML='<span class=&quot;cotext&quot;>Zurich</span>'">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/GroupM-Logo.svg" alt="GroupM" loading="lazy"
-         onerror="this.outerHTML='<span class=&quot;cotext&quot;>GroupM</span>'">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/Mindshare-sharelogo.png" alt="Mindshare" loading="lazy"
-         onerror="this.outerHTML='<span class=&quot;cotext&quot;>Mindshare</span>'">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Zurich_Insurance_Group_Logo_Horizontal.svg" alt="Zurich Insurance" loading="lazy" onerror="this.outerHTML='<span class=&quot;cotext&quot;>Zurich</span>'">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/GroupM-Logo.svg" alt="GroupM" loading="lazy" onerror="this.outerHTML='<span class=&quot;cotext&quot;>GroupM</span>'">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/Mindshare-sharelogo.png" alt="Mindshare" loading="lazy" onerror="this.outerHTML='<span class=&quot;cotext&quot;>Mindshare</span>'">
     <span class="cotext">Clue</span>
   </div>
 </div></div>
@@ -199,7 +195,7 @@ footer .fine{font-size:12.5px;color:var(--faint)}
   <div class="sec-head" data-reveal><p class="idx">01 — Selected work</p></div>
   <div class="feature" data-reveal>
     <div class="ftop">
-      <iconify-icon icon="logos:github-icon"></iconify-icon>
+      <img src="https://cdn.simpleicons.org/github" alt="GitHub" onerror="this.remove()">
       <p class="tagline">Open source · GitHub</p>
     </div>
     <h3 id="repo-name">Fragmentation</h3>
@@ -217,10 +213,10 @@ footer .fine{font-size:12.5px;color:var(--faint)}
 <section id="skills"><div class="wrap">
   <div class="sec-head" data-reveal><p class="idx">02 — Capabilities</p></div>
   <div class="grid">
-    <div class="card" data-reveal><h4><iconify-icon icon="logos:databricks"></iconify-icon>Databricks</h4><div class="chips"><span class="chip">Delta Lake</span><span class="chip">Delta Live Tables</span><span class="chip">Unity Catalog</span><span class="chip">Workflows</span><span class="chip">Asset Bundles</span><span class="chip">Auto Loader</span><span class="chip">Genie AI</span><span class="chip">Lakebase</span><span class="chip">Databricks Apps</span></div></div>
-    <div class="card" data-reveal><h4><iconify-icon icon="logos:python"></iconify-icon>Languages</h4><div class="chips"><span class="chip">Python</span><span class="chip">PySpark</span><span class="chip">Spark SQL</span><span class="chip">SQL</span></div></div>
-    <div class="card" data-reveal><h4><iconify-icon icon="logos:microsoft-azure"></iconify-icon>Cloud</h4><div class="chips"><span class="chip">Azure ADLS</span><span class="chip">Azure DevOps</span><span class="chip">ADF</span><span class="chip">AWS S3</span><span class="chip">GCP BigQuery</span><span class="chip">Pub/Sub</span><span class="chip">Dataflow</span></div></div>
-    <div class="card" data-reveal><h4><iconify-icon icon="logos:git-icon"></iconify-icon>Tools &amp; strengths</h4><div class="chips"><span class="chip">GitHub</span><span class="chip">Jira</span><span class="chip">Streamlit</span><span class="chip">Airflow</span><span class="chip">Medallion Architecture</span><span class="chip">CI/CD</span><span class="chip">Data Governance</span><span class="chip">Performance Tuning</span></div></div>
+    <div class="card" data-reveal><h4><img src="https://cdn.simpleicons.org/databricks" alt="" onerror="this.remove()">Databricks</h4><div class="chips"><span class="chip">Delta Lake</span><span class="chip">Delta Live Tables</span><span class="chip">Unity Catalog</span><span class="chip">Workflows</span><span class="chip">Asset Bundles</span><span class="chip">Auto Loader</span><span class="chip">Genie AI</span><span class="chip">Lakebase</span><span class="chip">Databricks Apps</span></div></div>
+    <div class="card" data-reveal><h4><img src="https://cdn.simpleicons.org/python" alt="" onerror="this.remove()">Languages</h4><div class="chips"><span class="chip">Python</span><span class="chip">PySpark</span><span class="chip">Spark SQL</span><span class="chip">SQL</span></div></div>
+    <div class="card" data-reveal><h4><img src="https://cdn.simpleicons.org/microsoftazure" alt="" onerror="this.remove()">Cloud</h4><div class="chips"><span class="chip">Azure ADLS</span><span class="chip">Azure DevOps</span><span class="chip">ADF</span><span class="chip">AWS S3</span><span class="chip">GCP BigQuery</span><span class="chip">Pub/Sub</span><span class="chip">Dataflow</span></div></div>
+    <div class="card" data-reveal><h4><img src="https://cdn.simpleicons.org/git" alt="" onerror="this.remove()">Tools &amp; strengths</h4><div class="chips"><span class="chip">GitHub</span><span class="chip">Jira</span><span class="chip">Streamlit</span><span class="chip">Airflow</span><span class="chip">Medallion Architecture</span><span class="chip">CI/CD</span><span class="chip">Data Governance</span><span class="chip">Performance Tuning</span></div></div>
   </div>
 </div></section>
 
@@ -355,12 +351,8 @@ fetch('https://api.github.com/repos/mastermindlab/fragmentation')
   if (typeof gsap === 'undefined') { document.querySelectorAll('[data-reveal]').forEach(function(el){el.style.opacity=1;el.style.transform='none';}); return; }
   if (reduce) { gsap.set('[data-reveal]', {opacity:1, y:0}); return; }
   gsap.registerPlugin(ScrollTrigger);
-
-  // Hero intro
   gsap.timeline({defaults:{ease:'power3.out'}})
     .to('header [data-reveal]', {opacity:1, y:0, duration:.7, stagger:.12});
-
-  // Scroll reveals for everything below the hero
   gsap.utils.toArray('[data-reveal]').forEach(function(el){
     if (el.closest('header')) return;
     gsap.to(el, {opacity:1, y:0, duration:.7, ease:'power2.out',
@@ -382,7 +374,6 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
 camera.position.z = 72;
-
 const COUNT = window.innerWidth < 700 ? 55 : 90;
 const SPREAD = 95;
 const positions = new Float32Array(COUNT*3);
@@ -405,11 +396,11 @@ scene.add(lines);
 const LINK_DIST_SQ = 17*17;
 function rebuildLines(){
   let n=0;
-  for(let i=0;i<COUNT;i++){
+  for (let i=0;i<COUNT;i++){
     const ax=positions[i*3],ay=positions[i*3+1],az=positions[i*3+2];
-    for(let j=i+1;j<COUNT;j++){
+    for (let j=i+1;j<COUNT;j++){
       const dx=ax-positions[j*3],dy=ay-positions[j*3+1],dz=az-positions[j*3+2];
-      if(dx*dx+dy*dy+dz*dz<LINK_DIST_SQ){
+      if (dx*dx+dy*dy+dz*dz<LINK_DIST_SQ){
         linePositions[n++]=ax;linePositions[n++]=ay;linePositions[n++]=az;
         linePositions[n++]=positions[j*3];linePositions[n++]=positions[j*3+1];linePositions[n++]=positions[j*3+2];
       }
@@ -425,12 +416,12 @@ window.addEventListener('resize',resize);resize();
 const half=SPREAD/2;
 function animate(){
   requestAnimationFrame(animate);
-  if(!reduce){
-    for(let i=0;i<COUNT;i++){
+  if (!reduce){
+    for (let i=0;i<COUNT;i++){
       positions[i*3]+=velocities[i].x;positions[i*3+1]+=velocities[i].y;positions[i*3+2]+=velocities[i].z;
-      for(let a=0;a<3;a++){const lim=a===1?half*0.6:half;
-        if(positions[i*3+a]>lim)velocities[i].setComponent(a,-Math.abs(velocities[i].getComponent(a)));
-        if(positions[i*3+a]<-lim)velocities[i].setComponent(a,Math.abs(velocities[i].getComponent(a)));}
+      for (let a=0;a<3;a++){const lim=a===1?half*0.6:half;
+        if (positions[i*3+a]>lim)velocities[i].setComponent(a,-Math.abs(velocities[i].getComponent(a)));
+        if (positions[i*3+a]<-lim)velocities[i].setComponent(a,Math.abs(velocities[i].getComponent(a)));}
     }
     pGeo.attributes.position.needsUpdate=true;rebuildLines();
     points.rotation.y+=0.0006;lines.rotation.y=points.rotation.y;
