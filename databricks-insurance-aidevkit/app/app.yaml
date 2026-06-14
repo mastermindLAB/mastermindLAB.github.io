@@ -1,0 +1,21 @@
+# Databricks App runtime configuration.
+# Docs: https://docs.databricks.com/dev-tools/databricks-apps/index.html
+# `valueFrom` keys resolve to the resources bound in resources/insurance_app.app.yml.
+command:
+  - streamlit
+  - run
+  - app.py
+  - --server.port
+  - "8080"
+
+env:
+  - name: FRAUD_SERVING_ENDPOINT
+    valueFrom: fraud-endpoint
+  - name: AGENT_SERVING_ENDPOINT
+    valueFrom: agent-endpoint
+  - name: SQL_WAREHOUSE_ID
+    valueFrom: sql-warehouse
+  - name: INSURANCE_CATALOG
+    value: insurance_dev
+  - name: INSURANCE_SCHEMA
+    value: lakehouse

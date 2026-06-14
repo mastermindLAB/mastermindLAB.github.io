@@ -1,0 +1,23 @@
+# Databricks App — Streamlit front-end for the claims team.
+# Deploys with the bundle; `resources` grant the App's service principal
+# least-privilege access to the serving endpoints + SQL warehouse, and expose
+# their names to app.yaml via matching `valueFrom` keys.
+resources:
+  apps:
+    insurance_app:
+      name: insurance-aidevkit-${bundle.target}
+      description: Claims fraud triage, policy Q&A and portfolio KPIs.
+      source_code_path: ../app
+      resources:
+        - name: fraud-endpoint
+          serving_endpoint:
+            name: fraud-detection-${bundle.target}
+            permission: CAN_QUERY
+        - name: agent-endpoint
+          serving_endpoint:
+            name: policy-qa-agent-${bundle.target}
+            permission: CAN_QUERY
+        - name: sql-warehouse
+          sql_warehouse:
+            id: ${var.warehouse_id}
+            permission: CAN_USE

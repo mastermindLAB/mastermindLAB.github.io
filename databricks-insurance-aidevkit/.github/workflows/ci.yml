@@ -23,7 +23,7 @@ jobs:
           python-version: "3.11"
       - run: pip install -r requirements-dev.txt
       - name: Lint
-        run: ruff check src tests
+        run: ruff check src tests app
       - name: Unit tests
         run: pytest
 

@@ -15,6 +15,7 @@ orchestration shells, everything declared as code in a
 | **Claims fraud detection** | scikit-learn + MLflow + Unity Catalog model + Model Serving | `src/ml/fraud_detection/` |
 | **Policyholder churn** | scikit-learn + MLflow | `src/ml/churn/` |
 | **Policy Q&A GenAI agent** | Mosaic AI Vector Search + Foundation Model APIs + Agent Framework | `src/agents/` |
+| **Databricks App** (claims UI) | Databricks Apps + Streamlit (fraud triage, Q&A, KPIs) | `app/` |
 | **Orchestration** | Databricks Jobs (scheduled + dependency DAGs) | `resources/` |
 | **Governance** | Unity Catalog catalog/schema/volume + grants | `scripts/setup_unity_catalog.sql` |
 | **Quality gates** | DLT expectations + post-load checks + pytest | `src/pipelines/quality_checks.py`, `tests/` |
@@ -35,6 +36,10 @@ orchestration shells, everything declared as code in a
                        ▼                ▼                  ▼
                  fraud model       churn model      policy Q&A agent
                  (Serving EP)      (UC model)       (Vector Search + LLM)
+                       └──────────────┬──────────────────┘
+                                      ▼
+                          Databricks App (Streamlit)
+                       fraud triage · Q&A · KPI dashboard
 ```
 
 ## Repo layout
@@ -47,6 +52,7 @@ databricks-insurance-aidevkit/
 │   ├── pipelines/              # DLT bronze/silver/gold + DQ gate
 │   ├── ml/                     # fraud + churn (pure logic in features.py)
 │   └── agents/                 # RAG agent, vector index build, deploy driver
+├── app/                        # Databricks App (Streamlit claims UI)
 ├── notebooks/                  # seed data + exploration
 ├── tests/                      # pytest for the pure feature logic
 ├── data/sample/                # tiny reference CSVs
@@ -89,7 +95,19 @@ databricks bundle run fraud_detection_training -t dev
 databricks bundle run policy_qa_agent -t dev
 ```
 
-### 4. Promote to prod
+### 4. Open the Databricks App
+Set `warehouse_id` in `databricks.yml` (a running SQL Warehouse ID), then the
+`databricks bundle deploy` already created the App. Start it and grab its URL:
+```bash
+databricks bundle run insurance_app -t dev
+```
+The **Insurance AI Dev Kit** App (`app/`) gives claims staff a Streamlit UI with
+three tabs — fraud triage (calls the fraud serving endpoint), policy Q&A (calls
+the agent endpoint) and portfolio KPIs (reads the gold table over the warehouse).
+The App authenticates as its own service principal; `resources/insurance_app.app.yml`
+grants it least-privilege `CAN_QUERY` / `CAN_USE` on exactly those backends.
+
+### 5. Promote to prod
 ```bash
 databricks bundle deploy -t prod
 ```

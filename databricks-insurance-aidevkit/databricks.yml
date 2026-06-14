@@ -41,6 +41,9 @@ variables:
   embedding_endpoint:
     description: Embedding model endpoint used to build the vector index.
     default: databricks-gte-large-en
+  warehouse_id:
+    description: SQL Warehouse ID the Databricks App queries gold KPIs through.
+    default: REPLACE_WITH_WAREHOUSE_ID
 
 # ---------------------------------------------------------------------------
 # Targets / environments
