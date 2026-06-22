@@ -300,21 +300,6 @@ section{position:relative}
   <div class="work" data-reveal>
     <div class="work__top">
       <span class="work__idx">(01)</span>
-      <span class="work__tag">Open Source · GitHub</span>
-    </div>
-    <h3 id="repo-name">Databricks AI Demo</h3>
-    <p class="work__desc" id="repo-desc">A hands-on Databricks demo exploring AI-powered data workflows on the lakehouse.</p>
-    <div class="work__stats">
-      <div class="work__stat"><div class="k">Stars</div><div class="v" id="repo-stars">—</div></div>
-      <div class="work__stat"><div class="k">Forks</div><div class="v" id="repo-forks">—</div></div>
-      <div class="work__stat"><div class="k">Language</div><div class="v" id="repo-lang">—</div></div>
-      <div class="work__stat"><div class="k">Updated</div><div class="v" id="repo-updated">—</div></div>
-    </div>
-    <a class="work__link" href="https://github.com/mastermindlab/ddemodatabricsai" target="_blank" rel="noopener">View repository <span class="arrow">→</span></a>
-  </div>
-  <div class="work" data-reveal>
-    <div class="work__top">
-      <span class="work__idx">(02)</span>
       <span class="work__tag">Live · GitHub Pages</span>
     </div>
     <h3>This Portfolio</h3>
@@ -579,7 +564,6 @@ if(init()){
         setText(prefix + '-updated', new Date(d.pushed_at).toLocaleDateString('en-CA', { year:'numeric', month:'short' }));
       }).catch(()=>{});
   }
-  loadRepo('mastermindlab/ddemodatabricsai', 'repo', true);
   loadRepo('mastermindlab/mastermindlab.github.io', 'repo2', false);
 
   if(!hasGSAP){
