@@ -131,6 +131,7 @@ section{position:relative}
 
 /* Work */
 .work{border:1px solid var(--line);border-radius:22px;background:linear-gradient(160deg,var(--bg-soft),var(--panel));padding:54px;position:relative;overflow:hidden;transition:border-color .4s}
+.work+.work{margin-top:22px}
 .work:hover{border-color:var(--line-strong)}
 .work::before{content:"";position:absolute;top:-120px;right:-120px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(110,134,255,.14),transparent 70%);pointer-events:none}
 .work__top{display:flex;justify-content:space-between;align-items:flex-start;position:relative;z-index:1}
@@ -141,7 +142,10 @@ section{position:relative}
 .work__stats{display:flex;flex-wrap:wrap;gap:48px;margin:40px 0 34px;position:relative;z-index:1}
 .work__stat .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
 .work__stat .v{font-size:22px;font-weight:500}
-.work__link{display:inline-flex;align-items:center;gap:12px;font-size:15px;font-weight:500;color:var(--text);position:relative;z-index:1}
+.work__actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 30px;position:relative;z-index:1}
+.work__link{display:inline-flex;align-items:center;gap:12px;font-size:15px;font-weight:500;color:var(--text);position:relative;z-index:1;transition:color .3s}
+.work__link--muted{color:var(--muted)}
+.work__link--muted:hover{color:var(--text)}
 .work__link .arrow{transition:transform .35s var(--ease)}
 .work__link:hover .arrow{transform:translateX(6px)}
 
@@ -307,6 +311,24 @@ section{position:relative}
       <div class="work__stat"><div class="k">Updated</div><div class="v" id="repo-updated">—</div></div>
     </div>
     <a class="work__link" href="https://github.com/mastermindlab/ddemodatabricsai" target="_blank" rel="noopener">View repository <span class="arrow">→</span></a>
+  </div>
+  <div class="work" data-reveal>
+    <div class="work__top">
+      <span class="work__idx">(02)</span>
+      <span class="work__tag">Live · GitHub Pages</span>
+    </div>
+    <h3>This Portfolio</h3>
+    <p class="work__desc" id="repo2-desc">The single-page site you're viewing — designed and built with Three.js and GSAP, deployed on GitHub Pages.</p>
+    <div class="work__stats">
+      <div class="work__stat"><div class="k">Stars</div><div class="v" id="repo2-stars">—</div></div>
+      <div class="work__stat"><div class="k">Forks</div><div class="v" id="repo2-forks">—</div></div>
+      <div class="work__stat"><div class="k">Language</div><div class="v" id="repo2-lang">—</div></div>
+      <div class="work__stat"><div class="k">Updated</div><div class="v" id="repo2-updated">—</div></div>
+    </div>
+    <div class="work__actions">
+      <a class="work__link" href="https://mastermindlab.github.io" target="_blank" rel="noopener">Visit live site <span class="arrow">↗</span></a>
+      <a class="work__link work__link--muted" href="https://github.com/mastermindlab/mastermindlab.github.io" target="_blank" rel="noopener">View repository <span class="arrow">→</span></a>
+    </div>
   </div>
 </div></section>
 
@@ -544,17 +566,21 @@ if(init()){
   const finishLoad = () => { document.body.classList.remove('is-loading'); };
 
   // ---- Live GitHub repo data ----
-  fetch('https://api.github.com/repos/mastermindlab/ddemodatabricsai')
-    .then(r => r.ok ? r.json() : null)
-    .then(d => {
-      if(!d) return;
-      const set = (id,v) => { const el = document.getElementById(id); if(el) el.textContent = v; };
-      if(d.description) set('repo-desc', d.description);
-      set('repo-stars', d.stargazers_count);
-      set('repo-forks', d.forks_count);
-      set('repo-lang', d.language || 'Code');
-      set('repo-updated', new Date(d.pushed_at).toLocaleDateString('en-CA', { year:'numeric', month:'short' }));
-    }).catch(()=>{});
+  const setText = (id,v) => { const el = document.getElementById(id); if(el) el.textContent = v; };
+  function loadRepo(repo, prefix, useDescription){
+    fetch('https://api.github.com/repos/' + repo)
+      .then(r => r.ok ? r.json() : null)
+      .then(d => {
+        if(!d) return;
+        if(useDescription && d.description) setText(prefix + '-desc', d.description);
+        setText(prefix + '-stars', d.stargazers_count);
+        setText(prefix + '-forks', d.forks_count);
+        setText(prefix + '-lang', d.language || 'Code');
+        setText(prefix + '-updated', new Date(d.pushed_at).toLocaleDateString('en-CA', { year:'numeric', month:'short' }));
+      }).catch(()=>{});
+  }
+  loadRepo('mastermindlab/ddemodatabricsai', 'repo', true);
+  loadRepo('mastermindlab/mastermindlab.github.io', 'repo2', false);
 
   if(!hasGSAP){
     // No animation library — just reveal everything.
