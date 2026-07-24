@@ -98,6 +98,12 @@ img,canvas{display:block}
 .cursor.is-hover{width:74px;height:74px;background:#fff;border-color:#fff}
 body.cursor-on,body.cursor-on a,body.cursor-on button{cursor:none}
 
+/* ---------- Scroll progress + grain ---------- */
+.progress{position:fixed;top:0;left:0;right:0;height:2px;background:var(--accent);z-index:95;transform:scaleX(0);transform-origin:left;will-change:transform}
+.grain{position:fixed;inset:0;z-index:80;pointer-events:none;opacity:.035;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+@media(prefers-reduced-motion:reduce){.progress{display:none}}
+
 /* ---------- Nav ---------- */
 .nav{position:fixed;top:0;left:0;right:0;z-index:90;transition:background .4s,border-color .4s,backdrop-filter .4s;border-bottom:1px solid transparent}
 .nav--solid{background:rgba(8,9,12,.72);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
@@ -134,6 +140,7 @@ body.cursor-on,body.cursor-on a,body.cursor-on button{cursor:none}
 .btn .arrow{transition:transform .35s var(--ease)}
 .btn:hover{border-color:var(--text)}
 .btn:hover .arrow{transform:translateX(5px)}
+.btn:hover .arrow--down{transform:translateY(4px)}
 .btn--primary{background:var(--accent);border-color:var(--accent);color:#fff}
 .btn--primary:hover{background:var(--accent-soft);border-color:var(--accent-soft);color:#0b0c12}
 .hero__scroll{position:absolute;right:36px;bottom:48px;z-index:2;display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);writing-mode:vertical-rl}
@@ -329,6 +336,8 @@ section{position:relative}
 <script>window.__preFail=setTimeout(function(){var p=document.querySelector('.preloader');if(p){p.style.transition='opacity .4s';p.style.opacity='0';setTimeout(function(){p.style.display='none'},400);}document.body.classList.remove('is-loading');},4000);</script>
 
 <div class="cursor" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"></div>
 
 <!-- Nav -->
 <nav class="nav">
@@ -340,6 +349,7 @@ section{position:relative}
       <a href="#github" data-scroll>GitHub</a>
       <a href="#capabilities" data-scroll>Skills</a>
       <a href="#experience" data-scroll>Experience</a>
+      <a href="Suranjit_Banik_Resume.pdf" download>Résumé</a>
       <a href="#contact" data-scroll>Contact</a>
     </div>
   </div>
@@ -361,8 +371,8 @@ section{position:relative}
     <p class="hero__meta">Toronto, Ontario · Canada</p>
     <div class="hero__cta">
       <a class="btn btn--primary" href="mailto:suran.cse@gmail.com" data-magnetic>Get in touch <span class="arrow">→</span></a>
-      <a class="btn" href="#work" data-scroll data-magnetic>View work <span class="arrow">↓</span></a>
-      <a class="btn" href="Suranjit_Banik_Resume.pdf" download data-magnetic>Résumé <span class="arrow">↓</span></a>
+      <a class="btn" href="#work" data-scroll data-magnetic>View work <span class="arrow arrow--down">↓</span></a>
+      <a class="btn" href="Suranjit_Banik_Resume.pdf" download data-magnetic>Résumé <span class="arrow arrow--down">↓</span></a>
     </div>
   </div>
   <div class="hero__scroll"><span class="ln"></span>Scroll</div>
@@ -714,6 +724,9 @@ if(init()){
 <!-- ===================== GSAP / Lenis / interactions ===================== -->
 <script>
 (function(){
+// Deferred libraries (GSAP, ScrollTrigger, Lenis) execute after parsing, so this
+// must wait for DOMContentLoaded or window.gsap is still undefined below.
+function boot(){
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const hasGSAP = !!window.gsap;
   const finishLoad = () => { document.body.classList.remove('is-loading'); };
@@ -881,9 +894,22 @@ if(init()){
       if(list) list.querySelectorAll('.gh-empty').forEach(el => el.textContent = 'Commit feed unavailable — view activity on GitHub.');
     });
 
+  // ---- Scroll progress (no-GSAP fallback) ----
+  function progressFallback(){
+    const bar = document.querySelector('.progress');
+    if(!bar) return;
+    const update = () => {
+      const max = document.body.scrollHeight - window.innerHeight;
+      bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
+    };
+    window.addEventListener('scroll', update, { passive:true });
+    update();
+  }
+
   if(!hasGSAP){
     // No animation library — just reveal everything.
     const p = document.querySelector('.preloader'); if(p) p.style.display='none';
+    progressFallback();
     finishLoad();
     return;
   }
@@ -922,12 +948,24 @@ if(init()){
 
   // ---- Reveal animations ----
   function setupReveals(){
-    if(reduce || !ST){ return; }
+    if(reduce || !ST){ if(!reduce) progressFallback(); return; }
     gsap.set('[data-reveal]', { opacity:0, y:42 });
     ST.batch('[data-reveal]', {
       start: 'top 86%',
       onEnter: b => gsap.to(b, { opacity:1, y:0, duration:1, ease:'power3.out', stagger:0.09, overwrite:true })
     });
+
+    // batch() only fires for elements it watches enter the viewport, so an anchor
+    // jump can skip past sections and leave them invisible. Sweep up any stragglers.
+    const sweep = () => {
+      document.querySelectorAll('[data-reveal]').forEach(el => {
+        if(gsap.getProperty(el, 'opacity') < 1 && el.getBoundingClientRect().top < window.innerHeight * 0.86){
+          gsap.to(el, { opacity:1, y:0, duration:0.6, ease:'power3.out', overwrite:true });
+        }
+      });
+    };
+    ST.addEventListener('scrollEnd', sweep);
+    ST.addEventListener('refresh', sweep);
 
     // Word-by-word illuminate on the statement
     const stmt = document.querySelector('[data-split]');
@@ -951,9 +989,23 @@ if(init()){
       }});
     });
 
-    // Marquee infinite loop
+    // Marquee infinite loop — slows to a stop while hovered so it stays readable
     const track = document.querySelector('.marquee__track');
-    if(track) gsap.to(track, { xPercent:-50, repeat:-1, duration:24, ease:'none' });
+    if(track){
+      const spin = gsap.to(track, { xPercent:-50, repeat:-1, duration:24, ease:'none' });
+      const marquee = document.querySelector('.marquee');
+      if(marquee){
+        marquee.addEventListener('pointerenter', () => gsap.to(spin, { timeScale:0, duration:0.6 }));
+        marquee.addEventListener('pointerleave', () => gsap.to(spin, { timeScale:1, duration:0.6 }));
+      }
+    }
+
+    // Scroll progress bar
+    const bar = document.querySelector('.progress');
+    if(bar) gsap.to(bar, {
+      scaleX:1, ease:'none',
+      scrollTrigger:{ trigger: document.body, start:'top top', end:'bottom bottom', scrub:0.3 }
+    });
   }
 
   function splitWords(el){
@@ -1013,7 +1065,13 @@ if(init()){
 
   try{
     setupReveals();
-    runPreloader(() => { clearTimeout(window.__preFail); finishLoad(); revealHero(); });
+    runPreloader(() => {
+      clearTimeout(window.__preFail);
+      finishLoad();
+      // Triggers were measured while .is-loading pinned the body to 100vh.
+      if(ST) ST.refresh();
+      revealHero();
+    });
   }catch(err){
     const p = document.querySelector('.preloader'); if(p) p.style.display='none';
     finishLoad();
@@ -1031,18 +1089,28 @@ if(init()){
 
     const cur = document.querySelector('.cursor');
     if(cur){
-      cur.classList.add('is-active');
       document.body.classList.add('cursor-on');
       gsap.set(cur, { xPercent:-50, yPercent:-50 });
       const xTo = gsap.quickTo(cur, 'x', { duration:0.45, ease:'power3' });
       const yTo = gsap.quickTo(cur, 'y', { duration:0.45, ease:'power3' });
-      window.addEventListener('pointermove', e => { xTo(e.clientX); yTo(e.clientY); });
+      // Stays hidden until the pointer moves, so it never parks in the corner.
+      window.addEventListener('pointermove', e => {
+        if(!cur.classList.contains('is-active')){
+          gsap.set(cur, { x:e.clientX, y:e.clientY });
+          cur.classList.add('is-active');
+        }
+        xTo(e.clientX); yTo(e.clientY);
+      });
       document.querySelectorAll('a, button, [data-magnetic]').forEach(t => {
         t.addEventListener('pointerenter', () => cur.classList.add('is-hover'));
         t.addEventListener('pointerleave', () => cur.classList.remove('is-hover'));
       });
     }
   }
+}
+
+if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+else boot();
 })();
 </script>
 
