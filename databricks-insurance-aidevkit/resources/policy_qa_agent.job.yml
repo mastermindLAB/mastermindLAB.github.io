@@ -1,0 +1,31 @@
+# Builds the policy-document vector index, then logs + evaluates the
+# Mosaic AI policy Q&A agent and deploys it as a review-ready endpoint.
+resources:
+  jobs:
+    policy_qa_agent:
+      name: policy-qa-agent-${bundle.target}
+      tags:
+        domain: insurance
+        kit: aidevkit
+      email_notifications:
+        on_failure:
+          - ${var.notifications_email}
+      tasks:
+        - task_key: build_vector_index
+          notebook_task:
+            notebook_path: ../src/agents/build_vector_index.py
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${var.schema}
+              embedding_endpoint: ${var.embedding_endpoint}
+
+        - task_key: log_and_deploy_agent
+          depends_on:
+            - task_key: build_vector_index
+          notebook_task:
+            notebook_path: ../src/agents/driver.py
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${var.schema}
+              llm_endpoint: ${var.llm_endpoint}
+              model_name: ${var.catalog}.${var.schema}.policy_qa_agent
