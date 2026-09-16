@@ -1,4 +1,33 @@
 (()=>{
+  // Keep the page fully visible when motion is disabled or observers are unavailable.
+  if ('IntersectionObserver' in window) {
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const reveal = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            reveal.unobserve(entry.target);
+          }
+        });
+      }, {threshold: 0.08});
+      document.querySelectorAll('.project-card,.stat,.cap,.help__row,.cred').forEach(el => {
+        el.classList.add('reveal-ready');
+        reveal.observe(el);
+      });
+    }
+    const links = [...document.querySelectorAll('.navlinks a')];
+    const sections = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(link => {
+            if (link.hash === '#' + entry.target.id) link.setAttribute('aria-current', 'location');
+            else link.removeAttribute('aria-current');
+          });
+        }
+      });
+    }, {rootMargin: '-15% 0px -65% 0px'});
+    links.forEach(link => {const section = document.querySelector(link.hash); if (section) sections.observe(section);});
+  }
   // ---- Live GitHub repo data ----
   const setText = (id,v) => { const el = document.getElementById(id); if(el) el.textContent = v; };
   function loadRepo(repo, prefix, useDescription){
