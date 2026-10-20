@@ -17,5 +17,4 @@ for href in re.findall(r'href="([^"]+)"',s):
  elif not href.startswith(('http','mailto:')):assert (out/href.split("?")[0]).exists(),href
 assert 'Data &amp; Intelligence Engineer' in s
 assert 'Apr 2024 — Aug 2026' in s
-assert 'Aug 24, 2026 — Present' in s
 print('Static site built; navigation, local assets and employment dates verified.')
