@@ -1,0 +1,71 @@
+# Databricks Asset Bundle definition for the Insurance AI Dev Kit.
+# Docs: https://docs.databricks.com/dev-tools/bundles/index.html
+#
+# Deploy with:
+#   databricks bundle validate -t dev
+#   databricks bundle deploy   -t dev
+#   databricks bundle run claims_ingestion -t dev
+
+bundle:
+  name: insurance-aidevkit
+
+include:
+  - resources/*.yml
+
+# ---------------------------------------------------------------------------
+# Variables let one code base deploy unchanged across dev / staging / prod.
+# Override per target below or on the CLI: --var="catalog=insurance_uat"
+# ---------------------------------------------------------------------------
+variables:
+  catalog:
+    description: Unity Catalog catalog backing the insurance lakehouse.
+    default: insurance_dev
+  schema:
+    description: Schema (database) inside the catalog.
+    default: lakehouse
+  landing_volume:
+    description: UC Volume where raw policy/claims files land.
+    default: landing
+  notifications_email:
+    description: Address that receives job success/failure alerts.
+    default: suran.cse@gmail.com
+  node_type_id:
+    description: Worker node type. Default is Azure; use i3.xlarge on AWS, n2-standard-4 on GCP.
+    default: Standard_DS3_v2
+  spark_version:
+    description: Databricks Runtime ML version used by job clusters.
+    default: 15.4.x-cpu-ml-scala2.12
+  llm_endpoint:
+    description: Foundation Model endpoint used by the Policy Q&A agent.
+    default: databricks-meta-llama-3-3-70b-instruct
+  embedding_endpoint:
+    description: Embedding model endpoint used to build the vector index.
+    default: databricks-gte-large-en
+  warehouse_id:
+    description: SQL Warehouse ID the Databricks App queries gold KPIs through.
+    default: REPLACE_WITH_WAREHOUSE_ID
+
+# ---------------------------------------------------------------------------
+# Targets / environments
+# ---------------------------------------------------------------------------
+targets:
+  dev:
+    mode: development      # prefixes resources with the developer's username, pauses schedules
+    default: true
+    workspace:
+      host: https://adb-0000000000000000.0.azuredatabricks.net
+    variables:
+      catalog: insurance_dev
+
+  prod:
+    mode: production       # enforces clean source, run_as, no per-user prefixing
+    workspace:
+      host: https://adb-0000000000000000.0.azuredatabricks.net
+      root_path: /Workspace/Shared/.bundle/${bundle.name}/${bundle.target}
+    variables:
+      catalog: insurance_prod
+    run_as:
+      user_name: suran.cse@gmail.com
+    permissions:
+      - level: CAN_MANAGE
+        user_name: suran.cse@gmail.com

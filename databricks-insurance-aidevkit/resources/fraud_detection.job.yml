@@ -1,0 +1,55 @@
+# Trains the claims fraud-detection model, logs it to Unity Catalog via MLflow,
+# evaluates it, and (in prod) promotes it behind the serving endpoint.
+resources:
+  jobs:
+    fraud_detection_training:
+      name: fraud-detection-training-${bundle.target}
+      tags:
+        domain: insurance
+        kit: aidevkit
+      email_notifications:
+        on_failure:
+          - ${var.notifications_email}
+      job_clusters:
+        - job_cluster_key: ml_cluster
+          new_cluster:
+            spark_version: ${var.spark_version}
+            node_type_id: ${var.node_type_id}
+            data_security_mode: SINGLE_USER
+            autoscale:
+              min_workers: 1
+              max_workers: 4
+      tasks:
+        - task_key: build_features
+          job_cluster_key: ml_cluster
+          notebook_task:
+            notebook_path: ../src/ml/fraud_detection/featurize.py
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${var.schema}
+
+        - task_key: train_and_register
+          depends_on:
+            - task_key: build_features
+          job_cluster_key: ml_cluster
+          notebook_task:
+            notebook_path: ../src/ml/fraud_detection/train.py
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${var.schema}
+              model_name: ${var.catalog}.${var.schema}.fraud_detection_model
+
+  # Real-time scoring endpoint. scale_to_zero keeps dev costs near zero.
+  model_serving_endpoints:
+    fraud_detection_endpoint:
+      name: fraud-detection-${bundle.target}
+      config:
+        served_entities:
+          - entity_name: ${var.catalog}.${var.schema}.fraud_detection_model
+            entity_version: "1"
+            workload_size: Small
+            scale_to_zero_enabled: true
+        traffic_config:
+          routes:
+            - served_model_name: fraud_detection_model-1
+              traffic_percentage: 100

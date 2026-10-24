@@ -1,0 +1,20 @@
+# Lakeflow Declarative (Delta Live Tables) pipeline implementing a
+# bronze -> silver -> gold medallion for policy, claims and customer data.
+resources:
+  pipelines:
+    insurance_medallion:
+      name: insurance-medallion-${bundle.target}
+      catalog: ${var.catalog}
+      schema: ${var.schema}
+      serverless: true
+      photon: true
+      channel: CURRENT
+      continuous: false
+      development: ${bundle.target != "prod"}
+      libraries:
+        - glob:
+            include: ../src/pipelines/**
+      configuration:
+        pipeline.catalog: ${var.catalog}
+        pipeline.schema: ${var.schema}
+        pipeline.landing_path: /Volumes/${var.catalog}/${var.schema}/${var.landing_volume}
