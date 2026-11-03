@@ -539,12 +539,31 @@ function fill(){
   el("f-palette").value = state.palette;
 }
 
-function saveBlob(blob, name){
+/* Saving: an anchor download on the open web; inside the claude.ai artifact
+   viewer plain downloads are inert, so hand the file to the host instead. */
+let dlHost, dlAsked = false;
+async function downloadHost(){
+  if(dlAsked) return dlHost;
+  dlAsked = true;
+  try{
+    dlHost = (window.claude && typeof window.claude.use === "function")
+      ? await window.claude.use("downloads") : null;
+  }catch(_){ dlHost = null; }
+  return dlHost;
+}
+
+async function saveBlob(blob, name){
+  const host = await downloadHost();
+  if(host && typeof host.save === "function"){
+    try{ await host.save({ filename: name, data: blob }); return "saved"; }
+    catch(err){ return (err && err.code === "declined") ? "declined" : "blocked"; }
+  }
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url; a.download = name;
   document.body.appendChild(a); a.click(); a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 4000);
+  return "saved";
 }
 
 function slug(){
@@ -557,8 +576,11 @@ function flash(btn, msg){
   setTimeout(() => { btn.textContent = old; }, 1600);
 }
 
-el("b-svg").addEventListener("click", () => {
-  saveBlob(new Blob([current.svg], {type:"image/svg+xml;charset=utf-8"}), slug() + ".svg");
+el("b-svg").addEventListener("click", async (e) => {
+  const btn = e.currentTarget;
+  const r = await saveBlob(new Blob([current.svg], {type:"image/svg+xml;charset=utf-8"}), slug() + ".svg");
+  if(r === "declined") flash(btn, "Save cancelled");
+  else if(r === "blocked") flash(btn, "Save blocked");
 });
 
 el("b-copy").addEventListener("click", async (e) => {
@@ -582,8 +604,8 @@ el("b-png").addEventListener("click", (e) => {
       if(!b){ flash(btn, "Render failed"); return; }
       el("pngimg").src = URL.createObjectURL(b);
       el("pngbox").classList.add("is-on");
-      saveBlob(b, slug() + "@" + scale + "x.png");
       flash(btn, "Rendered");
+      saveBlob(b, slug() + "@" + scale + "x.png");
     }, "image/png");
   };
   img.onerror = () => { URL.revokeObjectURL(url); flash(btn, "Render failed"); };
